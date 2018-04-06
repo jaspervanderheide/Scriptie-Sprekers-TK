@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<officiele-publicatie xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://technische-documentatie.oep.overheid.nl/schema/op-xsd-2012-1">
+  <metadata>
+    <meta name="OVERHEIDop.externMetadataRecord" scheme="" content="https://zoek.officielebekendmakingen.nl/h-tk-20172018-1-1/metadata.xml" />
+  </metadata>
+  <handelingen>
+    <vergadering>
+      <vergadering-nummer>1e vergadering</vergadering-nummer>
+      <vergaderdatum>Dinsdag 19 september 2017</vergaderdatum>
+      <vergadertijd>Aanvang 15:00 uur</vergadertijd>
+    </vergadering>
+    <opening>
+      <nr>1</nr>
+      <tekst status="goed">
+        <al-groep>
+          <al>
+            <nadruk type="vet">Voorzitter: Arib</nadruk> </al>
+        </al-groep>
+        <al-groep>
+          <al>Aanwezig zijn 148 leden der Kamer, te weten: </al>
+        </al-groep>
+        <al-groep>
+          <al>Van Aalst, Agema, Amhaouch, Arib, Arissen, Van Ark, Asscher, Azarkan, Azmani, Baudet, Becker, Beckerman, Beertema, Belhaj, Van den Berg, Bergkamp, Bisschop, Van den Bosch, Martin Bosma, Bosman, Bouali, Van Brenk, Ten Broeke, Bruins, Bruins Slot, Buitenweg, Van Dam, Dekker, Diertens, Tony van Dijck, Gijs van Dijk, Jasper van Dijk, Dijkgraaf, Dijkhoff, Dijksma, Pia Dijkstra, Remco Dijkstra, Dijsselbloem, Dik-Faber, Diks, Van Eijs, El Yassini, Ellemeet, Van Engelshoven, Fritsma, Futselaar, Gerbrands, Geurts, De Graaf, Grashoff, Graus, De Groot, Groothuizen, Van Haersma Buma, Harbers, Pieter Heerma, Helder, Van Helvert, Hennis-Plasschaert, Hermans, Hiddema, Hijink, Van den Hul, Jetten, De Jong, Keijzer, Van Kent, Klaver, Knops, Koerhuis, Kooiman, Koolmees, Koopmans, Kops, Kröger, Krol, Kuik, Kuiken, Kuzu, Kwint, Laçin, Van der Lee, Leijten, Van der Linde, Lodders, Madlener, Maeijer, Marijnissen, Markuszower, Von Martels, Van Meenen, Middendorp, Van der Molen, Agnes Mulder, Anne Mulder, Edgar Mulder, Nijboer, Nijkerken-de Haan, Van Nispen, Van Ojik, Omtzigt, Van Oosten, Ouwehand, Özdil, Öztürk, Özütok, Paternotte, Pechtold, Peters, Popken, Van Raak, Van Raan, Raemakers, Roemer, Rog, Ronnes, Van Rooijen, De Roon, Arno Rutte, Mark Rutte, Sazias, Schouten, Segers, Sjoerdsma, Snels, Van der Staaij, Tellegen, Thieme, Van Tongeren, Van Toorenburg, Van Veldhoven, Verhoeven, Visser, Voordewind, Voortman, Aukje de Vries, Wassenberg, Van Weerdenburg, Westerveld, Weverling, Van Weyenberg, Wiersma, Wilders, Wörsdörfer, Van 't Wout, Yeşilgöz-Zegerius, Ziengs en Zijlstra, </al>
+        </al-groep>
+        <al-groep>
+          <al>en de heer Dijsselbloem, minister van Financiën, </al>
+        </al-groep>
+        <al-groep>
+          <al>alsmede de heer Haci Nuh, scholier. </al>
+        </al-groep>
+      </tekst>
+      <spreekbeurt nieuw="nee">
+        <spreker>
+          <voorvoegsels>De</voorvoegsels>
+          <naam>
+            <achternaam>voorzitter</achternaam>
+          </naam>:</spreker>
+        <tekst status="goed">
+          <al-groep>
+            <al>Ik heet iedereen, en in het bijzonder mensen op de publieke tribune, op deze mooie, bijzondere dag van harte welkom. </al>
+          </al-groep>
+        </tekst>
+      </spreekbeurt>
+    </opening>
+  </handelingen>
+</officiele-publicatie>
