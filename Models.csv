@@ -1,5 +1,5 @@
-;Classifier;PIPELINE;sgd__loss; MNB__alpha
-1;Classifier1;a = [('vect', CountVectorizer(tokenizer=StemTokenizer(),stop_words=stopwords.words('dutch'))),('tfidf', TfidfTransformer()), ('sgd', SGDClassifier())];hinge;
-2;Classifier1;a = [('vect', CountVectorizer(tokenizer=StemTokenizer(),stop_words=stopwords.words('dutch'))),('tfidf', TfidfTransformer()), ('sgd', SGDClassifier())];log;
-3;Classifier2;a = [('vect', CountVectorizer(tokenizer=StemTokenizer(),stop_words=stopwords.words('dutch'))),('tfidf', TfidfTransformer()), ('MNB', MultinomialNB())];;0
-4;Classifier2;a = [('vect', CountVectorizer(tokenizer=StemTokenizer(),stop_words=stopwords.words('dutch'))),('tfidf', TfidfTransformer()), ('MNB', MultinomialNB())];;1
+;Classifier;PIPELINE;SGD__loss;MNB__alpha;KNB__n_neighbors;SGD__penalty;MLP__hidden_layer_sizes;MLP__solver;MLP_alpha
+1;Classifier1;[('tfidf', TfidfTransformer()), ('SGD', SGDClassifier())];['hinge', 'log'];;;['none', 'l2', 'l1', 'elasticnet']
+2;Classifier2;[('tfidf', TfidfTransformer()), ('MNB', MultinomialNB())];;[0,1]
+3;Classifier3;[('tfidf', TfidfTransformer()), ('KNB', KNeighborsClassifier())];;;[1,1]
+4;Classifier4;[('tfidf', TfidfTransformer()), ('MLP', MLPClassifier(early_stopping=True))];;;;;[1,2];['sgd','adam'];[0.0001,10,1000]
