@@ -1,4 +1,4 @@
-	Classifier	PIPELINE	SGD__loss	MNB__alpha	KNB__n_neighbors	SGD__penalty	MLP__hidden_layer_sizes	MLP__solver	MLP_alpha
-1	Classifier1	[('tfidf', TfidfTransformer()), ('SGD', SGDClassifier())]	['hinge', 'log']			['none', 'l2', 'l1', 'elasticnet']			
-2	Classifier2	[('tfidf', TfidfTransformer()), ('MNB', MultinomialNB())]		[0,1]									
-4	Classifier4	[('tfidf', TfidfTransformer()), ('MLP', MLPClassifier(early_stopping=True))]					[1,2]	['sgd','adam']	[0.0001,10,1000]
+;Classifier;PIPELINE;SGD__loss;MNB__alpha;KNB__n_neighbors;SGD__penalty;MLP__hidden_layer_sizes;MLP__solver;MLP_alpha
+1;Classifier1;[('tfidf', TfidfTransformer()), ('SGD', SGDClassifier())];['hinge', 'log'];;;['none', 'l2', 'l1', 'elasticnet'];;;
+2;Classifier2;[('tfidf', TfidfTransformer()), ('MNB', MultinomialNB())];;[0,1];;;;;;;;;
+4;Classifier4;[('tfidf', TfidfTransformer()), ('MLP', MLPClassifier(early_stopping=True))];;;;;[1,2];['sgd','adam'];[0.0001,10,1000]
