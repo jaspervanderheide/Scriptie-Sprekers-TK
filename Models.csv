@@ -1,0 +1,5 @@
+;Classifier;PIPELINE;sgd__loss; MNB__alpha
+1;Classifier1;a = [('vect', CountVectorizer(tokenizer=StemTokenizer(),stop_words=stopwords.words('dutch'))),('tfidf', TfidfTransformer()), ('sgd', SGDClassifier())];hinge;
+2;Classifier1;a = [('vect', CountVectorizer(tokenizer=StemTokenizer(),stop_words=stopwords.words('dutch'))),('tfidf', TfidfTransformer()), ('sgd', SGDClassifier())];log;
+3;Classifier2;a = [('vect', CountVectorizer(tokenizer=StemTokenizer(),stop_words=stopwords.words('dutch'))),('tfidf', TfidfTransformer()), ('MNB', MultinomialNB())];;0
+4;Classifier2;a = [('vect', CountVectorizer(tokenizer=StemTokenizer(),stop_words=stopwords.words('dutch'))),('tfidf', TfidfTransformer()), ('MNB', MultinomialNB())];;1
