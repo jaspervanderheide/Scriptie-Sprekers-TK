@@ -2,3 +2,4 @@
 1	LogisticClassifier	[('tfidf', TfidfTransformer()), ('SGD', SGDClassifier(loss='log'))]				['none', 'l2', 'l1', 'elasticnet']			
 2	MultinomialNB	[('tfidf', TfidfTransformer()), ('MNB', MultinomialNB())]		[0,0.5,1]					
 3	SVM	[('tfidf', TfidfTransformer()), ('SGD', SGDClassifier(loss='hinge'))]				['none', 'l2', 'l1', 'elasticnet']			
+4	Neuralnetwork	[('tfidf', TfidfTransformer()), ('MLP', MLPClassifier(early_stopping=True))]						[0.0001,1000]
