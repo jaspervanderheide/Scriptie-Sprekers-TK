@@ -3,12 +3,29 @@
 
 
 \subsection{Description of the data}
-Data verzameling en beschrijving van de data
+De data die gebruikt wordt, zijn de Handelingen van de Tweede Kamer gedurende het niet-demissionaire kabinet Rutte 2 (5 november 2012 tot 22 maart 2017). Deze data is in xml-formaat van de website officielebekendmakingen.nl gehaald, samen met corresponderende metadata xml-bestanden. De bestanden van de Handelingen bevatten voornamelijk informatie over spreekbeurten tijdens een debat, waaronder naam van een spreker, partij-affiliatie en inhoud van de spreekbeurt. Deze gegevens zijn samengevoegd tot een tabel en opgeslagen als csv-bestand.\par
+Deze dataset bevat naast de verkozen partijen van de 2012 tweede kamerverkiezingen, ook afsplitsingen van die partijen (tien in totaal) en bezoeken van vertegenwoordigingen van die partijen uit de Eerste Kamer (10 in totaal). Omdat van beide categori\"{e}n relatief weinig data is en er overlap zit met hun oorspronkelijke partij, zijn deze er uit gehaald.
 
-Hoe is de data verzameld, en hoe heb jij die data verkregen?
-
-
-Wat staat er in de data? Niet alleen maar een technisch verhaal, maar ook inhoudelijk. DE lezer moet een goed idee krijgen over de technische inhoud en wat het betekent.
+\begin{table}[H]
+\centering
+\caption{Spreekbeurten per partij}
+\label{Sprpartij}
+\begin{tabular}{|l|l|}
+\hline
+Partij       & Aantal spreekbeurten \\ \hline
+SP           & 27034 \\ \hline
+D66          & 24600 \\ \hline
+VVD          & 22990 \\ \hline
+CDA          & 22452 \\ \hline
+PvdA         & 22217 \\ \hline
+PVV          & 16408 \\ \hline
+GroenLinks   & 12954 \\ \hline
+ChristenUnie & 11401 \\ \hline
+SGP          & 6316  \\ \hline
+PvdD         & 4081  \\ \hline
+50PLUS       & 2223  \\ \hline
+\end{tabular}
+\end{table}
 
 \pagebreak
 \subsection{Wat plotjes en tabelletjes}

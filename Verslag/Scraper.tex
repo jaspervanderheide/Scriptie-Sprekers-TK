@@ -1,18 +1,4 @@
 \begin{lstlisting}[language=Python]
-%matplotlib inline
-from os import listdir, path
-from requests import get
-import urllib3
-from tqdm import tqdm
-from lxml import etree
-import pandas as pd
-import warnings
-import itertools
-warnings.filterwarnings('ignore')
-urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-\end{lstlisting}
-
-\begin{lstlisting}[language=Python]
 for year in tqdm(range(1994, 2018)):
     stop = False
     i=0
