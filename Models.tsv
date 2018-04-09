@@ -1,6 +1,6 @@
 	DOEN	RAW	Classifier	PIPELINE	SGD__loss	MNB__alpha	KNB__n_neighbors	SGD__penalty	MLP__hidden_layer_sizes	MLP__solver	MLP__alpha	SVC__degree	vect__ngram_range	vect__min_df
 2	True	False	SVM	[('vect',CountVectorizer(stop_words=stopwords.words('dutch'))),('tfidf', TfidfTransformer()), ('SGD', SGDClassifier(loss='hinge'))]				['none', 'l2', 'l1', 'elasticnet']						[(1,1),(1,2)]	[5,10,50,100]
-0	True	False	LogisticClassifier	[('vect',CountVectorizer(stop_words=stopwords.words('dutch'))),('tfidf', TfidfTransformer()), ('SGD', SGDClassifier(loss='log'))]				['none', 'l2', 'l1', 'elasticnet']					[(1,1),(1,2)]	[5,10,50,100]
+0	True	False	LogisticClassifier	[('vect',CountVectorizer(stop_words=stopwords.words('dutch'))),('tfidf', TfidfTransformer()), ('SGD', SGDClassifier(loss='log'))]				['none', 'l2', 'l1', 'elasticnet']				[(1,1),(1,2)]	[5,10,50,100]
 1	True	False	MultinomialNB	[('vect',CountVectorizer(stop_words=stopwords.words('dutch'), ngram_range=(1,2), min_df= 5)),('tfidf', TfidfTransformer()), ('MNB', MultinomialNB())]		[0,0.5,1]								
 4	True	False	SVC	[('vect',CountVectorizer(stop_words=stopwords.words('dutch'), ngram_range=(1,2), min_df= 5)),('tfidf', TfidfTransformer()), ('SVC', SVC(kernel='linear'))]								[2,3]		
 5	True	False	MLP	[('vect',CountVectorizer(stop_words=stopwords.words('dutch'), ngram_range=(1,2), min_df= 5)),('tfidf', TfidfTransformer()), ('MLP', MLPClassifier(early_stopping=True))]							[0.0001,0.0002]			
