@@ -2,8 +2,8 @@
 \label{sec:meth}
 
 
-\subsection{Description of the data}
-De data die gebruikt wordt, zijn de Handelingen van de Tweede Kamer gedurende het niet-demissionaire kabinet Rutte 2 (5 november 2012 tot 22 maart 2017). Deze data is in xml-formaat van de website officielebekendmakingen.nl gehaald, samen met corresponderende metadata xml-bestanden. De bestanden van de Handelingen bevatten voornamelijk informatie over spreekbeurten tijdens een debat, waaronder naam van een spreker, partij-affiliatie en inhoud van de spreekbeurt. Deze gegevens zijn samengevoegd tot een tabel en opgeslagen als csv-bestand.\par
+\subsection{De data}
+De data die gebruikt wordt, zijn de Handelingen van de Tweede Kamer gedurende het missionaire kabinet Rutte 2 (5 november 2012 tot 22 maart 2017). Deze data is in xml-formaat van de website officielebekendmakingen.nl gehaald, samen met corresponderende metadata xml-bestanden. De bestanden van de Handelingen bevatten voornamelijk informatie over spreekbeurten tijdens een debat, waaronder naam van een spreker, partij-affiliatie en inhoud van de spreekbeurt. Deze gegevens zijn samengevoegd tot een tabel en opgeslagen als csv-bestand.\par
 Deze dataset bevat naast de verkozen partijen van de 2012 tweede kamerverkiezingen, ook afsplitsingen van die partijen (tien in totaal) en bezoeken van vertegenwoordigingen van die partijen uit de Eerste Kamer (10 in totaal). Omdat van beide categori\"{e}n relatief weinig data is en er overlap zit met hun oorspronkelijke partij, zijn deze er uit gehaald.
 
 \begin{table}[H]
@@ -13,20 +13,39 @@ Deze dataset bevat naast de verkozen partijen van de 2012 tweede kamerverkiezing
 \begin{tabular}{|l|l|}
 \hline
 Partij       & Aantal spreekbeurten \\ \hline
-SP           & 27034 \\ \hline
-D66          & 24600 \\ \hline
-VVD          & 22990 \\ \hline
-CDA          & 22452 \\ \hline
-PvdA         & 22217 \\ \hline
-PVV          & 16408 \\ \hline
-GroenLinks   & 12954 \\ \hline
-ChristenUnie & 11401 \\ \hline
-SGP          & 6316  \\ \hline
-PvdD         & 4081  \\ \hline
-50PLUS       & 2223  \\ \hline
+SP           & 2573 \\ \hline
+PvdA         & 2269 \\ \hline
+CDA          & 2216 \\ \hline
+D66          & 2211 \\ \hline
+VVD          & 2157 \\ \hline
+PVV          & 1880 \\ \hline
+ChristenUnie & 1223 \\ \hline
+GroenLinks   & 1193 \\ \hline
+SGP          & 770  \\ \hline
+PvdD         & 480  \\ \hline
+50PLUS       & 413  \\ \hline
 \end{tabular}
 \end{table}
 
+\subsubsection{Mutual Information}
+\begin{table}[H]
+    \centering
+    \caption{Woorden met hoogste Mutual Information per partij}
+    \begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|}
+    \hline
+    SP & PvdA & CDA & D66 & VVD & PVV & ChristenUnie & GroenLinks & SGP & PvdD & 50PLUS \\ \hline
+    sp & pvda & cda & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\ 
+    gerv & arbeid & omtzigt & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\ 
+    leijt & partij & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\
+    dank & vvd & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\
+    jasper & pvv & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\
+    cda & cda & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\
+    lid & albert & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\
+    reger & lid & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\
+    bashir & zegt & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\
+    pvv & sp & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\
+    \end{tabular}
+\end{table}
 \pagebreak
 \subsection{Wat plotjes en tabelletjes}
 
