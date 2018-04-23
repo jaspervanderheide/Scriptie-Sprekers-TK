@@ -3,13 +3,22 @@
 
 
 \subsection{De data}
-De data die gebruikt wordt, zijn de Handelingen van de Tweede Kamer gedurende het missionaire kabinet Rutte 2 (5 november 2012 tot 22 maart 2017). Deze data is in xml-formaat van de website officielebekendmakingen.nl gehaald, samen met corresponderende metadata xml-bestanden. De bestanden van de Handelingen bevatten voornamelijk informatie over spreekbeurten tijdens een debat, waaronder naam van een spreker, partij-affiliatie en inhoud van de spreekbeurt. Deze gegevens zijn samengevoegd tot een tabel en opgeslagen als csv-bestand.\par
+De data die gebruikt worden, zijn de Handelingen van de Tweede Kamer gedurende het missionaire kabinet Rutte 2 (5 november 2012 tot 22 maart 2017). Deze data is in xml-formaat van de website officielebekendmakingen.nl gehaald, samen met corresponderende metadata xml-bestanden. De bestanden van de Handelingen bevatten voornamelijk informatie over spreekbeurten tijdens een debat, waaronder naam van een spreker, partij-affiliatie, inhoud van de spreekbeurt en het soort spreekbeurt. Deze gegevens zijn samengevoegd tot een tabel en opgeslagen als csv-bestand.\par
 Deze dataset bevat naast de verkozen partijen van de 2012 tweede kamerverkiezingen, ook afsplitsingen van die partijen (tien in totaal) en bezoeken van vertegenwoordigingen van die partijen uit de Eerste Kamer (10 in totaal). Omdat van beide categori\"{e}n relatief weinig data is en er overlap zit met hun oorspronkelijke partij, zijn deze er uit gehaald.
-
+\begin{table}[H]
+\centering
 \input{Spreekbeurten}
+\end{table}
 
 \paragraph{}{Mutual Information}
+Als onderdeel van de dataverkenning is voor elk gestemde woord de \textit{Mutual Information} per partij berekend. De resultaten staan in tabel \ref{tab:MItable}
+\begin{table}[H]
+\caption{Tien woorden met de hoogste Mutual Information per partij}
+\label{tab:MItable}
+\centering
 \input{MItable}
+\end{table}
+De tabel bevat voornamelijk voor- en achternamen van kamerleden en de partijnamen. Aangezien deze woorden classificatie makkelijker maken en niet relevant zijn voor classificatie op basis van ideologie van andere teksten, zijn deze woorden uit de dataset gehaald.
 \pagebreak
 \subsection{Wat plotjes en tabelletjes}
 
