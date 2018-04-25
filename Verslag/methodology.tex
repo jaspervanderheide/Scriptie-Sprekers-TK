@@ -13,7 +13,7 @@ Deze dataset bevat naast de verkozen partijen van de 2012 tweede kamerverkiezing
 \paragraph{}{Mutual Information}
 Als onderdeel van de dataverkenning is voor elk gestemde woord de \textit{Mutual Information} per partij berekend. De resultaten staan in tabel \ref{tab:MItable}. De tabel bevat voornamelijk voor- en achternamen van kamerleden en de partijnamen. Aangezien deze woorden classificatie makkelijker maken en niet relevant zijn voor classificatie op basis van ideologie van andere teksten, zijn deze woorden uit de dataset gehaald.
 \begin{table}[H]
-\caption{Tien woorden met de hoogste Mutual Information per partij}
+\caption{Tien woorden met de hoogste Mutual Information per partij \protect\footnotemark }
 \label{tab:MItable}
 \centering
 \input{Tables/MItable}
@@ -25,12 +25,11 @@ Als onderdeel van de dataverkenning is voor elk gestemde woord de \textit{Mutual
 \input{Tables/MItable2}
 \end{table}
 
-
+\footnotetext{{Ten behoeve van de leesbaarheid is voor elke gestemde woord het meest frequente ongestemde woord gekozen}}
 \subsection{Wat plotjes en tabelletjes}
 
 Zie het IPython Notebook \url{PandasAndLatex.ipynb} voor de code om vanuit pandas een poltje op te slaan en een dataframe als tabel op te slaan. Het werkt ideaal! 
 
-De interrupties van Wilders staan beschreven in Figure~\ref{fig:wilders} en Tabel~~\ref{tab:Wilders}.
 
 
 
