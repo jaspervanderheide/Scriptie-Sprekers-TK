@@ -35,13 +35,10 @@
 
 
 %\input{titlepage}
-\input{Thesis-Title-Page-DS}  % or use another template
+\input{Verslag/Thesis-Title-Page-DS.tex}  % or use another template
 
 \pagebreak
 
-\todototoc
-\listoftodos
-fix inleiding
 \tableofcontents
 
 \pagebreak
@@ -57,14 +54,13 @@ fix inleiding
 
 % Here you input all your sections in seperate files
 
-\input{introduction}
-\input{related_work}
-\input{methodology}
-\input{evaluation}
-\input{conclusions}
+\input{Verslag/introduction.tex}
+\input{Verslag/related_work.tex}
+\input{Verslag/methodology.tex}
+\input{Verslag/evaluation.tex}
+\input{Verslag/conclusions.tex}
 
 % your refs
-\nocite{Hirst_textto}
 \bibliographystyle{unsrt}%Used BibTeX style is unsrt
 \bibliography{bibliography}
 
