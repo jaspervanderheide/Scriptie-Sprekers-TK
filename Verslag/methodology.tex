@@ -1,56 +1,45 @@
-\section{Methodology}
+\section{Methodologie}
 \label{sec:meth}
 
 
 \subsection{De data}
-De data die gebruikt worden, zijn de Handelingen van de Tweede Kamer gedurende het missionaire kabinet Rutte 2 (5 november 2012 tot 22 maart 2017). Deze data is in xml-formaat van de website officielebekendmakingen.nl gehaald, samen met corresponderende metadata xml-bestanden. De bestanden van de Handelingen bevatten voornamelijk informatie over spreekbeurten tijdens een debat, waaronder naam van een spreker, partij-affiliatie, inhoud van de spreekbeurt en het soort spreekbeurt. Deze gegevens zijn samengevoegd tot een tabel en opgeslagen als csv-bestand.\par
-Deze dataset bevat naast de verkozen partijen van de 2012 tweede kamerverkiezingen, ook afsplitsingen van die partijen (tien in totaal) en bezoeken van vertegenwoordigingen van die partijen uit de Eerste Kamer (10 in totaal). Omdat van beide categori\"{e}n relatief weinig data is en er overlap zit met hun oorspronkelijke partij, zijn deze er uit gehaald.
+De data die gebruikt worden, zijn de Handelingen van de Tweede Kamer gedurende het missionaire kabinet Rutte II (5 november 2012 tot 22 maart 2017). Deze data is in xml-formaat van de website officielebekendmakingen.nl gehaald, samen met corresponderende metadata xml-bestanden. De bestanden van de Handelingen bevatten voornamelijk informatie over spreekbeurten tijdens een debat, waaronder naam van een spreker, partij-affiliatie, inhoud van de spreekbeurt en het soort spreekbeurt. Deze gegevens zijn samengevoegd tot een tabel en opgeslagen als csv-bestand.\par
+Deze dataset bevat naast de verkozen partijen van de 2012 Tweede Kamerverkiezingen, ook afsplitsingen van die partijen (tien in totaal) en bezoeken van vertegenwoordigingen van die partijen uit de Eerste Kamer (10 in totaal). Omdat van beide categori\"{e}n relatief weinig data is en er overlap zit met hun oorspronkelijke partij, zijn deze er uit gehaald.
 \begin{table}[H]
+\caption{Spreekbeurten per partij gedurende missionaire kabinet Rutte II}
 \centering
 \input{Tables/Spreekbeurten}
 \end{table}
 
-\paragraph{}{Mutual Information}
-Als onderdeel van de dataverkenning is voor elk gestemde woord de \textit{Mutual Information} per partij berekend. De resultaten staan in tabel \ref{tab:MItable}. De tabel bevat voornamelijk voor- en achternamen van kamerleden en de partijnamen. Aangezien deze woorden classificatie makkelijker maken en niet relevant zijn voor classificatie op basis van ideologie van andere teksten, zijn deze woorden uit de dataset gehaald.
-\begin{table}[H]
-\caption{Tien woorden met de hoogste Mutual Information per partij \protect\footnotemark }
-\label{tab:MItable}
-\centering
-\input{Tables/MItable}
-\end{table}
-\addtocounter{table}{-1}
-\begin{table}[H]
-\caption{Tien woorden met de hoogste Mutual Information per partij \emph{(Vervolg)}}
-\centering
-\input{Tables/MItable2}
-\end{table}
-
-\footnotetext{{Ten behoeve van de leesbaarheid is voor elke gestemde woord het meest frequente ongestemde woord gekozen}}
-\subsection{Wat plotjes en tabelletjes}
-
-Zie het IPython Notebook \url{PandasAndLatex.ipynb} voor de code om vanuit pandas een poltje op te slaan en een dataframe als tabel op te slaan. Het werkt ideaal! 
-
-
 
 
 
 \pagebreak
+\subsection{Methoden}
 
 
+\subsubsection{Deelvraag 1}
 
-\pagebreak
-\subsection{Methods}
-Hoe je je vraag gaat beantwoorden.
+Om deze deelvraag te beantwoorden zullen een aantal classificatiemethoden vergeleken worden. Aangezien het onmogelijk om alle classificatiemethoden te vergeleken, beperkt dit onderzoek zich tot classificatiemethoden die goede resultaten opleverden in gerelateerde werken die besproken zijn in sectie \ref{sec:Deelvraag1}. De classificatiemethoden zullen opgesplitst worden in feature engineering en machine learning algorithms. De volgende methoden zijn hier in gekozen.
 
+Feature Engineering
+\begin{enumerate}
+\item TF-IDF
+\end{enumerate} 
 
-Dit is de langste sectie van je scriptie. 
+Machine Learning Algorithms
+\begin{enumerate}
+\item Support-Vector Machines
+\item Logistische Regressie
+\end{enumerate}
 
-Als iets erg technisch wordt kan je een deel naar de Appendix verplaatsen. 
+Voor de classificatiemethoden wordt waar mogelijk gebruik gemaakt van functies van de Python module sklearn, aangevuld met zelf geschreven code als dit niet reeds beschikbaar is. Bij al deze classificatiemethoden wordt gevarieerd met meerdere parameters door middel van een gridsearch. Hierbij wordt gebruikt gemaakt van 5-fold cross-validation. De uitslagen worden beoordeeld op basis van gewogen f1-scores. 
 
-Probeer er een lopend verhaal van te maken.
+\subsubsection{Deelvraag 2}
 
-Het is heel handig dit ook weer op te delen nav je deelvragen:
+\subsubsection{Deelvraag 3}
 
-\subsubsection{RQ1}
-
-\subsubsection{RQ2}
+Om deze deelvraag te beantwoorden zullen de experimenten die Graeme Hirst et al. uitvoerden voor dezelfde deelvraag gereproduceerd worden op de Tweede Kamer. Bij deze deelvraag zal de beste classifier uit deelvraag 1 gebruikt worden. Hierbij zal naast de spreekbeurten gedurende het missionaire kabinet Rutte II, gebruikt gemaakt worden van de spreekbeurten gedurende het missionaire kabinet Balkenende IV om het effect van oppositie/regering te vergelijken. Er is voor dit parlement gekozen aangezien deze redelijk recent is (dus met redelijk overeenkomstig taalgebruik) en er een andere coalitie is met andere premier. Voor dit experiment was het beter als er een kabinet was zonder de partijen van kabinet Rutte II, aangezien er dan minder overlap is, maar dit is sinds de Tweede Oorlog niet langer dan een jaar gebeurd. \par
+In het eerste experiment zullen de tien meest karakteristieke woorden per partij van het ene parlement vergeleken worden met de tien meest karakteristieke woorden per partij van het andere parlement. Als de classificatie op basis van ideologie is in plaats van partij-status, is het te verwachten dat de woorden bij een partij blijven en niet gekoppeld zijn aan in oppositie of regering zitten. \par
+In het tweede experiment worden classifiers getraind op het ene parlement en getest op het andere parlement. Als de classificatie op basis van ideologie is in plaats van partij-status, is de verwachting dat er nog steeds aanzienlijke voorspellingen gedaan worden, aangezien de ideologie naar verwachting redelijk stabiel is binnen tien jaar (hoewel woordgebruik varieert). Als de scores aanzienlijk lager zijn, kan dit het gevolg zijn van het veranderen van partij-status van partijen.\par
+In het derde experiment zullen twee classificaties vergeleken worden. De eerste op Kamerleden die in beide parlementen zaten en een classificatie op Kamerleden die maar in één van de twee parlementen hebben gezeten.\par
