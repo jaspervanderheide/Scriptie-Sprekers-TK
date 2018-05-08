@@ -4,10 +4,10 @@
 
 \subsection{De data}
 De data die gebruikt worden, zijn de Handelingen van de Tweede Kamer gedurende het missionaire kabinet-Rutte II (5 november 2012 tot 22 maart 2017). Deze data is in xml-formaat van de website officielebekendmakingen.nl gehaald, samen met corresponderende metadata xml-bestanden. De bestanden van de Handelingen bevatten voornamelijk informatie over spreekbeurten tijdens een debat, waaronder naam van een spreker, partij-affiliatie, inhoud van de spreekbeurt en het soort spreekbeurt. Deze gegevens zijn samengevoegd tot een tabel en opgeslagen als csv-bestand.\par
-UITLEGGEN WELKE SPREEKBEURTEN EXACT GEKOZEN ZIJN.\\
-Deze dataset bevat naast de verkozen partijen van de 2012 Tweede Kamerverkiezingen, ook afsplitsingen van die partijen (tien in totaal) en bezoeken van vertegenwoordigingen van die partijen uit de Eerste Kamer (10 in totaal). Omdat van beide categori\"{e}n relatief weinig data is en er overlap zit met hun oorspronkelijke partij, zijn deze er uit gehaald.
+UITLEGGEN WELKE SPREEKBEURTEN EXACT GEKOZEN ZIJN en WAT EEN DOCUMENT IS\\
+Deze dataset bevat naast de verkozen partijen van de 2012 Tweede Kamerverkiezingen, ook afsplitsingen van die partijen (tien in totaal) en bezoeken van vertegenwoordigingen van die partijen uit de Eerste Kamer (tien in totaal). Omdat van beide categori\"{e}n relatief weinig data is en er overlap zit met hun oorspronkelijke partij, zijn deze er uit gehaald.
 \begin{table}[H]
-\caption{Aantal spreekbeurten per partij gedurende het missionaire kabinet Rutte II.}
+\caption{Aantal spreekbeurten per partij gedurende het missionaire kabinet-Rutte II.}
 \centering
 \input{Tables/Spreekbeurten}
 \end{table}
@@ -21,13 +21,17 @@ Deze dataset bevat naast de verkozen partijen van de 2012 Tweede Kamerverkiezing
 
 \subsubsection{Deelvraag 1}
 
-Om deze deelvraag te beantwoorden zullen een aantal classificatiemethoden vergeleken worden. Aangezien het onmogelijk om alle classificatiemethoden te vergeleken, beperkt dit onderzoek zich tot classificatiemethoden die goede resultaten hebben opgeleverd in andere onderzoeken, genoemd in \ref{sec:Deelvraag1}. De classificatiemethoden zullen opgesplitst worden in feature engineering en machine learning algoritmes. De volgende methoden zijn hiervoor gekozen:
+Om deze deelvraag te beantwoorden zullen een aantal classificatiemethoden vergeleken worden. Aangezien het onmogelijk om alle classificatiemethoden te vergeleken, beperkt dit onderzoek zich tot classificatiemethoden die goede resultaten hebben opgeleverd in andere onderzoeken, genoemd in \ref{sec:Deelvraag1}. Hieronder worden de verschillende onderdelen besproken.
 
-Feature Engineering
-\begin{enumerate}
-\item TF-IDF
-\end{enumerate} 
+\paragraph{Pre-processing}
+Voor pre-processing is gebruik gemaakt van tokenisation, lowercasing en stemming. Voor tokenisation is de reguliere expressie $\\w+$ gebruikt, die daarmee alleen de letters van het alfabet overhoudt. Deze woorden zijn vervolgens allemaal omgezet in kleine letters. Vervolgens is er gevarieerd tussen wel of geen gebruik maken van stemming. In het geval van stemming is gebruik gemaakt van de Snowball Stemmer via de Python NLTK module.
 
+\paragraph{Bag-of-words model}
+Bag-of-words model is de meest gebruikte representatie van data in vergelijkbare onderzoeken. Bij het bag-of-words model wordt elk document gerepresenteerd door een vector, waarbij elke kolom een woord voorstelt met een bijbehorende waarde. Voornaamste beperking van dit model is dat het geen rekening houdt met de volgorde van woorden, wat een groot effect kan hebben op de betekenis van een document.\par
+Voor dit onderzoek zijn de volgende wegingen voor woorden getest: \textit{boolean} (wel of niet aanwezig), \textit{tf} (woordfrequentie), \textit{tf-norm} (woordfrequentie genormaliseerd door documentlengte) en \textit{tf-idf} \cite{Hirst_textto}
+Daarnaast wordt in dit onderzoek geexperimenteerd met een minimale of maximale woord- of documentfrequentie.
+
+\paragraph{Support-Vector Machines}
 Machine Learning Algorithms
 \begin{enumerate}
 \item Support-Vector Machines
@@ -35,16 +39,16 @@ Machine Learning Algorithms
 \item Naive Bayes
 \end{enumerate}
 
-Voor de classificatiemethoden wordt waar mogelijk gebruik gemaakt van functies van de Python module sklearn, aangevuld met zelf geschreven code als dit niet reeds beschikbaar is. Bij al deze classificatiemethoden wordt gevarieerd met meerdere parameters door middel van een gridsearch. Hierbij wordt gebruikt gemaakt van 5-fold cross-validation. De uitslagen worden beoordeeld op basis van gewogen f1-scores. 
+Voor de classificatiemethoden wordt waar mogelijk gebruik gemaakt van functies van de Python module scikit-learn\cite{scikit-learn}, aangevuld met zelf geschreven code als dit niet reeds beschikbaar is. Bij al deze classificatiemethoden wordt gevarieerd met meerdere parameters door middel van een gridsearch. Hierbij wordt gebruikt gemaakt van 5-fold cross-validation. De uitslagen worden beoordeeld op basis van gewogen f1-scores. 
 
 \subsubsection{Deelvraag 2}
 
-Voor deze deelvraag wordt wederom een classificatie gedaan met de classificatiemethode die resulteerde uit deelvraag 1. In deze classificatie worden alle partijnamen vervangen door de tag PARTIJNAAM en alle namen van Kamerleden vervangen door de KAMERLIDNAAM. Deze resultaten worden vervolgens vergeleken met de resultaten uit deelvraag 1.
+Voor deze deelvraag wordt wederom een classificatie gedaan met de classificatiemethode die resulteerde uit deelvraag 1. In deze classificatie worden alle partijnamen vervangen door de tag PARTIJNAAM en alle namen van Kamerleden vervangen door de KAMERLIDNAAM. Deze resultaten worden vervolgens vergeleken met de resultaten uit deelvraag 1. 
+
 \subsubsection{Deelvraag 3}
 
 Om deze deelvraag te beantwoorden zullen de drie experimenten die Graeme Hirst et al. uitvoerden voor dezelfde vraag gereproduceerd worden op de dataset van de Tweede Kamer. Bij deze deelvraag zal de beste classifier uit deelvraag 1 gebruikt worden. \par
-Als vergelijkingsmateriaal is voor deze experiment een tweede dataset nodig uit een ander kabinet. Het kabinet moet bestaan uit andere partijen dan kabinet-Rutte II. Er moet voor het derde experiment variatie zijn in de Kamerleden tussen de twee kabinetten, maar ook voldoende Kamerleden die in beide perioden in de kamer zaten. Daarnaast is het ook wenselijk als het niet te ver terug is, zodat onderwerpen en taalgebruik enigszins overeenkomstig zijn. Omdat kabinet-Rutte I een minderheidskabinet was met een bijzondere partij-status voor de PVV, is ervoor gekozen om de Tweede Kamer tijdens het missionaire kabinet-Balkenende IV (22 februari 2007 tot 20 februari 2010) te gebruiken.\par
-Er is voor dit parlement gekozen aangezien deze redelijk recent is (dus met redelijk overeenkomstig taalgebruik) en er een andere coalitie is met andere premier. Voor dit experiment was het beter als er een kabinet was zonder de partijen van kabinet-Rutte II, aangezien er dan minder overlap is, maar dit is sinds de Tweede Oorlog niet langer dan een jaar gebeurd. \par
+Als vergelijkingsmateriaal is voor deze experiment een tweede dataset nodig uit een ander kabinet. Hiervoor is het wenselijk dat dit kabinet bestaat uit andere partijen dan kabinet-Rutte II. Er moet voor het derde experiment variatie zijn in de Kamerleden tussen de twee kabinetten, maar ook voldoende Kamerleden die in beide perioden in de kamer zaten. Daarnaast is het ook wenselijk als het niet te ver terug is, zodat onderwerpen en taalgebruik enigszins overeenkomstig zijn. Omdat kabinet-Rutte I een minderheidskabinet was met een bijzondere partij-status voor de PVV, is ervoor gekozen om de Tweede Kamer tijdens het missionaire kabinet-Balkenende IV (22 februari 2007 tot 20 februari 2010) te gebruiken.\par
 In het eerste experiment zullen de tien meest karakteristieke woorden per partij van het ene parlement vergeleken worden met de tien meest karakteristieke woorden per partij van het andere parlement. Als de classificatie op basis van ideologie is in plaats van partij-status, is het te verwachten dat de woorden bij een partij blijven en niet gekoppeld zijn aan in oppositie of regering zitten. \par
 In het tweede experiment worden classifiers getraind op het ene parlement en getest op het andere parlement. Als de classificatie op basis van ideologie is in plaats van partij-status, is de verwachting dat er nog steeds aanzienlijke voorspellingen gedaan worden, aangezien de ideologie naar verwachting redelijk stabiel is binnen tien jaar (hoewel woordgebruik varieert). Als de scores aanzienlijk lager zijn, kan dit het gevolg zijn van het veranderen van partij-status van partijen.\par
 In het derde experiment zullen twee classificaties vergeleken worden. De eerste op Kamerleden die in beide parlementen zaten en een classificatie op Kamerleden die maar in één van de twee parlementen hebben gezeten.\par
