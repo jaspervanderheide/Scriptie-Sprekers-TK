@@ -21,7 +21,7 @@ Deze dataset bevat naast de verkozen partijen van de 2012 Tweede Kamerverkiezing
 
 \subsubsection{Deelvraag 1}
 
-Om deze deelvraag te beantwoorden zullen een aantal classificatiemethoden vergeleken worden. Aangezien het onmogelijk om alle classificatiemethoden te vergeleken, beperkt dit onderzoek zich tot classificatiemethoden die goede resultaten hebben opgeleverd in andere onderzoeken, genoemd in \ref{sec:Deelvraag1}. Hieronder worden de verschillende onderdelen besproken.
+Om deze deelvraag te beantwoorden zullen een aantal classificatiemethoden vergeleken worden. Aangezien het onmogelijk om alle classificatiemethoden te vergeleken, beperkt dit onderzoek zich tot classificatiemethoden die goede resultaten hebben opgeleverd in andere onderzoeken, genoemd in \ref{sec:Deelvraag1}. Daarnaast is omwille van de tijd ervoor gekozen om alleen gebruik te maken van methoden waarvan reeds implementaties beschikbaar waren in Python. Hieronder worden de verschillende onderdelen besproken.
 
 \paragraph{Pre-processing}
 Voor pre-processing is gebruik gemaakt van tokenisation, lowercasing en stemming. Voor tokenisation is de reguliere expressie $\\w+$ gebruikt, die daarmee alleen de letters van het alfabet overhoudt. Deze woorden zijn vervolgens allemaal omgezet in kleine letters. Vervolgens is er gevarieerd tussen wel of geen gebruik maken van stemming. In het geval van stemming is gebruik gemaakt van de Snowball Stemmer via de Python NLTK module.
@@ -29,12 +29,12 @@ Voor pre-processing is gebruik gemaakt van tokenisation, lowercasing en stemming
 \paragraph{Bag-of-words model}
 Bag-of-words model is de meest gebruikte representatie van data in vergelijkbare onderzoeken. Bij het bag-of-words model wordt elk document gerepresenteerd door een vector, waarbij elke kolom een woord voorstelt met een bijbehorende waarde. Voornaamste beperking van dit model is dat het geen rekening houdt met de volgorde van woorden, wat een groot effect kan hebben op de betekenis van een document.\par
 Voor dit onderzoek zijn de volgende wegingen voor woorden getest: \textit{boolean} (wel of niet aanwezig), \textit{tf} (woordfrequentie), \textit{tf-norm} (woordfrequentie genormaliseerd door documentlengte) en \textit{tf-idf}
-Daarnaast wordt in dit onderzoek geëxperimenteerd met een minimale of maximale woord- of documentfrequentie. Ook is zowel gekeken naar aleen unigrams als features, alsook het toevoegen van bigrams.\par
+Daarnaast wordt in dit onderzoek geëxperimenteerd met een minimale of maximale woord- of documentfrequentie. Ook is zowel gekeken naar alleen unigrams als features, alsook het toevoegen van bigrams.\par
 
 \paragraph{Support Vector Machines}
-Een veel gebruikte techniek is Support Vector Machine (SVM)\par
+Een veel gebruikte techniek is Support Vector Machine (SVM). Er wordt in vrij weinig gerelateerde onderzoeken gespecificeerd welke parameters er gebruikt zijn voor dit algoritme.\par
 \bigskip
-Voor de classificatiemethoden wordt waar mogelijk gebruik gemaakt van functies van de Python module scikit-learn\cite{scikit-learn}, aangevuld met zelf geschreven code als dit niet reeds beschikbaar is. Bij al deze classificatiemethoden wordt gevarieerd met meerdere parameters door middel van een gridsearch. Hierbij wordt gebruikt gemaakt van 5-fold cross-validation. De uitslagen worden beoordeeld op basis van gewogen f1-scores. 
+Voor de classificatiemethoden wordt waar mogelijk gebruik gemaakt van functies van de Python module scikit-learn\cite{scikit-learn}, aangevuld met zelf geschreven code als dit niet reeds beschikbaar is. Bij al deze classificatiemethoden wordt gevarieerd met meerdere parameters door middel van een gridsearch. Hierbij wordt gebruikt gemaakt van 5-fold cross-validation. Hierbij wordt de data gespleten in vijf delen, waarvan steeds één deel als test wordt gebruikt. De uitslagen worden beoordeeld op basis van gewogen f1-scores. 
 
 \subsubsection{Deelvraag 2}
 
