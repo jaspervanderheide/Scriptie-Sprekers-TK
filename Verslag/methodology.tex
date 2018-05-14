@@ -17,7 +17,6 @@ Deze dataset bevat daarna naast de verkozen partijen van de 2012 Tweede Kamerver
 
 
 
-\pagebreak
 \subsection{Methoden}
 
 
@@ -31,16 +30,40 @@ Voor pre-processing is gebruik gemaakt van tokenisation, lowercasing en stemming
 \paragraph{Bag-of-words model}
 Bag-of-words model is de meest gebruikte representatie van data in vergelijkbare onderzoeken. Bij het bag-of-words model wordt elk document gerepresenteerd door een vector, waarbij elke kolom een woord voorstelt met een bijbehorende waarde. Voornaamste beperking van dit model is dat het geen rekening houdt met de volgorde van woorden, wat een groot effect kan hebben op de betekenis van een document.\par
 Voor dit onderzoek zijn de volgende wegingen voor woorden getest: \textit{boolean} (wel of niet aanwezig), \textit{tf} (woordfrequentie), \textit{tf-norm} (woordfrequentie genormaliseerd door documentlengte) en \textit{tf-idf}
-Daarnaast wordt in dit onderzoek geëxperimenteerd met een minimale of maximale woord- of documentfrequentie. Ook is zowel gekeken naar alleen unigrams als features, alsook het toevoegen van bigrams.\par
+Daarnaast wordt in dit onderzoek geëxperimenteerd met een minimale of maximale woord- of documentfrequentie. Ook is zowel gekeken naar alleen unigrams als features, alsook het toevoegen van bi- en trigrams.\par
 
 \paragraph{Support Vector Machines}
 Een veel gebruikte techniek is Support Vector Machine (SVM). In meeste onderzoeken wordt niet gespecificeerd welke vorm van SVM gebruikt wordt. Om deze reden zal in dit onderzoek uitgebreid gekeken worden naar welke vorm het beste resultaat geeft. Hierbij wordt gebruik gemaakt van de functie SVC van sklearn en de variant met \textit{stochastic gradient descent learning} SGDClassifier. In beide gevallen wordt gevarieerd met de regularisatie.
 In het geval van de SVC functie wordt ook gevarieerd met de parameter C. \par
+\paragraph{Logistische Regressie}
+\paragraph{Naive Bayes}
+\paragraph{Beoordelen van kwaliteit}
+De meest gebruikte methoden om kwaliteit van politieke tekstclassificatie te beoordelen zijn Accuracy en F1-score, die opgebouwd is uit recall en precision. \par
+\begin{table}[H]
+\centering
+\caption{Voorbeeld confusion matrix.}
+\begin{tabular}{|l|l|l|}
+\diagbox{Echte waarde}{Voorspelde waarde} & Positief & Negatief \\ \hline
+Positief & tp & fn \\ \hline
+Negatief & fp & tn \\ \hline
+\end{tabular}
+\end{table}
+\begin{equation}
+    Precision = \frac{tp}{tp + fp}\\
+\end{equation}
+\begin{equation}
+    Recall = \frac{tp}{tp + tn}
+\end{equation}
+\begin{equation}
+    Accuracy = \frac{tp + tn}{tp + tn + fp + fn}
+\end{equation}
+
+% https://nlp.stanford.edu/IR-book/html/htmledition/evaluation-of-text-classification-1.html
 \bigskip
-Voor de classificatiemethoden wordt waar mogelijk gebruik gemaakt van functies van de Python module scikit-learn\cite{scikit-learn}, aangevuld met zelf geschreven code als dit niet reeds beschikbaar is. Bij al deze classificatiemethoden wordt gevarieerd met meerdere parameters door middel van een gridsearch. Hierbij wordt gebruikt gemaakt van 5-fold cross-validation. Hierbij wordt de data gespleten in vijf delen, waarvan steeds één deel als test wordt gebruikt. De uitslagen worden beoordeeld op basis van gewogen f1-scores. 
+Voor de classificatiemethoden wordt waar mogelijk gebruik gemaakt van functies van de Python module scikit-learn\cite{scikit-learn}, aangevuld met zelf geschreven code als dit niet reeds beschikbaar is. Bij al deze classificatiemethoden wordt gevarieerd met meerdere parameters door middel van een gridsearch. Hierbij wordt gebruikt gemaakt van 5-fold cross-validation. Hierbij wordt de data gespleten in vijf delen, waarvan steeds één deel als test wordt gebruikt.
 
 \subsubsection{Deelvraag 2}
-In het onderzoek van Diermeier et al. worden alle eigennamen weggelaten zodat, volgens hen, namen van personen en partijen niet de classificatie domineren. Aangezien hier bij deelvraag 1 niet voor is gekozen, wordt bij deze deelvraag gekeken hoe groot het effect hiervan is. Voor deze deelvraag wordt wederom een classificatie gedaan met de classificatiemethode die resulteerde uit deelvraag 1. In deze classificatie worden alle partijnamen vervangen door de tag PARTIJNAAM en alle namen van Kamerleden vervangen door de KAMERLIDNAAM. Deze resultaten worden vervolgens vergeleken met de resultaten uit deelvraag 1. 
+In het onderzoek van Diermeier et al. worden alle eigennamen weggelaten zodat, volgens hen, namen van personen en partijen niet de classificatie domineren. Aangezien hier bij deelvraag 1 niet voor is gekozen, wordt bij deze deelvraag gekeken hoe groot het effect hiervan is, specifiek gericht op partijnamen en namen van kamerleden. Voor deze deelvraag wordt wederom een classificatie gedaan met de classificatiemethode die resulteerde uit deelvraag 1. In deze classificatie worden alle partijnamen vervangen door de tag PARTIJNAAM en alle namen van Kamerleden vervangen door de KAMERLIDNAAM. Deze resultaten worden vervolgens vergeleken met de resultaten uit deelvraag 1. 
 
 \subsubsection{Deelvraag 3}
 
