@@ -42,8 +42,38 @@ Voor deze deelvraag wordt wederom een classificatie gedaan met de classificatiem
 
 \subsubsection{Deelvraag 3}
 
-Om deze deelvraag te beantwoorden zullen de drie experimenten die Graeme Hirst et al. uitvoerden voor dezelfde vraag gereproduceerd worden op de dataset van de Tweede Kamer. Bij deze deelvraag zal de beste classifier uit deelvraag 1 gebruikt worden. \par
+Om deze deelvraag te beantwoorden zullen de twee experimenten die Graeme Hirst et al. uitvoerden voor dezelfde vraag gereproduceerd worden op de dataset van de Tweede Kamer. Bij deze deelvraag zal de beste classifier uit deelvraag 1 gebruikt worden. \par
 Als vergelijkingsmateriaal is voor deze experiment een tweede dataset nodig uit een ander kabinet. Hiervoor is het wenselijk dat dit kabinet bestaat uit andere partijen dan kabinet-Rutte II. Er moet voor het derde experiment variatie zijn in de Kamerleden tussen de twee kabinetten, maar ook voldoende Kamerleden die in beide perioden in de kamer zaten. Daarnaast is het ook wenselijk als het niet te ver terug is, zodat onderwerpen en taalgebruik enigszins overeenkomstig zijn. Omdat kabinet-Rutte I een minderheidskabinet was met een bijzondere partij-status voor de PVV, is ervoor gekozen om de Tweede Kamer tijdens het missionaire kabinet-Balkenende IV (22 februari 2007 tot 20 februari 2010) te gebruiken.\par
 In het eerste experiment zullen de tien meest karakteristieke woorden per partij van het ene parlement vergeleken worden met de tien meest karakteristieke woorden per partij van het andere parlement. Als de classificatie op basis van ideologie is in plaats van partij-status, is het te verwachten dat de woorden bij een partij blijven en niet gekoppeld zijn aan in oppositie of regering zitten. \par
 In het tweede experiment worden classifiers getraind op het ene parlement en getest op het andere parlement. Als de classificatie op basis van ideologie is in plaats van partij-status, is de verwachting dat er nog steeds aanzienlijke voorspellingen gedaan worden, aangezien de ideologie naar verwachting redelijk stabiel is binnen tien jaar (hoewel woordgebruik varieert). Als de scores aanzienlijk lager zijn, kan dit het gevolg zijn van het veranderen van partij-status van partijen.\par
-In het derde experiment zullen twee classificaties vergeleken worden. De eerste op Kamerleden die in beide parlementen zaten en een classificatie op Kamerleden die maar in één van de twee parlementen hebben gezeten.\par
+
+\subsubsection{Deelvraag 4}
+Voor deze deelvraag vergelijken we de resultaten van de eerdere classificatie per partij met een binaire classificatie op basis van rechts en links. Hiervoor wordt wederom de dataset van kabinet-Rutte 2 gebruikt, met het model wat resulteerde uit deelvraag 1. \par
+Voor deze vraag moet vastgesteld worden welke partijen links en rechts zijn. Omdat dit lastig te bepalen is en er meerdere indelingen zijn, wordt hier gebruik gemaakt van twee verschillende indelingen. De indeling op basis van het Kieskompas van Andre Krouwel voor de Kamerverkiezing 2012 en de indeling volgens het Manifesto Project gebaseerd op verkiezingsprogramma's voor de Kamerverkiezing van 2012\cite{Volkens:2017}. In beide gevallen is de nullijn van het politieke spectrum gebruikt om te bepalen of een partij links of rechts is.\par
+
+\begin{table}[H]
+\centering
+\caption{Rechts (R) of link (L) indeling per partij op basis van het Kieskompas en het Manifesto Project.}
+\label{my-label}
+\centering
+\begin{tabular}{lll}
+\hline
+Partij  & Kieskompas & Manifesto Project \\ \hline
+SP           & L & L\\ 
+PvdA         & L & L\\ 
+GroenLinks   & L & L\\ 
+PvdD         & L & L\\ 
+50PLUS       & L & L\\ 
+D66          & R & L\\ 
+PVV          & - & R\\ 
+ChristenUnie & R & R\\ 
+SGP          & R & R\\ 
+VVD          & R & R\\ 
+CDA          & R & R\\
+\end{tabular}
+\end{table}
+
+Als de gemiddelde F1-score voor binaire classificatie afwijkt van de classificatie van deelvraag 1, dan suggereert dat
+
+% https://www.google.nl/search?q=grafiek+2012+kieskompas&safe=off&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjigpaDoIXbAhUSJlAKHUBzBQ4Q_AUoAXoECAAQAw&biw=1920&bih=943#imgrc=Dekv0sSQBTnikM:
+% https://www.parlement.com/id/vh8lnhrp8wsy/links_en_rechts
