@@ -4,8 +4,10 @@
 
 \subsection{De data}
 De data die gebruikt worden, zijn de Handelingen van de Tweede Kamer gedurende het missionaire kabinet-Rutte II (5 november 2012 tot 22 maart 2017). Deze data is in xml-formaat van de website officielebekendmakingen.nl gehaald, samen met corresponderende metadata xml-bestanden. De bestanden van de Handelingen bevatten voornamelijk informatie over spreekbeurten tijdens een debat, waaronder naam van een spreker, partij-affiliatie, inhoud van de spreekbeurt en het soort spreekbeurt. Deze gegevens zijn samengevoegd tot een tabel en opgeslagen als csv-bestand.\par
+
 Deze dataset bestaat uit een aantal soorten spreekbeurten, zoals speeches, interrupties en antwoorden. Daarnaast ook door verschillende soorten sprekers, zoals de voorzitter, Tweede Kamerleden, leden van het kabinet en gastsprekers. Uit deze dataset is gekozen voor de eerste spreekbeurt nadat een spreker achter het spreekgestoelte is gaan staan, aangezien deze vaak langer zijn dan de andere spreekbeurten en naar verwachting meer zeggen over ideologie. In de oorspronkelijke xml-bestanden hadden deze spreekbeurten het attribuut \textit{nieuw="ja"}.  Daarnaast is alleen gekozen voor sprekers waarvan er een partij-affiliatie vermeld staat, dit is niet het geval voor leden van het kabinet, de voorzitter en gastsprekers  (met uitzondering van Nederlandse leden van het Europees Parlement).\par
-Deze dataset bevat naast de verkozen partijen van de 2012 Tweede Kamerverkiezingen, ook afsplitsingen van die partijen (tien in totaal) en bezoeken van vertegenwoordigingen van die partijen uit het Europees Parlement (tien in totaal). Omdat van beide categori\"{e}n relatief weinig data is en er overlap zit met hun oorspronkelijke partij, zijn deze er uit gehaald.
+
+Deze dataset bevat daarna naast de verkozen partijen van de 2012 Tweede Kamerverkiezingen, ook afsplitsingen van die partijen (tien in totaal) en bezoeken van vertegenwoordigingen van die partijen uit het Europees Parlement (tien in totaal). Omdat van beide categori\"{e}n relatief weinig data is en er overlap zit met hun oorspronkelijke partij, zijn deze er uit gehaald.
 \begin{table}[H]
 \caption{Aantal spreekbeurten per partij gedurende het missionaire kabinet-Rutte II.}
 \centering
@@ -32,13 +34,13 @@ Voor dit onderzoek zijn de volgende wegingen voor woorden getest: \textit{boolea
 Daarnaast wordt in dit onderzoek geëxperimenteerd met een minimale of maximale woord- of documentfrequentie. Ook is zowel gekeken naar alleen unigrams als features, alsook het toevoegen van bigrams.\par
 
 \paragraph{Support Vector Machines}
-Een veel gebruikte techniek is Support Vector Machine (SVM). Er wordt in vrij weinig gerelateerde onderzoeken gespecificeerd welke parameters er gebruikt zijn voor dit algoritme.\par
+Een veel gebruikte techniek is Support Vector Machine (SVM). In meeste onderzoeken wordt niet gespecificeerd welke vorm van SVM gebruikt wordt. Om deze reden zal in dit onderzoek uitgebreid gekeken worden naar welke vorm het beste resultaat geeft. Hierbij wordt gebruik gemaakt van de functie SVC van sklearn en de variant met \textit{stochastic gradient descent learning} SGDClassifier. In beide gevallen wordt gevarieerd met de regularisatie.
+In het geval van de SVC functie wordt ook gevarieerd met de parameter C. \par
 \bigskip
 Voor de classificatiemethoden wordt waar mogelijk gebruik gemaakt van functies van de Python module scikit-learn\cite{scikit-learn}, aangevuld met zelf geschreven code als dit niet reeds beschikbaar is. Bij al deze classificatiemethoden wordt gevarieerd met meerdere parameters door middel van een gridsearch. Hierbij wordt gebruikt gemaakt van 5-fold cross-validation. Hierbij wordt de data gespleten in vijf delen, waarvan steeds één deel als test wordt gebruikt. De uitslagen worden beoordeeld op basis van gewogen f1-scores. 
 
 \subsubsection{Deelvraag 2}
-
-Voor deze deelvraag wordt wederom een classificatie gedaan met de classificatiemethode die resulteerde uit deelvraag 1. In deze classificatie worden alle partijnamen vervangen door de tag PARTIJNAAM en alle namen van Kamerleden vervangen door de KAMERLIDNAAM. Deze resultaten worden vervolgens vergeleken met de resultaten uit deelvraag 1. 
+In het onderzoek van Diermeier et al. worden alle eigennamen weggelaten zodat, volgens hen, namen van personen en partijen niet de classificatie domineren. Aangezien hier bij deelvraag 1 niet voor is gekozen, wordt bij deze deelvraag gekeken hoe groot het effect hiervan is. Voor deze deelvraag wordt wederom een classificatie gedaan met de classificatiemethode die resulteerde uit deelvraag 1. In deze classificatie worden alle partijnamen vervangen door de tag PARTIJNAAM en alle namen van Kamerleden vervangen door de KAMERLIDNAAM. Deze resultaten worden vervolgens vergeleken met de resultaten uit deelvraag 1. 
 
 \subsubsection{Deelvraag 3}
 
