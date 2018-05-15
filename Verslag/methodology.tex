@@ -33,21 +33,12 @@ Voor dit onderzoek zijn de volgende wegingen voor woorden getest: \textit{boolea
 Daarnaast wordt in dit onderzoek geëxperimenteerd met een minimale of maximale woord- of documentfrequentie. Ook is zowel gekeken naar alleen unigrams als features, alsook het toevoegen van bi- en trigrams.\par
 
 \paragraph{Support Vector Machines}
-Een veel gebruikte techniek is Support Vector Machine (SVM). In meeste onderzoeken wordt niet gespecificeerd welke vorm van SVM gebruikt wordt. Om deze reden zal in dit onderzoek uitgebreid gekeken worden naar welke vorm het beste resultaat geeft. Hierbij wordt gebruik gemaakt van de functie SVC van sklearn en de variant met \textit{stochastic gradient descent learning} SGDClassifier. In beide gevallen wordt gevarieerd met de regularisatie.
+Een veel gebruikte techniek is Support Vector Machine (SVM). In meeste onderzoeken wordt niet gespecificeerd welke vorm van SVM gebruikt wordt. Om deze reden zal in dit onderzoek uitgebreid gekeken worden naar welke vorm het beste resultaat geeft. Hierbij wordt gebruik gemaakt van de functie SVC van sklearn en de variant met \textit{stochastic gradient descent learning} SGDClassifier. Bij de eerste functie kan gevarieerd 
 In het geval van de SVC functie wordt ook gevarieerd met de parameter C. \par
 \paragraph{Logistische Regressie}
 \paragraph{Naive Bayes}
 \paragraph{Beoordelen van kwaliteit}
-De meest gebruikte methoden om kwaliteit van politieke tekstclassificatie te beoordelen zijn Accuracy en F1-score, die opgebouwd is uit recall en precision. \par
-\begin{table}[H]
-\centering
-\caption{Voorbeeld confusion matrix.}
-\begin{tabular}{|l|l|l|}
-\diagbox{Echte waarde}{Voorspelde waarde} & Positief & Negatief \\ \hline
-Positief & tp & fn \\ \hline
-Negatief & fp & tn \\ \hline
-\end{tabular}
-\end{table}
+De meest gebruikte methoden om kwaliteit van politieke tekstclassificatie te beoordelen zijn accuracy en $F_1$ score, die opgebouwd is uit recall en precision. Deze scores zijn opgebouwd uit correct positief ($tp$), foutief positief ($fp$), correct negatief ($tn$) en foutief negatief ($fn$) geclassificeerde waarden.\par
 \begin{equation}
     Precision = \frac{tp}{tp + fp}\\
 \end{equation}
@@ -56,6 +47,9 @@ Negatief & fp & tn \\ \hline
 \end{equation}
 \begin{equation}
     Accuracy = \frac{tp + tn}{tp + tn + fp + fn}
+\end{equation}
+\begin{equation}
+    F_1 = 2 * \frac{Precision * Recall}{Precision + Recall}
 \end{equation}
 
 % https://nlp.stanford.edu/IR-book/html/htmledition/evaluation-of-text-classification-1.html
