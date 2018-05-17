@@ -3,7 +3,7 @@
 
 
 \subsection{De data}
-De data die gebruikt worden, zijn de Handelingen van de Tweede Kamer gedurende het missionaire kabinet-Rutte II (5 november 2012 tot 22 maart 2017). Deze data is in xml-formaat van de website officielebekendmakingen.nl gehaald, samen met corresponderende metadata xml-bestanden. De bestanden van de Handelingen bevatten voornamelijk informatie over spreekbeurten tijdens een debat, waaronder naam van een spreker, partij-affiliatie, inhoud van de spreekbeurt en het soort spreekbeurt. Deze gegevens zijn samengevoegd tot een tabel en opgeslagen als csv-bestand.\par
+De data die gebruikt worden, zijn de Handelingen van de Tweede Kamer gedurende het missionaire kabinet-Rutte II (5 november 2012 tot 22 maart 2017). Er is gekozen voor dit kabinet, omdat de data hiervoor makkelijk verkrijgbaar was, het kabinet lang zat en dus veel data bevat en het recent is en daardoor makkelijker is om te interpreteren. Deze data is in xml-formaat van de website officielebekendmakingen.nl gehaald, samen met corresponderende metadata xml-bestanden. De bestanden van de Handelingen bevatten voornamelijk informatie over spreekbeurten tijdens een debat, waaronder naam van een spreker, partij-affiliatie, inhoud van de spreekbeurt en het soort spreekbeurt. Deze gegevens zijn samengevoegd tot een tabel en opgeslagen als csv-bestand.\par
 
 Deze dataset bestaat uit een aantal soorten spreekbeurten, zoals speeches, interrupties en antwoorden. Daarnaast ook door verschillende soorten sprekers, zoals de voorzitter, Tweede Kamerleden, leden van het kabinet en gastsprekers. Uit deze dataset is gekozen voor de eerste spreekbeurt nadat een spreker achter het spreekgestoelte is gaan staan, aangezien deze vaak langer zijn dan de andere spreekbeurten en naar verwachting meer zeggen over ideologie. In de oorspronkelijke xml-bestanden hadden deze spreekbeurten het attribuut \textit{nieuw="ja"}.  Daarnaast is alleen gekozen voor sprekers waarvan er een partij-affiliatie vermeld staat, dit is niet het geval voor leden van het kabinet, de voorzitter en gastsprekers  (met uitzondering van Nederlandse leden van het Europees Parlement).\par
 
@@ -22,7 +22,7 @@ Deze dataset bevat daarna naast de verkozen partijen van de 2012 Tweede Kamerver
 
 \subsubsection{Deelvraag 1}
 
-Om deze deelvraag te beantwoorden zullen een aantal classificatiemethoden vergeleken worden. Aangezien het onmogelijk om alle classificatiemethoden te vergeleken, beperkt dit onderzoek zich tot classificatiemethoden die goede resultaten hebben opgeleverd in andere onderzoeken, genoemd in \ref{sec:Deelvraag1}. Daarnaast is omwille van de tijd ervoor gekozen om alleen gebruik te maken van methoden waarvan reeds implementaties beschikbaar waren in Python. Hieronder worden de verschillende onderdelen besproken.
+Om deze deelvraag te beantwoorden zullen een aantal classificatiemethoden vergeleken worden. Aangezien het onmogelijk is om alle classificatiemethoden te vergelijken, beperkt dit onderzoek zich tot classificatiemethoden die goede resultaten hebben opgeleverd in vergelijkbare onderzoeken, zoals besproken in \ref{sec:Deelvraag1}. Daarnaast is omwille van de tijd ervoor gekozen om alleen gebruik te maken van methoden waarvan reeds implementaties beschikbaar waren in Python. Hieronder worden de verschillende onderdelen besproken.
 
 \paragraph{Pre-processing}
 Voor pre-processing is gebruik gemaakt van tokenisation, lowercasing en stemming. Voor tokenisation is de reguliere expressie $\\w+$ gebruikt, die daarmee alleen de letters van het alfabet overhoudt. Deze woorden zijn vervolgens allemaal omgezet in kleine letters. Vervolgens is er gevarieerd tussen wel of geen gebruik maken van stemming. In het geval van stemming is gebruik gemaakt van de Snowball Stemmer via de Python NLTK module.
@@ -30,15 +30,15 @@ Voor pre-processing is gebruik gemaakt van tokenisation, lowercasing en stemming
 \paragraph{Bag-of-words model}
 Bag-of-words model is de meest gebruikte representatie van data in vergelijkbare onderzoeken. Bij het bag-of-words model wordt elk document gerepresenteerd door een vector, waarbij elke kolom een woord voorstelt met een bijbehorende waarde. Voornaamste beperking van dit model is dat het geen rekening houdt met de volgorde van woorden, wat een groot effect kan hebben op de betekenis van een document.\par
 Voor dit onderzoek zijn de volgende wegingen voor woorden getest: \textit{boolean} (wel of niet aanwezig), \textit{tf} (woordfrequentie), \textit{tf-norm} (woordfrequentie genormaliseerd door documentlengte) en \textit{tf-idf}
-Daarnaast wordt in dit onderzoek geëxperimenteerd met een minimale of maximale woord- of documentfrequentie. Ook is zowel gekeken naar alleen unigrams als features, alsook het toevoegen van bi- en trigrams.\par
+Daarnaast wordt in dit onderzoek geëxperimenteerd met een minimale of maximale woord- of documentfrequentie. Ook is gekeken naar het effect van n-grams en zijn combinaties van unigrams, bigrams en trigrams vergeleken.\par
 
 \paragraph{Support Vector Machines}
-Een veel gebruikte techniek is Support Vector Machine (SVM). In meeste onderzoeken wordt niet gespecificeerd welke vorm van SVM gebruikt wordt. Om deze reden zal in dit onderzoek uitgebreid gekeken worden naar welke vorm het beste resultaat geeft. Hierbij wordt gebruik gemaakt van de functie SVC van sklearn en de variant met \textit{stochastic gradient descent learning} SGDClassifier. Bij de eerste functie kan gevarieerd 
-In het geval van de SVC functie wordt ook gevarieerd met de parameter C. \par
+Een veel gebruikte techniek is Support Vector Machine (SVM). In meeste onderzoeken wordt niet gespecificeerd welke vorm van SVM gebruikt wordt. Om deze reden zal in dit onderzoek uitgebreid gekeken worden naar welke vorm het beste resultaat geeft. Hierbij wordt gebruik gemaakt van de functie SVC van sklearn en de variant met \textit{stochastic gradient descent learning}; SGDClassifier. Bij de eerste functie kan gevarieerd worden met de kernels, bij de tweede functie is deze lineair.
+Voor de SVC functie zijn een aantal waarden voor de C-parameter gebruikt, waaronder de standaardwaarde 1 van sklearn en 0.8 gevonden door Høyland et al.\cite{W14-2516,scikit-learn}. Omdat de classificaties vrij lang duren met zoveel variaties, is er voor gekozen voor een maximaal aantal iteraties van vijf.\par
 \paragraph{Logistische Regressie}
 \paragraph{Naive Bayes}
 \paragraph{Beoordelen van kwaliteit}
-De meest gebruikte methoden om kwaliteit van politieke tekstclassificatie te beoordelen zijn accuracy en $F_1$ score, die opgebouwd is uit recall en precision. Deze scores zijn opgebouwd uit correct positief ($tp$), foutief positief ($fp$), correct negatief ($tn$) en foutief negatief ($fn$) geclassificeerde waarden.\par
+De meest gebruikte methoden om kwaliteit van politieke tekstclassificatie te beoordelen zijn accuracy en $F_1$ score, die opgebouwd is uit recall en precision. Deze scores zijn opgebouwd uit het aantal correct positief ($tp$), foutief positief ($fp$), correct negatief ($tn$) en foutief negatief ($fn$) geclassificeerde waarden.\par
 \begin{equation}
     Precision = \frac{tp}{tp + fp}\\
 \end{equation}
@@ -51,7 +51,7 @@ De meest gebruikte methoden om kwaliteit van politieke tekstclassificatie te beo
 \begin{equation}
     F_1 = 2 * \frac{Precision * Recall}{Precision + Recall}
 \end{equation}
-
+Deze waarden worden per klasse bepaald en daar wordt vervolgens een gemiddelde van genomen gewogen bij aantal positieve waarden.  \cite{Manning:2008:IIR:1394399,scikit-learn}.\par
 % https://nlp.stanford.edu/IR-book/html/htmledition/evaluation-of-text-classification-1.html
 \bigskip
 Voor de classificatiemethoden wordt waar mogelijk gebruik gemaakt van functies van de Python module scikit-learn\cite{scikit-learn}, aangevuld met zelf geschreven code als dit niet reeds beschikbaar is. Bij al deze classificatiemethoden wordt gevarieerd met meerdere parameters door middel van een gridsearch. Hierbij wordt gebruikt gemaakt van 5-fold cross-validation. Hierbij wordt de data gespleten in vijf delen, waarvan steeds één deel als test wordt gebruikt.
@@ -68,7 +68,7 @@ In het tweede experiment worden classifiers getraind op het ene parlement en get
 
 \subsubsection{Deelvraag 4}
 Voor deze deelvraag vergelijken we de resultaten van de eerdere classificatie per partij met een binaire classificatie op basis van rechts en links. Hiervoor wordt wederom de dataset van kabinet-Rutte 2 gebruikt, met het model wat resulteerde uit deelvraag 1. \par
-Voor deze vraag moet vastgesteld worden welke partijen links en rechts zijn. Omdat dit lastig te bepalen is en er meerdere indelingen zijn, wordt hier gebruik gemaakt van twee verschillende indelingen. De indeling op basis van het Kieskompas van Andre Krouwel voor de Kamerverkiezing 2012 en de indeling volgens het Manifesto Project gebaseerd op verkiezingsprogramma's voor de Kamerverkiezing van 2012\cite{Volkens:2017}. In beide gevallen is de nullijn van het politieke spectrum gebruikt om te bepalen of een partij links of rechts is.\par
+Voor deze vraag moet vastgesteld worden welke partijen links en rechts zijn. Omdat dit lastig te bepalen is en er meerdere indelingen zijn, wordt hier gebruik gemaakt van twee verschillende indelingen. De indeling op basis van het Kieskompas van Andre Krouwel voor de Kamerverkiezing 2012 en de indeling volgens het Manifesto Project\cite{Volkens:2017} gebaseerd op verkiezingsprogramma's voor de Kamerverkiezing van 2012. In beide gevallen is de nullijn van het politieke spectrum gebruikt om te bepalen of een partij links of rechts is.\par
 
 \begin{table}[H]
 \centering
