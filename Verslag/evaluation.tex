@@ -1,12 +1,31 @@
 \section{Evaluatie}
 \label{sec:eva}
 
+\subsection{Resultaten}
 
-\includegraphics[width=0.6\paperwidth]{Verslag/confusionmatrix.png}
+\subsubsection{Deelvraag 1}
+Het beste resultaat werd bereikt met SVM gebruikmakend van \textit{stochastic gradient descent learning}
+%\includegraphics[width=0.6\paperwidth]{Verslag/confusionmatrix.png}
+
+\begin{figure}
+  \caption{Confusion matrix van beste classificatie.}
+  \centering
+    \includegraphics[width=0.6\paperwidth]{Verslag/confusionmatrix.png}
+\end{figure}
+
+\subsubsection{Deelvraag 2}
+\begin{table}[H]
+\label{aantallen}
+\caption{Meest relevante woorden per partij op basis van beste classifier}
+\centering
+\input{Tables/MostImportantWordsWithoutNames}
+\end{table}
 
 \subsection{Discussie}
 \subsubsection{Deelvraag 1}
-Dit onderzoek heeft zich beperkt tot methoden genoemd in eerdere onderzoeken én waarvan de implementatie beschikbaar is in Python. Een aantal methoden die in gerelateerde literatuur leidden tot goede classificaties zijn daarom niet getest. Ook nieuwe methoden die nog niet gebruikt zijn in een gepubliceerd artikel voor politieke tekst classificatie zijn daarom niet getest. Omdat niet alle opties getest zijn, kan geen uitsluitsel gegeven worden dat dit daadwerkelijk het classificatiemodel is. Voor vervolgonderzoek kan daarom gekeken worden om meer van deze methoden mee te nemen.\par
+Dit onderzoek heeft zich beperkt tot methoden genoemd in vergelijkbare onderzoeken én waarvan de implementatie beschikbaar is in Python. Een aantal methoden die in gerelateerde literatuur leidden tot goede classificaties zijn daarom niet getest. Ook nieuwe methoden die nog niet gebruikt zijn in een vergelijkbaar onderzoek voor politieke tekst classificatie zijn daarom niet getest. Omdat dus niet alle opties getest zijn, kan geen uitsluitsel gegeven worden dat dit daadwerkelijk het classificatiemodel is. Voor vervolgonderzoek kan daarom gekeken worden naar meer verschillende methoden.\par
+
+
 
 \subsubsection{Deelvraag 4}
 Er zijn verschillende visies op links en rechts, en de indeling van de partijen, ook buiten de twee methoden gekozen in dit onderzoek.\par
