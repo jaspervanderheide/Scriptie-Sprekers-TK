@@ -19,7 +19,7 @@ Zorg nu vooral dat je dingen precies opschrijft, en niet half-half. Dat laatste 
 
 ### Data
 
-1. Kijk eens op <https://nl.wikipedia.org/wiki/Spreekbeurt> Ik denk dat _debatbijdrage_ een betere term is. 
+1. ~Kijk eens op <https://nl.wikipedia.org/wiki/Spreekbeurt> Ik denk dat _debatbijdrage_ een betere term is. ~
 2. 165-166 maak het concreet, wat voor soorten _spreekbeureten_ heb je dan? Heoveel waardes zijn er van elke kolom? Hoeveel rijen zijn er. Nu kan je meteen wat leuke weetje geven. 
 3. In de volgende zinnen geef je die wel, maar op een rare manier met steeds _zoals_ wat voor mij lijkt dat je een paar voorbeelden geeft maar dat er nog meer is (wat volgensmij niet zo is, maar wees dus heel concreet en volledig).
 4. Die _speeches, interrupties en antwoorden_ zijn niet helder (en mede door jou gedefinieerd), dus die moet je hier heel precies definieren.
