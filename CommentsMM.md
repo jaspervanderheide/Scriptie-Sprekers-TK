@@ -6,7 +6,7 @@ Zorg nu vooral dat je dingen precies opschrijft, en niet half-half. Dat laatste 
  
 ## Intro
 * zet een spatie voor je \cite commando, en zet het in de zin (dus niet na de punt)
-~* _een andere politiek stelsel _ ander stelsel~
+* ~_een andere politiek stelsel _ ander stelsel~
 * 43-48 Je blijft wel heel erg abstract. Zo zegt dit maar weinig. Dus maak het concreet waar je kunt. Laat eens zien welke  verschillende stelsels en hoe dat van invloed is op de resultaten. Twee keer _daarnaast_ is best leleijk. l47, vreemd, je zegt sommige onderzoeken, maar refereert dan maar naar 1. Wat is het nou (1 of meerdere)?
 * 37-42 Mooi, maar te abstract. Leg maar uit hoe dat dan werkt. Dus dat je een classifier leert die op basis van de woorden in een tekst voorspelt wat de ideologische positie van het stuk is.  Dus besteed wat zinnen aan _tekst-classificatie_. En dat je dat dus kunt leren op basis van Handelingen, met daarbij natuurlijk wel de sterke aanname dat de ideologisch epositie van een spreker van een partij in al zijn toespraken doorschemert en dat je blijkbaar op basis van al die toespraken een profiel van een partij of ideologie kunt opbouwen.
 * de _dus_ in 53 zie ik nog niet. Deze vraag behoeft echt een veel uitgebreidere intro, namelijk dat werk van Hirst waarin hij laat zien hoe vertekenend dingen kunnen zijn.
