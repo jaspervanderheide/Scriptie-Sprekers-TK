@@ -35,7 +35,7 @@ Zorg nu vooral dat je dingen precies opschrijft, en niet half-half. Dat laatste 
 2. ~l198 `\w+` moet dit zijn, maar die houdt veel meer over dan alleen de letters.~
 3. l214 leg uit wat n-grammen zijn, en hoe dat dan werkt in je classifier. En waarom je eigenlijk bigrammen erbij zou nemen (je hebt de delen waaruit een bigram bestaat toch al?)
 4. l219 _duurt 219 dit te lang met een gridsearch_ Huh,wat is _dit_? Leg uit wat je hier bedoelt.
-5. l232 Bernoulli distributie betekent toch gewoon dat je de "set of words" interopretatie neemt, en multinomial dat je bag of words gebruikt? Ik zou dit weglaten.
+5. ~l232 Bernoulli distributie betekent toch gewoon dat je de "set of words" interopretatie neemt, en multinomial dat je bag of words gebruikt? Ik zou dit weglaten.~
 6. l240 Excuus, maar ik geloof dat ik niet weet wat een correct positief waarde is in jouw geval. Dat is toch helemaal niet evident? Je moet het echt beter uitleggen.
 7. l245/246, _gewogen bij_ ??? Dit is erg induidelijk. Behandel macro en micro precisie en reccall, etc, en beschrijf precies wat wat is. Je kunt hier rsutig wat meer de tijd voor nemen. Het is echt leuk als dit deel ook begrijpelijk is voor een niet-expert. Nu is het geen vlees noch vis, voor niemand waardevol eigenlijk. Hfd 8 van <https://nlp.stanford.edu/IR-book/information-retrieval-book.html> legt het heel goed uit. Kijk ook naar tabel 13.8 en het stukje over macro en micro averaging. 
 8. **3.2.2** Goed, maar je zou toch ook het contrapositief doen, met juist alleen de namen van de partijen en partijleden. 
