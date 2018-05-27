@@ -12,7 +12,7 @@ Zorg nu vooral dat je dingen precies opschrijft, en niet half-half. Dat laatste 
 * de _dus_ in 53 zie ik nog niet. Deze vraag behoeft echt een veel uitgebreidere intro, namelijk dat werk van Hirst waarin hij laat zien hoe vertekenend dingen kunnen zijn.
 * RQ 4: wat bedoel je met "afhankelijk"? Ik lees dit bijvoorbeeld dat de precision/recall voor een partij varieert met het links/rechts spectrum. Kan je concreet maken wat je bedoelt? Bijvoorbeeld, zijn (teksten van) linkse partijen makkelijker te herkenenn dan die van rechtse? 
 * Ik stel voor dat je per deelvraag in 4-5 zinnen vertelt wat je gata doen, en hem dus ook wat meer concreet maakt. Voor vraag 1 kan je dan de methoden noemen die je gaat bekijken, waar op je evalueert (precisie/recall/F1), en wat de hoofdresultaten zijn (iets als _de beste classifier is Methode X met een F1 score van YYY, en F1 scores per partij varierend van AAA (voor partij a) tot BBB (partij b)_ ) Voor de overige vragen ook. **Maak het dus allemaal wat inzichtelijker, en geef de lezer alvast een idee wat zij te lezen krijgt**
-* "Overzhct" Dit hoeft niet allemaal in de toekomende tijd. Je kunt ook iets zeggen als "Sectie 5 bevat dede evaluatie van ...."
+* ~"Overzhct" Dit hoeft niet allemaal in de toekomende tijd. Je kunt ook iets zeggen als "Sectie 5 bevat dede evaluatie van ...."~
 
 
 ## Methodologie
