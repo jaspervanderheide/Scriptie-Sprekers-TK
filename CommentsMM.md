@@ -33,7 +33,7 @@ Zorg nu vooral dat je dingen precies opschrijft, en niet half-half. Dat laatste 
 
 1. ~l192 gooi er maar uit, ik hou niet van die "tijd" argumenten~
 2. ~l198 `\w+` moet dit zijn, maar die houdt veel meer over dan alleen de letters.~
-3. l214 leg uit wat n-grammen zijn, en hoe dat dan werkt in je classifier. En waarom je eigenlijk bigrammen erbij zou nemen (je hebt de delen waaruit een bigram bestaat toch al?)
+3. ~l214 leg uit wat n-grammen zijn, en hoe dat dan werkt in je classifier. En waarom je eigenlijk bigrammen erbij zou nemen (je hebt de delen waaruit een bigram bestaat toch al?)~
 4. l219 _duurt 219 dit te lang met een gridsearch_ Huh,wat is _dit_? Leg uit wat je hier bedoelt.
 5. ~l232 Bernoulli distributie betekent toch gewoon dat je de "set of words" interopretatie neemt, en multinomial dat je bag of words gebruikt? Ik zou dit weglaten.~
 6. l240 Excuus, maar ik geloof dat ik niet weet wat een correct positief waarde is in jouw geval. Dat is toch helemaal niet evident? Je moet het echt beter uitleggen.
