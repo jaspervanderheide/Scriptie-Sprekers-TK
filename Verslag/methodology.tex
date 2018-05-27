@@ -8,31 +8,15 @@ Deze dataset bestaat uit een aantal soorten spreekbeurten; debat bijdragen, inte
 Deze dataset bevat vervolgens naast de verkozen partijen van de 2012 Tweede Kamerverkiezingen, ook afsplitsingen van die partijen (tien in totaal) en bezoeken van vertegenwoordigingen van Nederlandse partijen uit het Europees Parlement (tien in totaal). Omdat van beide categorieën relatief weinig data is en er overlap zit met hun oorspronkelijke partij, zijn deze er uit gehaald. Op basis van de aantallen is er voor classificatie een baseline nauwkeurigheid van 0.15 (door altijd grootste partij te kiezen) en baseline $F_1$ score van 0.11 (door willekeurig te voorspellen gewogen bij aantal spreekbeurten in klasse).\par
 
 De documenten verschillen vervolgens in grootte. De distributie lijkt op een lognormale verdeling, maar met een Kolmogorov-Smirnov test is hier geen bewijs voor gevonden \cite{Scipy}.
-\begin{figure}
-\centering
-\begin{subfigure}{.5\textwidth}
-  \centering
-  \includegraphics[width=.4\linewidth]{image1}
-  \caption{A subfigure}
-  \label{fig:sub1}
-\end{subfigure}%
-\begin{subfigure}{.5\textwidth}
-  \centering
-  \includegraphics[width=.4\linewidth]{image1}
-  \caption{A subfigure}
-  \label{fig:sub2}
-\end{subfigure}
-\caption{A figure with two subfigures}
-\label{fig:test}
+
+\begin{figure}%
+    \centering
+    \subfloat[label 1]{{\includegraphics[width=5cm]{Verslag/Tables/lengthtexts.png} }}%
+    \qquad
+    \subfloat[label 2]{{\includegraphics[width=5cm]{Verslag/Tables/lengthtextslog.png} }}%
+    \caption{2 Figures side by side}%
+    \label{fig:example}%
 \end{figure}
-
-\begin{table}[H]
-\label{aantallen}
-\caption{Aantal documenten per partij gedurende het missionaire kabinet-Rutte II.}
-\centering
-\input{Tables/Spreekbeurten}
-\end{table}
-
 
 
 
