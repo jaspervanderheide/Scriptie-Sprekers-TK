@@ -24,7 +24,7 @@ Zorg nu vooral dat je dingen precies opschrijft, en niet half-half. Dat laatste 
 3. ~In de volgende zinnen geef je die wel, maar op een rare manier met steeds _zoals_ wat voor mij lijkt dat je een paar voorbeelden geeft maar dat er nog meer is (wat volgensmij niet zo is, maar wees dus heel concreet en volledig).~
 4. ~Die _speeches, interrupties en antwoorden_ zijn niet helder (en mede door jou gedefinieerd), dus die moet je hier heel precies definieren.~
 5. l171 ~Nu heeft iemand dus meerdere _spreekbeurten_, want jij hebt het over de eerste. Maar wat is dan een _speech_? Het is een warboel van termen.~
-6. l172 _vaak langer zijn_ Laat maar zien met een leuk grafiekje. En geef wat cijfers.
+6. ~l172 _vaak langer zijn_ Laat maar zien met een leuk grafiekje. En geef wat cijfers.~
 7. ~Zoals besproken geeft Tabel 1 aanleiding tot vragen. Vooral snap ik niet hoe de aantallen zo kunnen verschillen. Dus bespreek dit.  Ik zou ook aangeven hoeveel debatten/topics/files je hebt waarin ook echt wordt gesproken door minstens 1 iemand van een partij. Dat is dan de bovengrens lijkt het.  Misschien is dit ook een leuke (pandas ) query en plot: Voor elk aantal partijen aanwezig bij een debat, geef aan hoeveel debatten er van dat type zijn. ~
 8. ~Ik zou Table 1 omgekeerd op aantal ordenen.~
 
