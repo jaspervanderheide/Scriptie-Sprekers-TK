@@ -64,6 +64,7 @@ De meest gebruikte methoden om kwaliteit van politieke tekstclassificatie te beo
 \begin{equation}
     F_1 = 2 * \frac{Precision * Recall}{Precision + Recall}
 \end{equation}
+Precision is hierbij hoeveel van de geclassificeerde documenten horen daadwerkelijk 
 Deze waarden worden per klasse bepaald en daar wordt vervolgens een gemiddelde van genomen, gewogen bij documenten behorende tot die klasse.  \cite{Manning:2008:IIR:1394399,scikit-learn}.\par
 % https://nlp.stanford.edu/IR-book/html/htmledition/evaluation-of-text-classification-1.html
 \bigskip
@@ -78,7 +79,7 @@ Om deze deelvraag te beantwoorden zullen de twee experimenten die Graeme Hirst e
 In het eerste experiment zullen de tien meest karakteristieke woorden per partij van de ene zittingsperiode vergeleken worden met de tien meest karakteristieke woorden per partij van de andere zittingsperiode. Als de classificatie op basis van ideologie is in plaats van partij-status, is het te verwachten dat de woorden bij een partij blijven en niet gekoppeld zijn aan in oppositie of regering zitten. \par
 In het tweede experiment worden classifiers getraind op de ene zittingsperiode en getest op de andere zittingsperiode. Als de classificatie op basis van ideologie is in plaats van partij-status, is de verwachting dat er nog steeds aanzienlijke voorspellingen gedaan worden, aangezien de ideologie naar verwachting redelijk stabiel is binnen tien jaar (hoewel woordgebruik varieert). Als de scores aanzienlijk lager zijn, kan dit het gevolg zijn van het veranderen van partij-status van partijen.\par
 Als vergelijkingsmateriaal is voor deze experimenten een tweede dataset nodig uit een ander kabinet. Hiervoor is het wenselijk dat dit kabinet bestaat uit andere partijen dan kabinet-Rutte II. Daarnaast is het ook wenselijk als het niet te ver terug is, zodat onderwerpen en taalgebruik enigszins overeenkomstig zijn. Omdat kabinet-Rutte I een minderheidskabinet was met een bijzondere partij-status voor de PVV, is ervoor gekozen om de Handelingen van de Tweede Kamer tijdens het missionaire kabinet-Balkenende IV (22 februari 2007 tot 20 februari 2010) te gebruiken.\par
-De 50PLUS bestond nog niet gedurende kabinet-Balkenende IV, dus documenten van deze partij zijn weggelaten. Verder heeft dezelfde verwerking van data plaatsgevonden, zoals beschreven in \ref{data}. Alleen de minimum- en maximumlengte is overgenomen van de dataset van kabinet-Rutte II.\par
+De partij 50PLUS bestond nog niet gedurende kabinet-Balkenende IV, dus documenten van deze partij zijn weggelaten. Verder heeft dezelfde verwerking van data plaatsgevonden, zoals beschreven in \ref{data}. Alleen de minimum- en maximumlengte is overgenomen van de dataset van kabinet-Rutte II.\par
 
 \subsubsection{Deelvraag 4}
 Voor deze deelvraag vergelijken we de resultaten van de eerdere classificatie per partij met een binaire classificatie op basis van rechts en links. Hiervoor wordt wederom de dataset van kabinet-Rutte 2 gebruikt, met het beste model wat resulteerde uit deelvraag 1. \par
