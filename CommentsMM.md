@@ -40,7 +40,7 @@ Zorg nu vooral dat je dingen precies opschrijft, en niet half-half. Dat laatste 
 7. l245/246, _gewogen bij_ ??? Dit is erg induidelijk. Behandel macro en micro precisie en reccall, etc, en beschrijf precies wat wat is. Je kunt hier rsutig wat meer de tijd voor nemen. Het is echt leuk als dit deel ook begrijpelijk is voor een niet-expert. Nu is het geen vlees noch vis, voor niemand waardevol eigenlijk. Hfd 8 van <https://nlp.stanford.edu/IR-book/information-retrieval-book.html> legt het heel goed uit. Kijk ook naar tabel 13.8 en het stukje over macro en micro averaging. 
 8. **3.2.2** Goed, maar je zou toch ook het contrapositief doen, met juist alleen de namen van de partijen en partijleden. 
 9. ~Je moet hier ook wel even vertellen _hoe_ je die namen op het spoor bent gekomen, en hoe goed dit werkte (doe dus een kleine steekproef met de hand).~
-10. l269 _dit_ experiment
+10. ~l269 _dit_ experiment~
 11. **3.2.3** ~Ik zou _zittingsperiode_ gebruiken in plaats van _parlement_ in dit stukje. ~
 12. ~Ik zou eerst de 2 experimenten behandlen en daarna jouw precieze data vertellen.~
 13. ~Voor dit experiment is het volgens mij van belang dat je de partijnamen weglaat. Hoe doe je dit? Kan je ook aangeven waarom dit belangrijk is? En doet Hirst dat ook?~
