@@ -17,7 +17,7 @@ Figuur \ref{fig:confusionmatrix} laat zien waar de fouten in deze classificatie 
 \end{figure}
 
 \begin{table}[H]
-\caption{Meest relevante woorden per partij op basis van beste classificatie.} 
+\caption{Meest relevante woorden per partij op basis van beste classificatie gedurende kabinet-Rutte II.} 
 \label{tab:MostImportantWords} 
 \centering
 \hspace*{-1in}
@@ -25,7 +25,7 @@ Figuur \ref{fig:confusionmatrix} laat zien waar de fouten in deze classificatie 
 \end{table} 
 \addtocounter{table}{-1} 
 \begin{table}[H]
-\caption{Meest relevante woorden per partij op basis van beste classificatie. \emph{(Vervolg)}} 
+\caption{Meest relevante woorden per partij op basis van beste classificatie gedurende kabinet-Rutte II. \emph{(Vervolg)}} 
 \centering
 \hspace*{-1in}
 \input{Tables/MostImportantWords2.tex} 
@@ -38,7 +38,7 @@ In figuur \ref{tab:MostImportantWords} was al te zien dat de meest karakteristie
 
 In figuur \ref{tab:MostImportantWordsWithoutNames} is vervolgens te zien welke woorden het meest karakteristiek zijn per partij, als partijnamen namen van Kamerleden vervangen zijn door een generieke placeholder.
 \begin{table}[H] 
-\caption{Meest relevante woorden per partij op basis van classificatie zonder partijnamen of namen van Kamerleden.} 
+\caption{Meest relevante woorden per partij op basis van classificatie uit deelvraag 1 zonder partijnamen of namen van Kamerleden gedurende kabinet-Rutte II.} 
 \label{tab:MostImportantWordsWithoutNames} 
 \centering
 \hspace*{-1in}
@@ -46,7 +46,7 @@ In figuur \ref{tab:MostImportantWordsWithoutNames} is vervolgens te zien welke w
 \end{table} 
 \addtocounter{table}{-1} 
 \begin{table}[H] 
-\caption{Meest relevante woorden per partij op basis van classificatie zonder partijnamen of namen van Kamerleden. \emph{(Vervolg)}} 
+\caption{Meest relevante woorden per partij op basis van classificatie uit deelvraag 1 zonder partijnamen of namen van Kamerleden gedurende kabinet-Rutte II. \emph{(Vervolg)}} 
 \centering
 \hspace*{-0.6in}
 \input{Tables/MostImportantWordsWithoutNames2.tex} 
@@ -54,9 +54,11 @@ In figuur \ref{tab:MostImportantWordsWithoutNames} is vervolgens te zien welke w
 
 \subsection{Discussie}
 \subsubsection{Deelvraag 1}
-Dit onderzoek heeft zich beperkt tot methoden genoemd in vergelijkbare onderzoeken én waarvan de implementatie beschikbaar is in Python. Een aantal methoden die in gerelateerde literatuur leidden tot goede classificaties zijn daarom niet getest. Ook nieuwe methoden die nog niet gebruikt zijn in een vergelijkbaar onderzoek voor politieke tekst classificatie zijn daarom niet getest. Omdat dus niet alle opties getest zijn, kan geen uitsluitsel gegeven worden dat dit daadwerkelijk het classificatiemodel is. Voor vervolgonderzoek kan daarom gekeken worden naar meer verschillende methoden.\par
+Dit onderzoek heeft zich beperkt tot methoden genoemd in vergelijkbare onderzoeken en waarvan de implementatie beschikbaar is in Python. Een aantal methoden die in gerelateerde literatuur leidden tot goede classificaties zijn daarom niet getest. Ook nieuwe methoden die nog niet gebruikt zijn in een vergelijkbaar onderzoek voor politieke tekst classificatie zijn daarom niet getest. Omdat dus niet alle opties getest zijn, kan geen uitsluitsel gegeven worden dat dit daadwerkelijk het classificatiemodel is. Voor vervolgonderzoek kan daarom gekeken worden naar meer verschillende methoden.\par
+Het onderzoek van Hirst et al. vond dat resultaten afhankelijk kunnen zijn van documentgrootte. Alle documenten in dit onderzoek zijn kleiner dan de grootste documentgrootte uit het onderzoek van Hirst et al. en ook de minimumfrequentie lager ligt dan de kleinste documentgrootte uit het onderzoek van Hirst et al.
+Het effect wat zij vinden tussen documentgrootte van 267 en 6666 is een verschil in nauwkeurigheid van 19,8\%. Voor een vervolgonderzoek kan gekeken worden naar of dit effect er is en wat dit betekent voor de resultaten.\par
 
-\subsubsection{Deelvraag 1}
+\subsubsection{Deelvraag 2}
 
 
 \subsubsection{Deelvraag 4}
