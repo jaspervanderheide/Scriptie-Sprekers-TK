@@ -100,9 +100,10 @@ Aannemend dat dit verband causaal is, is het verwachte aantal documenten
 \begin{equation}
 V_{i,j}  = (\sum_{k=0}^{n}{(D_{k,j})} -D_{j,j}) *  \frac{\sum_{k=0}^{n}{(D_{i,k})}}{\sum_{k=0}^{n}{(\sum_{l=0}^{n}{D_{k,l}})} - \sum_{k=0}^{n}{(D_{k,j})}}
 \end{equation}
-waar $V_{i,j}$ het verwachte aantal documenten is voor $i\neq j$ met $i$ de voorspelde partij en $j$ de echte partij waar een document bijhoort, $D_{i,j}$ het aantal documenten als dusdanig geclassificeerd en $n$ het aantal partijen. De linkerterm is het totaal aantal documenten behorende tot partij $i$ die fout geclassificeerd zijn. De rechterterm is het percentage van het totaal aantal documenten minus die van partij $i$ dat tot partij $j$ behoort.\par
+waar $i\neq j$ met $i$ de voorspelde partij en $j$ de echte partij waar een document bijhoort, $D_{i,j}$ het aantal documenten als dusdanig geclassificeerd en $n$ het aantal partijen. De linkerterm is het totaal aantal documenten behorende tot partij $i$ die fout geclassificeerd zijn. De rechterterm is het percentage van het totaal aantal documenten minus die van partij $i$ dat tot partij $j$ behoort.\par
 De error is dan het verschil van de verwachte waarde en het daadwerkelijk aantal documenten
 \begin{equation}
+\label{eq:error}
 e_{i,j} = V_{i,j} - D_{i,j}
 \end{equation}
 met opnieuw $i\neq j$ en $i$ de voorspelde partij en $j$ de echte partij waar een document bijhoort. \par
