@@ -51,7 +51,18 @@ De meest voorkomende techniek in vergelijkbaar onderzoek is Support Vector Machi
 Een simpelere techniek die gebruikt wordt voor politieke tekstclassificatie is Naive Bayes. Dit algoritme neemt aan dat elke \textit{feature} onafhankelijk is ten op zichte van de rest. Dit is bij tekstclassificatie vaak niet het geval omdat het gebruik van sommige woorden gepaard kan gaan met het gebruik van andere woorden. Daarnaast is het gebruik van meerdere n-grams in een classificatie schending van de aanname, want als bijvoorbeeld een bigram er in voorkomt dan komen ook beide unigrams er sowieso in voor. Desalniettemin blijkt Naive Bayes effectief te zijn voor tekstclassificatie\cite{scikit-learn,bhand}. Hiervoor zijn de functies van scikit-learn MultinomialNB en BernoulliNB gebruikt.\cite{scikit-learn,bhand}\par
 
 \paragraph{Beoordelen van kwaliteit}
-De meest gebruikte methoden om kwaliteit van politieke tekstclassificatie te beoordelen zijn accuracy en $F_1$ score, die opgebouwd is uit recall en precision. Deze scores zijn opgebouwd uit het aantal correct positief ($tp$), foutief positief ($fp$), correct negatief ($tn$) en foutief negatief ($fn$) geclassificeerde waarden.\par
+De meest gebruikte methoden om kwaliteit van politieke tekstclassificatie te beoordelen zijn nauwkeurigheid en $F_1$ score, die opgebouwd is uit recall en precision. Deze scores zijn opgebouwd uit vier variabelen te zien in tabel \ref{tab:scores}. Deze variabelen geven weer hoeveel documenten wel of niet bij een klasse horen, en of deze wel of niet als dusdanig zijn geclassificeerd.\par
+
+\begin{table}[H]
+\caption{BLABLA}
+\label{tab:scores}
+\centering
+\begin{tabular}{l|l|l}
+ & Behorend tot klasse & Niet behorend tot klasse\\ \hline
+Geclassificeerd als klasse &   $tp$ & $fp$ \\ \hline
+Niet geclassificeerd als klasse & $fn$ & $tn$ \\
+\end{tabular}
+\end{table}
 \begin{equation}
     Precision = \frac{tp}{tp + fp}\\
 \end{equation}
@@ -59,14 +70,16 @@ De meest gebruikte methoden om kwaliteit van politieke tekstclassificatie te beo
     Recall = \frac{tp}{tp + tn}
 \end{equation}
 \begin{equation}
-    Accuracy = \frac{tp + tn}{tp + tn + fp + fn}
+    Nauwkeurigheid = \frac{tp + tn}{tp + tn + fp + fn}
 \end{equation}
 \begin{equation}
     F_1 = 2 * \frac{Precision * Recall}{Precision + Recall}
 \end{equation}
-Precision is hierbij hoeveel van de geclassificeerde documenten horen daadwerkelijk 
-Deze waarden worden per klasse bepaald en daar wordt vervolgens een gemiddelde van genomen, gewogen bij documenten behorende tot die klasse.  \cite{Manning:2008:IIR:1394399,scikit-learn}.\par
-% https://nlp.stanford.edu/IR-book/html/htmledition/evaluation-of-text-classification-1.html
+Nauwkeurigheid is het percentage van documenten dat correct geclassificeerd is. Precision is het percentage van documenten geclassificeerd als klasse, dat ook bij die klasse hoort. Recall is het percentage documenten van documenten behorende tot een klasse, dat ook als dusdanig geclassificeerd is. $F_1$ is het harmonisch gemiddelde van recall en precision. Precision, recall en dus ook $F_1$ worden in beginsel per klasse berekend. Er zijn drie varianten om deze scores voor de hele classificatie te berekenen. \par
+Allereerst is er $micro$, daarbij worden alle waarden bij elkaar opgeteld en dan berekend. Dit leidt ertoe dat resultaten van klassen met veel documenten belangrijker zijn. Als een classificatie kleine klassen grotendeels fout classificeert, kan deze score alsnog hoog zijn. In het geval van meer dan twee klassen is dit hetzelfde als nauwkeurigheid.\par 
+Als tweede is er $macro$, daarbij worden alle scores per klasse berekend en wordt daarvan het gemiddelde genomen. Dit leidt er dan weer toe dat resultaten van klassen met weinig documenten net zo belangrijk zijn. Hierdoor kan een classificatie met een laag aantal correct geclassificeerde documenten hoog scoren door vooral kleine klassen goed te hebben.\par
+Als laatste is er dan nog $gewogen$, dit berekent net als $macro$ de scores per klasse, maar neemt hiervan het gemiddelde gewogen bij het aantal documenten behorend tot een klasse. Deze wijkt weinig af van de $micro$ variant, tenzij er uitschieters zijn bij klassen.\par
+Aangezien $micro$ al terugkomt in nauwkeurigheid en het nadeel van $macro$ te groot is omdat de klassen nogal variëren in grootte, is gekozen voor $gewogen$ $F_1$ scoring naast nauwkeurigheid.
 \bigskip
 
 \subsubsection{Deelvraag 2}
@@ -75,9 +88,22 @@ De nauwkeurigheid en $F_1$ score worden vervolgens vergeleken met de resultaten 
 
 \subsubsection{Deelvraag 3}
 
-Om deze deelvraag te beantwoorden zullen de twee experimenten die Graeme Hirst et al. uitvoerden voor dezelfde vraag gereproduceerd worden op de dataset van de Tweede Kamer. Bij deze deelvraag zal de beste classifier uit deelvraag 1 gebruikt worden. Daarnaast kan men ook naar de confusion matrix kijken of het aantal verkeerde classificaties groter is binnen regering of oppositie dan tussen elkaar.\par
-In het eerste experiment zullen de tien meest karakteristieke woorden per partij van de ene zittingsperiode vergeleken worden met de tien meest karakteristieke woorden per partij van de andere zittingsperiode. Als de classificatie op basis van ideologie is in plaats van partij-status, is het te verwachten dat de woorden bij een partij blijven en niet gekoppeld zijn aan in oppositie of regering zitten. \par
-In het tweede experiment worden classifiers getraind op de ene zittingsperiode en getest op de andere zittingsperiode. Als de classificatie op basis van ideologie is in plaats van partij-status, is de verwachting dat er nog steeds aanzienlijke voorspellingen gedaan worden, aangezien de ideologie naar verwachting redelijk stabiel is binnen tien jaar (hoewel woordgebruik varieert). Als de scores aanzienlijk lager zijn, kan dit het gevolg zijn van het veranderen van partij-status van partijen.\par
+Om deze deelvraag te beantwoorden zal een analyse gedaan worden van de confusion matrix en zullen de twee experimenten die Graeme Hirst et al. uitvoerden voor dezelfde vraag gereproduceerd worden op de dataset van de Tweede Kamer. Bij deze deelvraag zal de beste classifier uit deelvraag 1 en 2 gebruikt worden.\par
+Als er een confounding bias is op basis van partij-status, dan is te verwachten dat het aantal misclassificaties minus verwachte waarde binnen regeringspartijen en binnen oppositiepartijen hoger ligt dan tussen oppositiepartijen en regeringspartijen. Uit de voorverkenning (op basis van resultaten uit deelvraag 1 en 2) blijkt verder dat er een correlatie is tussen het aantal foutief als partij geclassificeerde documenten en het aantal documenten behorend tot die partij. 
+
+Aannemend dat dit verband causaal is, is het verwachte aantal documenten
+\begin{equation}
+V_{i,j}  = (\sum_{k=0}^{n}{(D_{k,j})} -D_{j,j}) *  \frac{\sum_{k=0}^{n}{(D_{i,k})}}{\sum_{k=0}^{n}{(\sum_{l=0}^{n}{D_{k,l}})} - \sum_{k=0}^{n}{(D_{k,j})}}
+\end{equation}
+waar $V_{i,j}$ het verwachte aantal documenten is voor $i\neq j$ met $i$ de voorspelde partij en $j$ de echte partij waar een document bijhoort, $D_{i,j}$ het aantal documenten als dusdanig geclassificeerd en $n$ het aantal partijen. De linkerterm is het totaal aantal documenten behorende tot partij $i$ die fout geclassificeerd zijn. De rechterterm is het percentage van het totaal aantal documenten minus die van partij $i$ dat tot partij $j$ behoort.\par
+De error is dan het verschil van de verwachte waarde en het daadwerkelijk aantal documenten
+\begin{equation}
+e_{i,j} = V_{i,j} - D_{i,j}
+\end{equation}
+met opnieuw $i\neq j$ en $i$ de voorspelde partij en $j$ de echte partij waar een document bijhoort. \par
+Als dit een goede benadering is van de error, dan is het te verwachten dat deze normaal verdeeld is \cite{citeulike:7531484}. Om te kijken of er een confounding bias is, worden de distributies binnen regeringspartijen, binnen oppositiepartijen en tussen beide groepen met elkaar vergeleken. Om de invloed van variantie door de willekeurige splitsing documenten voor trainen en testen te beperken, wordt de classificatie 50 keer gedaan en worden deze errors bij elkaar in distributie genomen. De nulhypothese is dat er geen verschil is tussen de verdelingen. De alternatieve hypothese is dan dus dat er wel een verschil is tussen de verdelingen. Als de nulhypothese wordt verworpen, kan dus aangenomen worden dat er een verschil is op basis van partij-status.\par
+In het eerste experiment uit Graeme Hirst et al. zullen de tien meest karakteristieke woorden per partij van de ene zittingsperiode vergeleken worden met de tien meest karakteristieke woorden per partij van de andere zittingsperiode. Als de classificatie op basis van ideologie is in plaats van partij-status, is het te verwachten dat de woorden bij een partij blijven en niet gekoppeld zijn aan in oppositie of regering zitten. \par
+In het tweede experiment uit Graeme Hirst et al. worden classifiers getraind op de ene zittingsperiode en getest op de andere zittingsperiode. Als de classificatie op basis van ideologie is in plaats van partij-status, is de verwachting dat er nog steeds aanzienlijke voorspellingen gedaan worden, aangezien de ideologie naar verwachting redelijk stabiel is binnen tien jaar (hoewel woordgebruik varieert). Als de scores aanzienlijk lager zijn, kan dit het gevolg zijn van het veranderen van partij-status van partijen.\par
 Als vergelijkingsmateriaal is voor deze experimenten een tweede dataset nodig uit een ander kabinet. Hiervoor is het wenselijk dat dit kabinet bestaat uit andere partijen dan kabinet-Rutte II. Daarnaast is het ook wenselijk als het niet te ver terug is, zodat onderwerpen en taalgebruik enigszins overeenkomstig zijn. Omdat kabinet-Rutte I een minderheidskabinet was met een bijzondere partij-status voor de PVV, is ervoor gekozen om de Handelingen van de Tweede Kamer tijdens het missionaire kabinet-Balkenende IV (22 februari 2007 tot 20 februari 2010) te gebruiken.\par
 De partij 50PLUS bestond nog niet gedurende kabinet-Balkenende IV, dus documenten van deze partij zijn weggelaten. Verder heeft dezelfde verwerking van data plaatsgevonden, zoals beschreven in \ref{data}. Alleen de minimum- en maximumlengte is overgenomen van de dataset van kabinet-Rutte II.\par
 
