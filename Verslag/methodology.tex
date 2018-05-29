@@ -90,7 +90,12 @@ De nauwkeurigheid en $F_1$ score worden vervolgens vergeleken met de resultaten 
 
 Om deze deelvraag te beantwoorden zal een analyse gedaan worden van de confusion matrix en zullen de twee experimenten die Graeme Hirst et al. uitvoerden voor dezelfde vraag gereproduceerd worden op de dataset van de Tweede Kamer. Bij deze deelvraag zal de beste classifier uit deelvraag 1 en 2 gebruikt worden.\par
 Als er een confounding bias is op basis van partij-status, dan is te verwachten dat het aantal misclassificaties minus verwachte waarde binnen regeringspartijen en binnen oppositiepartijen hoger ligt dan tussen oppositiepartijen en regeringspartijen. Uit de voorverkenning (op basis van resultaten uit deelvraag 1 en 2) blijkt verder dat er een correlatie is tussen het aantal foutief als partij geclassificeerde documenten en het aantal documenten behorend tot die partij. 
-
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=0.60\paperwidth]{Verslag/Tables/Correlation.png}
+\caption{Het aantal foutief als partij geclassificeerde documenten ten opzichte vna het aantal documenten behorend tot die partij. De pearson correlatie is 0.78. }
+\label{fig:confusionmatrix}
+\end{figure}
 Aannemend dat dit verband causaal is, is het verwachte aantal documenten
 \begin{equation}
 V_{i,j}  = (\sum_{k=0}^{n}{(D_{k,j})} -D_{j,j}) *  \frac{\sum_{k=0}^{n}{(D_{i,k})}}{\sum_{k=0}^{n}{(\sum_{l=0}^{n}{D_{k,l}})} - \sum_{k=0}^{n}{(D_{k,j})}}
