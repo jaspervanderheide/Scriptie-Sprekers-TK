@@ -1,3 +1,26 @@
+
+## comments MM 29 mei, related work
+
+
+
+### algemeen
+_Prima overzicht, maar ik denk dat het wat losser kan en dat je nog wat inleidende dingen kunt toevoegen_.  Ik ben blij dat je veel preciezer bent gaan schrijven! Goed zo.
+Zinnen als
+
+>> _de toespraken in parlementen lenen zich bij uitstek voor tekst clasificatietaken, ze bevatten veel tekst en zijn op een natuurlijke manier gelabeld_. _Deze labels kunnen de naam of partij van de spreker zijn, maar ook afgeleide labels als geslacht of leeftijd van de spreker, de status van de partij van de spreker ten tijde van de toespraak (coalietie vs regering) of een ideologische richting (links vs rechts of conservatief vs progressief)_  Er is dus ook veel onderzoek gedaan met dit soort data, in vele talen, maar voorzover we weten, nog niet in het Nedrelanfs (is dat echt zom heb je goed gezocht?)
+
+kan je best toevoegen en geven wat meer kleur. 
+
+1. Begin even met een kort overzicht van wat je gaat behandelen. Noem hier expliciet dat alle onderzoekn die je bespreekt **text** classificatie doen: dus op basis van uitgesproken woorden in het parlement iets vorspellen. Ga dan nu al in op het feit dat een 2 deling makkelijker is dan om te raden uit meerdere klasses, en noem ook baselines. 
+2. Diermeir [4] Leuk en zeer relavnt. Maar vertel er even bij hoeveel klasses er zijn (ik neem aan 2 maar dat hoeft niet). Zeg dan ook dat die 52 % bijna niet beter is dan altijd liberaal zeggn in deze opzet.
+3. l93 _spreekbeurten_???
+4. Gaat het bij Hirst ook weer om gebalanceerde 2 klasse datasets? Dus moeten we het vergelijkne met een baseline van 50%. Geef dit ook aan.
+	5. hier ga je misschien de mist in bij de vergelijking met het EP, want daar veel lagere scores, maar ik neem aan ook meer (7 of zo) klasses. 
+6. _In het onderzoek van Graeme Hirst et al. maakten ze gebruik_ weg en gewoon _Graeme Hirst et al.  gebruikten ook ...._ en ook in anmdere gevallen
+7. sectie 2.3 vertel wat die baseline dan is. Dan begint de lezer het te snappen.
+8. l170 _de status van de partij_ voeg toe, _namelijk of ze in de regeringscoalitie zitten of in de oppositie_
+ 
+
 # Comments MM 22 Mei
 
 _Dit ziet er al heel goed uit. Ga zo door, en maak er echt wat moois van. De grote lijn staat goed. Je vragen geven je steun bij het schrijven en de lezer bij het lezen.
