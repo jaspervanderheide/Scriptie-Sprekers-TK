@@ -5,8 +5,14 @@
 
 \subsubsection{Deelvraag 1}
 Het beste resultaat werd bereikt met SVM gebruikmakend van \textit{stochastic gradient descent learning} en Ridge regularisatie.\par
+Figuur \ref{tab:classrapport} laat de classificatiescores zien per partij met hoe vaak een partij voorkwam in de test set. Figuur \ref{fig:confusionmatrix} laat zien waar de fouten in deze classificatie zitten. De meest karakteristieke features per partij zijn te zien in figuur \ref{tab:MostImportantWords}. Alle resultaten zijn op basis van één classificatie, dus zonder cross validation.
 
-Figuur \ref{fig:confusionmatrix} laat zien waar de fouten in deze classificatie zitten. De meest karakteristieke features per partij zijn te zien in figuur \ref{tab:MostImportantWords}. Alle resultaten zijn op basis van één classificatie, dus zonder cross validation.
+\begin{table}[H]
+\caption{Classificatierapport van beste classificatie.}
+\label{tab:classrapport}
+\centering
+\input{Tables/confusionmatrix.tex}
+\end{table}
 
 
 \begin{figure}[H]
@@ -51,6 +57,18 @@ In figuur \ref{tab:MostImportantWordsWithoutNames} is vervolgens te zien welke w
 \hspace*{-0.6in}
 \input{Tables/MostImportantWordsWithoutNames2.tex} 
 \end{table}
+
+\subsubsection{Deelvraag 3}
+\begin{figure}[H]
+    \centering
+    \hspace*{-1in}
+    \subfloat[label 1]{{\includegraphics[width=9cm]{Verslag/Tables/Regering.png} }}%
+    \subfloat[label 2]{{\includegraphics[width=9cm]{Verslag/Tables/Oppositie.png} }}%
+    \subfloat[label 3]{{\includegraphics[width=9cm]{Verslag/Tables/Mix.png} }}%
+    \subfloat[label 4]{{\includegraphics[width=9cm]{Verslag/Tables/Totaal.png} }}%
+    \caption{Aantal woorden per document}%
+    \label{fig:example}%
+\end{figure}
 
 \subsection{Discussie}
 \subsubsection{Deelvraag 1}
