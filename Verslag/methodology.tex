@@ -104,7 +104,7 @@ waar $i\neq j$ met $i$ de voorspelde partij en $j$ de echte partij waar een docu
 De error is dan het verschil van de verwachte waarde en het daadwerkelijk aantal documenten
 \begin{equation}
 \label{eq:error}
-e_{i,j} = V_{i,j} - D_{i,j}
+e_{i,j} = D_{i,j} - V_{i,j}
 \end{equation}
 met opnieuw $i\neq j$ en $i$ de voorspelde partij en $j$ de echte partij waar een document bijhoort. \par
 Als dit een goede benadering is van de error, dan is het te verwachten dat deze normaal verdeeld is \cite{citeulike:7531484}. Om te kijken of er een confounding bias is, worden de distributies binnen regeringspartijen, binnen oppositiepartijen en tussen beide groepen met elkaar vergeleken. Om de invloed van variantie door de willekeurige splitsing documenten voor trainen en testen te beperken, wordt de classificatie 50 keer gedaan en worden deze errors bij elkaar in distributie genomen. De nulhypothese is dat er geen verschil is tussen de verdelingen. De alternatieve hypothese is dan dus dat er wel een verschil is tussen de verdelingen. Als de nulhypothese wordt verworpen, kan dus aangenomen worden dat er een verschil is op basis van partij-status.\par
