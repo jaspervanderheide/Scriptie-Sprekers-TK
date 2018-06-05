@@ -4,7 +4,7 @@
 
 \subsection{De data}
 \label{data}
-De data die gebruikt worden, zijn de Handelingen van de Tweede Kamer gedurende het missionaire kabinet-Rutte II (5 november 2012 tot 22 maart 2017). Er is gekozen voor dit kabinet, omdat de data hiervoor makkelijk verkrijgbaar was, het kabinet lang zat, waardoor er veel data is, en het recent is waardoor het makkelijker te interpreteren is. Deze data zijn in xml-formaat van de website officielebekendmakingen.nl gehaald samen met corresponderende metadata xml-bestanden. De bestanden van de Handelingen bevatten voornamelijk informatie over spreekbeurten tijdens een debat, waaronder naam van een spreker, partij-affiliatie, inhoud van de spreekbeurt en het soort spreekbeurt. Deze gegevens zijn samengevoegd tot één tabel.\par
+De data die gebruikt worden, zijn de Handelingen van de Tweede Kamer gedurende het missionaire kabinet-Rutte II (5 november 2012 tot 22 maart 2017). Er is gekozen voor dit kabinet, omdat de data hiervoor makkelijk verkrijgbaar was, het kabinet lang zat - waardoor er veel data is - en het recent is waardoor het makkelijker te interpreteren is. Deze data zijn in xml-formaat van de website officielebekendmakingen.nl gehaald samen met corresponderende metadata xml-bestanden. De bestanden van de Handelingen bevatten voornamelijk informatie over spreekbeurten tijdens een debat, waaronder naam van een spreker, partij-affiliatie, inhoud van de spreekbeurt en het soort spreekbeurt. Deze gegevens zijn samengevoegd tot één tabel.\par
 Deze dataset bestaat uit een aantal soorten spreekbeurten; debat bijdragen, interrupties en antwoorden. Debat bijdrage is de eerste onafgebroken spreekbeurt die een spreker geeft achter het spreekgestoelte, aangeduid in de xml-file met het attribuut \textit{nieuw="ja"}. Dit kan een bijdrage in een debat zijn of een vraag tijdens een vragenuur. Interrupties zijn de vragen die andere politici stellen vanachter de interruptiemicrofoon aan de spreker. De antwoorden zijn vervolgens de reactie van een spreker achter het spreekgestoelte op een interruptie. Aangezien een debat bijdrage geïnterrumpeerd kan worden, kan deze inhoudelijk doorlopen in een antwoord van een spreker. Er is in dit onderzoek ervoor gekozen om gebruik te maken van een debat bijdrage samengevoegd tot één document met alle bijbehorende antwoorden van die spreker. Daarnaast zijn er verschillende soorten sprekers; de voorzitter, Tweede Kamerleden, leden van het kabinet en gastsprekers.  Daarnaast is alleen gekozen voor sprekers waarvan er een partij-affiliatie vermeld staat, dit is niet het geval voor leden van het kabinet, de voorzitter en gastsprekers  (met uitzondering van Nederlandse leden van het Europees Parlement).\par
 Deze dataset bevat vervolgens naast de verkozen partijen van de 2012 Tweede Kamerverkiezingen, ook afsplitsingen van die partijen (tien in totaal) en bezoeken van vertegenwoordigingen van Nederlandse partijen uit het Europees Parlement (tien in totaal). Omdat van beide categorieën relatief weinig data is en er overlap zit met hun oorspronkelijke partij, zijn deze er uit gehaald. \par
 
@@ -26,7 +26,7 @@ Om toch de uitschieters er uit te halen, is aangenomen dat het wel lognormaal ve
 \centering
 \input{Tables/Spreekbeurten}
 \end{table}
-Deze 14899 documenten zijn verdeeld over 2984 debatten, waarbij elke vraag tijdens het vragenuur als één debat gezien wordt. Op basis van de aantallen is er voor classificatie een baseline nauwkeurigheid van 0.15 (door altijd grootste partij te kiezen) en baseline $F_1$ score van 0.11 (door willekeurig te voorspellen gewogen bij aantal spreekbeurten in klasse).\par
+Deze 14899 documenten zijn verdeeld over 2984 debatten, waarbij elke vraag tijdens het vragenuur als één debat gezien wordt. Op basis van de aantallen is er voor classificatie een baseline \textit{accuracy} van 0.15 (door altijd grootste partij te kiezen) en baseline $F_1$ score van 0.11 (door willekeurig te voorspellen gewogen bij aantal spreekbeurten in klasse).\par
 
 
 \subsection{Methoden}
@@ -51,16 +51,15 @@ De meest voorkomende techniek in vergelijkbaar onderzoek is Support Vector Machi
 Een simpelere techniek die gebruikt wordt voor politieke tekstclassificatie is Naive Bayes. Dit algoritme neemt aan dat elke \textit{feature} onafhankelijk is ten op zichte van de rest. Dit is bij tekstclassificatie vaak niet het geval omdat het gebruik van sommige woorden gepaard kan gaan met het gebruik van andere woorden. Daarnaast is het gebruik van meerdere n-grams in een classificatie schending van de aanname, want als bijvoorbeeld een bigram er in voorkomt dan komen ook beide unigrams er sowieso in voor. Desalniettemin blijkt Naive Bayes effectief te zijn voor tekstclassificatie\cite{scikit-learn,bhand}. Hiervoor zijn de functies van scikit-learn MultinomialNB en BernoulliNB gebruikt.\cite{scikit-learn,bhand}\par
 
 \paragraph{Beoordelen van kwaliteit}
-De meest gebruikte methoden om kwaliteit van politieke tekstclassificatie te beoordelen zijn nauwkeurigheid en $F_1$ score, die opgebouwd is uit recall en precision. Deze scores zijn opgebouwd uit vier variabelen te zien in tabel \ref{tab:scores}. Deze variabelen geven weer hoeveel documenten wel of niet bij een klasse horen, en of deze wel of niet als dusdanig zijn geclassificeerd.\par
+De meest gebruikte methoden om kwaliteit van politieke tekstclassificatie te beoordelen zijn \textit{accuracy} en $F_1$ score, die opgebouwd is uit recall en precision. Deze scores zijn opgebouwd uit vier variabelen. Deze variabelen geven weer hoeveel documenten wel of niet bij een klasse horen, en of deze wel of niet als dusdanig zijn geclassificeerd \cite{Manning:2008:IIR:1394399} .\par
 
 \begin{table}[H]
-\caption{BLABLA}
 \label{tab:scores}
 \centering
 \begin{tabular}{l|l|l}
- & Behorend tot klasse & Niet behorend tot klasse\\ \hline
-Geclassificeerd als klasse &   $tp$ & $fp$ \\ \hline
-Niet geclassificeerd als klasse & $fn$ & $tn$ \\
+ & Behorend tot partij & Niet behorend tot partij\\ \hline
+Geclassificeerd als partij &   \textit{true positive (tp)} & \textit{false positive (fp)} \\ \hline
+Niet geclassificeerd als partij & \textit{false negative (fn)} & \textit{true negative (tn)} \\
 \end{tabular}
 \end{table}
 \begin{equation}
@@ -70,37 +69,37 @@ Niet geclassificeerd als klasse & $fn$ & $tn$ \\
     Recall = \frac{tp}{tp + tn}
 \end{equation}
 \begin{equation}
-    Nauwkeurigheid = \frac{tp + tn}{tp + tn + fp + fn}
+    accuracy = \frac{tp + tn}{tp + tn + fp + fn}
 \end{equation}
 \begin{equation}
     F_1 = 2 * \frac{Precision * Recall}{Precision + Recall}
 \end{equation}
-Nauwkeurigheid is het percentage van documenten dat correct geclassificeerd is. Precision is het percentage van documenten geclassificeerd als klasse, dat ook bij die klasse hoort. Recall is het percentage documenten van documenten behorende tot een klasse, dat ook als dusdanig geclassificeerd is. $F_1$ is het harmonisch gemiddelde van recall en precision. Precision, recall en dus ook $F_1$ worden in beginsel per klasse berekend. Er zijn drie varianten om deze scores voor de hele classificatie te berekenen. \par
-Allereerst is er $micro$, daarbij worden alle waarden bij elkaar opgeteld en dan berekend. Dit leidt ertoe dat resultaten van klassen met veel documenten belangrijker zijn. Als een classificatie kleine klassen grotendeels fout classificeert, kan deze score alsnog hoog zijn. In het geval van meer dan twee klassen is dit hetzelfde als nauwkeurigheid.\par 
-Als tweede is er $macro$, daarbij worden alle scores per klasse berekend en wordt daarvan het gemiddelde genomen. Dit leidt er dan weer toe dat resultaten van klassen met weinig documenten net zo belangrijk zijn. Hierdoor kan een classificatie met een laag aantal correct geclassificeerde documenten hoog scoren door vooral kleine klassen goed te hebben.\par
-Als laatste is er dan nog $gewogen$, dit berekent net als $macro$ de scores per klasse, maar neemt hiervan het gemiddelde gewogen bij het aantal documenten behorend tot een klasse. Deze wijkt weinig af van de $micro$ variant, tenzij er uitschieters zijn bij klassen.\par
-Aangezien $micro$ al terugkomt in nauwkeurigheid en het nadeel van $macro$ te groot is omdat de klassen nogal variëren in grootte, is gekozen voor $gewogen$ $F_1$ scoring naast nauwkeurigheid.
+\textit{Accuracy} is het percentage van documenten dat correct geclassificeerd is. Precision is het percentage van documenten geclassificeerd als klasse, dat ook bij die klasse hoort. Recall is het percentage documenten van documenten behorende tot een klasse, dat ook als dusdanig geclassificeerd is. $F_1$ is het harmonisch gemiddelde van recall en precision. Precision, recall en dus ook $F_1$ worden per klasse berekend. Er zijn drie varianten om deze scores voor de hele classificatie te berekenen. \par
+Allereerst is er $micro$, daarbij worden alle waarden bij elkaar opgeteld en dan berekend. Dit leidt ertoe dat resultaten van klassen met veel documenten belangrijker zijn. Als een classificatie kleine klassen grotendeels fout classificeert, kan deze score alsnog hoog zijn. In het geval van meer dan twee klassen is dit hetzelfde als \textit{accuracy}.\par 
+Als tweede is er \textit{macro}, daarbij worden alle scores per klasse berekend en wordt daarvan het gemiddelde genomen. Dit leidt er dan weer toe dat resultaten van klassen met weinig documenten net zo belangrijk zijn. Hierdoor kan een classificatie met een laag aantal correct geclassificeerde documenten hoog scoren door vooral kleine klassen goed te classificeren.\par
+Als laatste is er dan nog \textit{gewogen}, deze berekent net als \textit{macro} de scores per klasse, maar neemt hiervan het gemiddelde gewogen bij het aantal documenten behorend tot een klasse. Deze wijkt weinig af van de $micro$ variant, tenzij er uitschieters zijn bij klassen.\par
+Aangezien $micro$ al terugkomt in \textit{accuracy} en het nadeel van \textit{macro} te groot is omdat de klassen nogal variëren in grootte, is gekozen voor \textit{gewogen} $F_1$ scoring naast \textit{accuracy}.
 \bigskip
 
 \subsubsection{Deelvraag 2}
-In Diermeier et al. \cite{diermeier_godbout_yu_kaufmann_2012} wordt aangenomen dat namen een groot effect hebben op de classificatie en Hirst et al. \cite{Hirst_textto} bevestigt dit voor het Europees Parlement. Aangezien hier bij deelvraag 1 niet voor is gekozen, wordt bij deze deelvraag gekeken hoe groot het effect hiervan is, specifiek gericht op partijnamen en achternamen van Kamerleden. Voor deze deelvraag wordt wederom een classificatie gedaan met de classificatiemethode die resulteerde uit deelvraag 1. In deze classificatie worden alle partijnamen vervangen door de tag PARTIJNAAM en alle namen van Kamerleden vervangen door de KAMERLIDNAAM. Deze namen zijn uit de Handelingen gehaald. Voor partijnamen zijn ook lidwoorden toegevoegd, voor achternamen van Kamerleden zijn ook verkortingen meegenomen. Dit laatste omdat bijvoorbeeld \textit{Van Haersma Buma} vaak aangesproken wordt als \textit{Buma}. Voornamen van Kamerleden worden zelden tot nooit gebruikt, dus die zijn er niet uitgehaald. Een nadeel van deze aanpak is dat ook namen van niet-Kamerleden of andere woorden weggehaald kunnen worden als deze hetzelfde zijn als naam van een Kamerlid. Door gebruik van gevoeligheid voor hoofdletters is geprobeerd dit te voorkomen. Een opvallend voorbeeld hiervan is de naam Rutte, die zowel behoort tot het Kamerlid Arno Rutte als de premier Mark Rutte. Steekproefgewijs is gekeken of er nog namen achter zijn gebleven, maar die zijn niet gevonden. \par
-De nauwkeurigheid en $F_1$ score worden vervolgens vergeleken met de resultaten uit deelvraag 1. Ook wordt gekeken naar verschillen tussen de meest veelzeggende woorden uit deelvraag 1 en uit deze deelvraag.
+In Diermeier et al. \cite{diermeier_godbout_yu_kaufmann_2012} wordt aangenomen dat namen een groot effect hebben op de classificatie en Hirst et al. \cite{Hirst_textto} bevestigen dit voor het Europees Parlement. Aangezien hier bij deelvraag 1 niet voor is gekozen, wordt bij deze deelvraag gekeken hoe groot het effect hiervan is, specifiek gericht op partijnamen en achternamen van Kamerleden. Voor deze deelvraag wordt wederom een classificatie gedaan met de classificatiemethode die resulteerde uit deelvraag 1. In deze classificatie worden alle partijnamen vervangen door de tag PARTIJNAAM en alle namen van Kamerleden vervangen door de KAMERLIDNAAM. Deze namen zijn uit de Handelingen gehaald. Voor partijnamen zijn ook lidwoorden toegevoegd, voor achternamen van Kamerleden zijn ook verkortingen meegenomen. Dit laatste omdat bijvoorbeeld \textit{Van Haersma Buma} vaak aangesproken wordt als \textit{Buma}. Voornamen van Kamerleden worden zelden tot nooit gebruikt, dus die zijn er niet uitgehaald. Een nadeel van deze aanpak is dat ook namen van niet-Kamerleden of andere woorden weggehaald kunnen worden als deze hetzelfde zijn als naam van een Kamerlid. Door gebruik van gevoeligheid voor hoofdletters is geprobeerd dit te voorkomen. Een opvallend voorbeeld hiervan is de naam Rutte, die zowel behoort tot het Kamerlid Arno Rutte als de premier Mark Rutte. Steekproefgewijs is gekeken of er nog namen achter zijn gebleven, maar die zijn niet gevonden. \par
+Ook wordt gekeken naar classificatie met alleen partijnamen en namen van Kamerleden. Alle andere woorden worden weggehaald. Namen van Kamerleden en partijen die niet aan elkaar geschreven worden, zoals \textit{Partij van de Arbeid}, worden aan elkaar geschreven zodat het één feature wordt. Doordat alle andere woorden weggehaald zijn, worden de bi- en trigrams combinaties van namen die zinnen uit elkaar kunnen staan, dus die niet meer informatie geven dan unigrams. Daarom wordt er gebruikt van de classificatiemethode uit deelvraag 1, maar dan met alleen unigrams. Hoge scores voor deze classificatie geven aan dat met alleen namen classificatie goed te doen is en dat dit dus een grote bijdrage heeft geleverd aan de resultaten uit deelvraag 1. \par
 
 \subsubsection{Deelvraag 3}
 
-Om deze deelvraag te beantwoorden zal een analyse gedaan worden van de confusion matrix en zullen de twee experimenten die Graeme Hirst et al. uitvoerden voor dezelfde vraag gereproduceerd worden op de dataset van de Tweede Kamer. Bij deze deelvraag zal de beste classifier uit deelvraag 1 en 2 gebruikt worden.\par
-Als er een confounding bias is op basis van partij-status, dan is te verwachten dat het aantal misclassificaties minus verwachte waarde binnen regeringspartijen en binnen oppositiepartijen hoger ligt dan tussen oppositiepartijen en regeringspartijen. Uit de voorverkenning (op basis van resultaten uit deelvraag 1 en 2) blijkt verder dat er een correlatie is tussen het aantal foutief als partij geclassificeerde documenten ($fp$) en het aantal documenten behorend tot die partij. 
+Om deze deelvraag te beantwoorden zal een analyse gedaan worden van de confusion matrix en zullen twee experimenten die Graeme Hirst et al. uitvoerden voor dezelfde vraag gereproduceerd worden op de dataset van de Tweede Kamer. Bij deze deelvraag zal de beste classifier uit deelvraag 1 en 2 gebruikt worden.\par
+Als er een confounding bias is op basis van partij-status, dan is te verwachten dat het aantal misclassificaties minus verwachte waarde binnen regeringspartijen en binnen oppositiepartijen hoger ligt dan tussen oppositiepartijen en regeringspartijen. Uit de voorverkenning (op basis van resultaten uit deelvraag 1 en 2) blijkt verder dat er een correlatie is tussen het aantal \textit{false positives} van een partij en het aantal documenten behorend tot die partij.
 \begin{figure}[H]
   \centering
     \includegraphics[width=0.60\paperwidth]{Verslag/Tables/Correlation.png}
-\caption{Het aantal foutief als bepaalde partij geclassificeerde documenten ten opzichte van het aantal documenten behorend tot die partij. De pearson correlatie is 0.78.}
-\label{fig:confusionmatrix}
+\caption{Het aantal foutief als bepaalde partij geclassificeerde documenten ten opzichte van het aantal documenten behorend tot die partij. Dit is op basis van 50 classificaties met verschillende test en train set. De pearson correlatie is 0.78.}
+\label{fig:correlation}
 \end{figure}
-Aannemend dat dit verband causaal is, is het verwachte aantal documenten
+Op basis van dit verband is het verwachte aantal documenten
 \begin{equation}
-V_{i,j}  = (\sum_{k=0}^{n}{(D_{k,j})} -D_{j,j}) *  \frac{\sum_{k=0}^{n}{(D_{i,k})}}{\sum_{k=0}^{n}{(\sum_{l=0}^{n}{D_{k,l}})} - \sum_{k=0}^{n}{(D_{k,j})}}
+V_{i,j}  = fn_i *  \frac{tp_{j}+fn_{j}}{tn_{i}+fp_{i}}
 \end{equation}
-waar $i\neq j$ met $i$ de voorspelde partij en $j$ de echte partij waar een document bijhoort, $D_{i,j}$ het aantal documenten als dusdanig geclassificeerd en $n$ het aantal partijen. De linkerterm is het totaal aantal documenten behorende tot partij $i$ die fout geclassificeerd zijn. De rechterterm is het percentage van het totaal aantal documenten minus die van partij $i$ dat tot partij $j$ behoort.\par
+waar $i\neq j$ met $i$ de voorspelde partij en $j$ de echte partij waar een document bijhoort.\par
 De error is dan het verschil van de verwachte waarde en het daadwerkelijk aantal documenten
 \begin{equation}
 \label{eq:error}

@@ -4,8 +4,8 @@
 \subsection{Resultaten}
 
 \subsubsection{Deelvraag 1}
-Het beste resultaat werd bereikt met SVM gebruikmakend van \textit{stochastic gradient descent learning} en Ridge regularisatie.\par
-Figuur \ref{tab:classrapport} laat de classificatiescores zien per partij met hoe vaak een partij voorkwam in de test set. Figuur \ref{fig:confusionmatrix} laat zien waar de fouten in deze classificatie zitten. De meest karakteristieke features per partij zijn te zien in figuur \ref{tab:MostImportantWords}. Alle resultaten zijn op basis van één classificatie, dus zonder cross validation.
+Het beste resultaat werd bereikt met SVM gebruikmakend van \textit{stochastic gradient descent learning} en Ridge regularisatie. De scores zijn ruim hoger dan de baseline scores. De scores liggen binnen de scores gevonden in gerelateerd werk, ondanks dat de baseline scores aanzienlijk lager zijn.\par
+Tabel \ref{tab:classrapport} laat de classificatiescores zien per partij met het aantal documenten in de test set. Figuur \ref{fig:confusionmatrix} laat zien waar de fouten in deze classificatie zitten. De meest karakteristieke features per partij zijn te zien in tabel \ref{tab:MostImportantWords}.
 
 \begin{table}[H]
 \caption{Classificatierapport van beste classificatie.}
@@ -74,8 +74,9 @@ In figuur \ref{fig:distributies} zijn de distributies van de errors te zijn van 
 
 \subsection{Discussie}
 \subsubsection{Deelvraag 1}
-Dit onderzoek heeft zich beperkt tot methoden genoemd in vergelijkbare onderzoeken en waarvan de implementatie beschikbaar is in Python. Een aantal methoden die in gerelateerde literatuur leidden tot goede classificaties zijn daarom niet getest. Ook nieuwe methoden die nog niet gebruikt zijn in een vergelijkbaar onderzoek voor politieke tekst classificatie zijn daarom niet getest. Omdat dus niet alle opties getest zijn, kan geen uitsluitsel gegeven worden dat dit daadwerkelijk het classificatiemodel is. Voor vervolgonderzoek kan daarom gekeken worden naar meer verschillende methoden.\par
-Het onderzoek van Hirst et al. vond dat resultaten afhankelijk kunnen zijn van documentgrootte. Alle documenten in dit onderzoek zijn kleiner dan de grootste documentgrootte uit het onderzoek van Hirst et al. en ook de minimumfrequentie lager ligt dan de kleinste documentgrootte uit het onderzoek van Hirst et al.
+
+Dit onderzoek heeft zich beperkt tot methoden genoemd in vergelijkbare onderzoeken en waarvan de implementatie beschikbaar is in Python. Een aantal methoden die in gerelateerde literatuur leidden tot goede classificaties zijn daarom niet getest. Ook nieuwe methoden die nog niet gebruikt zijn in een vergelijkbaar onderzoek voor politieke tekst classificatie zijn daarom niet getest. Voor vervolgonderzoek kan daarom gekeken worden naar meer verschillende methoden.\par
+Het onderzoek van Hirst et al. vond dat resultaten afhankelijk kunnen zijn van documentgrootte. Alle documenten in dit onderzoek zijn kleiner dan de grootste documentgrootte uit het onderzoek van Hirst et al. en ook de minimumfrequentie lager ligt dan de kleinste documentgrootte uit dat onderzoek.
 Het effect wat zij vinden tussen documentgrootte van 267 en 6666 is een verschil in nauwkeurigheid van 19,8\%. Voor een vervolgonderzoek kan gekeken worden naar of dit effect er is en wat dit betekent voor de resultaten.\par
 
 \subsubsection{Deelvraag 2}
