@@ -4,8 +4,8 @@
 \subsection{Resultaten}
 
 \subsubsection{Deelvraag 1}
-Het beste resultaat werd bereikt met SVM gebruikmakend van \textit{stochastic gradient descent learning} en Ridge regularisatie. De scores zijn ruim hoger dan de baseline scores. De scores liggen binnen de scores gevonden in gerelateerd werk, ondanks dat de baseline scores aanzienlijk lager zijn.\par
-Tabel \ref{tab:classrapport} laat de classificatiescores zien per partij met het aantal documenten in de test set. Figuur \ref{fig:confusionmatrix} laat zien waar de fouten in deze classificatie zitten. De meest karakteristieke features per partij zijn te zien in tabel \ref{tab:MostImportantWords}.
+Het beste resultaat werd bereikt met Support Vector Machines gebruikmakend van \textit{stochastic gradient descent learning} en Elasticnet regularisatie. De features waren hierbij gestemd, met unigrams, bigrams en trigrams. Geen features zijn hierin weggelaten door minimale of maximale documentfrequenties. Het verschil in scores is zeer klein, zoals te zien in figuur XXX. In bijlage YYY staan uitgebreidere figuren over het effect van de classificatiemethoden. De scores zijn ruim hoger dan de baseline scores. De scores liggen binnen de scores gevonden in gerelateerd werk, ondanks dat de baseline scores aanzienlijk lager zijn en de documentgrootte kleiner is.\par
+Tabel \ref{tab:classrapport} laat de scores zien per partij met het aantal documenten in de test set. De $F_1$ scores per partij liggen tussen de 0.7 en 0.8. De one-issuepartijen, 50PLUS en PvdD, hebben scores daarboven, terwijl de coalitiepartijen, VVD en PvdA, lagere scores hebben. Figuur \ref{fig:confusionmatrix} laat zien waar de fouten in deze classificatie zitten. 
 
 \begin{table}[H]
 \caption{Classificatierapport van beste classificatie.}
@@ -22,8 +22,11 @@ Tabel \ref{tab:classrapport} laat de classificatiescores zien per partij met het
 \label{fig:confusionmatrix}
 \end{figure}
 
+De meest karakteristieke features per partij zijn te zien in tabel \ref{tab:MostImportantWords}.\par
+
 \begin{table}[H]
 \caption{Meest relevante woorden per partij op basis van beste classificatie gedurende kabinet-Rutte II.} 
+
 \label{tab:MostImportantWords} 
 \centering
 \hspace*{-1in}
@@ -37,12 +40,10 @@ Tabel \ref{tab:classrapport} laat de classificatiescores zien per partij met het
 \input{Tables/MostImportantWords2.tex} 
 \end{table}
 
+Hierin is te zien dat vrijwel alle woorden verwijzen naar de partij of een Kamerlid van die partij.\par
+
 \subsubsection{Deelvraag 2}
-In figuur \ref{tab:MostImportantWords} was al te zien dat de meest karakteristieke woorden voornamelijk bestaan uit partijnamen en namen van Kamerleden. 
-
-
-
-In figuur \ref{tab:MostImportantWordsWithoutNames} is vervolgens te zien welke woorden het meest karakteristiek zijn per partij, als partijnamen en namen van Kamerleden vervangen zijn.
+In tabel \ref{tab:MostImportantWords} was al te zien dat de meest karakteristieke woorden voornamelijk bestaan uit partijnamen en namen van Kamerleden. In tabel \ref{tab:MostImportantWordsWithoutNames} is vervolgens te zien welke woorden het meest karakteristiek zijn per partij, als partijnamen en namen van Kamerleden vervangen zijn.
 \begin{table}[H] 
 \caption{Meest relevante woorden per partij op basis van classificatie uit deelvraag 1 zonder partijnamen of namen van Kamerleden gedurende kabinet-Rutte II.} 
 \label{tab:MostImportantWordsWithoutNames} 
@@ -74,13 +75,18 @@ In figuur \ref{fig:distributies} zijn de distributies van de errors te zijn van 
 
 \subsection{Discussie}
 \subsubsection{Deelvraag 1}
-
-Dit onderzoek heeft zich beperkt tot methoden genoemd in vergelijkbare onderzoeken en waarvan de implementatie beschikbaar is in Python. Een aantal methoden die in gerelateerde literatuur leidden tot goede classificaties zijn daarom niet getest. Ook nieuwe methoden die nog niet gebruikt zijn in een vergelijkbaar onderzoek voor politieke tekst classificatie zijn daarom niet getest. Voor vervolgonderzoek kan daarom gekeken worden naar meer verschillende methoden.\par
+Het onderzoek behaalt resultaten in lijn der verwachting op basis van gerelateerd en daarnaast ruim boven de baseline scores.\par
+Dit onderzoek heeft zich beperkt tot methoden genoemd in vergelijkbare onderzoeken en waarvan de implementatie beschikbaar is in Python. Een aantal methoden die in gerelateerde literatuur leidden tot goede classificaties zijn daarom niet getest. Ook nieuwe methoden die nog niet gebruikt zijn in een vergelijkbaar onderzoek voor politieke tekst classificatie zijn daarom niet getest. Daarnaast richtte zich dit ook maar op een beperkt aantal parameterwaarden. Voor vervolgonderzoek kan daarom dit onderdeel uitgebreid worden.\par
 Het onderzoek van Hirst et al. vond dat resultaten afhankelijk kunnen zijn van documentgrootte. Alle documenten in dit onderzoek zijn kleiner dan de grootste documentgrootte uit het onderzoek van Hirst et al. en ook de minimumfrequentie lager ligt dan de kleinste documentgrootte uit dat onderzoek.
 Het effect wat zij vinden tussen documentgrootte van 267 en 6666 is een verschil in nauwkeurigheid van 19,8\%. Voor een vervolgonderzoek kan gekeken worden naar of dit effect er is en wat dit betekent voor de resultaten.\par
 
 \subsubsection{Deelvraag 2}
+De resultaten laten zien dat de classificatie afhankelijk is van partijnamen en namen van Kamerleden.\par
+De woorden in tabel \ref{tab:MostImportantWordsWithoutNames} komen bij veel partijen overeen met hun ideologie, vooral bij PVV, PvdD en 50PLUS. Daarnaast zijn er ook woorden die niet veel over ideologie zeggen, zoals; \textit{volgens mij}, \textit{ik constateer} en \textit{in elk geval}. Vooral de SGP heeft woorden die niet veel lijken te zeggen over de ideologie. Met name opvallend hierbij is \textit{mevrouw de voorzitter}, aangezien deze woorden door alle partijen gebruikt worden om via de voorzitter te praten. Voor een vervolgonderzoek kan gekeken naar waarom deze woorden zo karakteristiek zijn voor partijen. Een hypothese is dat deze woorden eigen zijn aan een individueel Kamerlid.\par
+De classificatiemethode die gebruikt is in deze deelvraag, is gebaseerd op de beste methode voor de dataset uit deelvraag 1. Hierin was gevonden dat een combinatie van uni-, bi- en trigrams het beste resultaat opleverde. In tabel \ref{tab:MostImportantWords} is te zien dat trigrams behoren tot de meest karakteristieke woorden, hoewel de woorden in trigrams vaak overlappen met uni- en bigrams. In tabel \ref{tab:MostImportantWordsWithoutNames} daarentegen zijn er nog maar een paar trigrams, welke grotendeels procedurele zinnen zijn of toevoeging van een lidwoord op een uni- of bigram. Dit verschil suggereert dat trigrams minder belangrijk zijn in de classificatie zonder de namen, dus de classificatiemethode uit deelvraag 1 niet het beste is voor deze classificatie. In vervolgonderzoek kan de opzet van deelvraag 1 toegepast worden op de classificatie zonder de namen, om zo te komen tot een classificatiemethode die het beste resultaat oplevert op de classificatie zonder namen.\par 
 
+\subsubsection{Deelvraag 3}
+In tabel \ref{tab:classrapport} is het opvallend dat de coalitiepartijen lage scores krijgt. Daarnaast laat figuur \ref{fig:confusionmatrix} zien dat er een hoge overlap zit tussen deze twee partijen.\par
 
 \subsubsection{Deelvraag 4}
 Er zijn verschillende visies op links en rechts, en de indeling van de partijen, ook buiten de twee methoden gekozen in dit onderzoek.\par
