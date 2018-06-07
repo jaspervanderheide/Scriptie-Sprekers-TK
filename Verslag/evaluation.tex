@@ -41,7 +41,14 @@ Tabel \ref{tab:classrapport} laat de scores zien per partij met het aantal docum
 \end{table}
 
 \subsubsection{Deelvraag 2}
-In tabel \ref{tab:MostImportantWords} was al te zien dat de meest karakteristieke woorden voornamelijk bestaan uit partijnamen en namen van Kamerleden. In tabel \ref{tab:MostImportantWordsWithoutNames} is vervolgens te zien welke woorden het meest karakteristiek zijn per partij, als partijnamen en namen van Kamerleden vervangen zijn.
+In tabel \ref{tab:MostImportantWords} was al te zien dat de meest karakteristieke woorden voornamelijk bestaan uit partijnamen en namen van Kamerleden. In tabel \ref{tab:rapportwithoutnames} zijn de scores te zien van classificatie met partijnamen en namen van Kamerleden vervangen. In tabel \ref{tab:MostImportantWordsWithoutNames} is vervolgens te zien welke woorden het meest karakteristiek zijn per partij voor deze classificatie.
+\begin{table}[H]
+\caption{Classificatierapport van beste classificatie.}
+\label{tab:rapportwithoutnames}
+\centering
+\input{Tables/confusionmatrix.tex}
+\end{table}
+
 \begin{table}[H] 
 \caption{Meest relevante woorden per partij op basis van classificatie uit deelvraag 1 zonder partijnamen of namen van Kamerleden gedurende kabinet-Rutte II.} 
 \label{tab:MostImportantWordsWithoutNames} 
@@ -74,7 +81,7 @@ In figuur \ref{fig:distributies} zijn de distributies van de errors te zijn van 
 \subsection{Discussie}
 \subsubsection{Deelvraag 1}
 Het onderzoek behaalt resultaten in lijn der verwachting op basis van gerelateerd en daarnaast ruim boven de baseline scores.\par
-Dit onderzoek heeft zich beperkt tot methoden genoemd in vergelijkbare onderzoeken en waarvan de implementatie beschikbaar is in Python. Een aantal methoden die in gerelateerde literatuur leidden tot goede classificaties zijn daarom niet getest. Ook nieuwe methoden die nog niet gebruikt zijn in een vergelijkbaar onderzoek voor politieke tekst classificatie zijn daarom niet getest. Daarnaast richtte zich dit ook maar op een beperkt aantal parameterwaarden. Voor vervolgonderzoek kan daarom dit onderdeel uitgebreid worden.\par
+Dit onderzoek heeft zich beperkt tot methoden genoemd in vergelijkbare onderzoeken en waarvan de implementatie beschikbaar is in scikit-learn. Een aantal methoden die in gerelateerde literatuur leidden tot goede classificaties zijn daarom niet getest. Ook nieuwe methoden die nog niet gebruikt zijn in een vergelijkbaar onderzoek voor politieke tekst classificatie zijn daarom niet getest. Daarnaast richtte zich dit ook maar op een beperkt aantal parameterwaarden. Een belangrijke hierbij is het maximaal iteraties, wat ver onder het aantal iteraties benodigd voor convergentie ligt. Voor vervolgonderzoek kan daarom dit onderdeel uitgebreid worden.\par
 Het onderzoek van Hirst et al. vond dat resultaten afhankelijk kunnen zijn van documentgrootte. Alle documenten in dit onderzoek zijn kleiner dan de grootste documentgrootte uit het onderzoek van Hirst et al. en ook de minimumfrequentie lager ligt dan de kleinste documentgrootte uit dat onderzoek.
 Het effect wat zij vinden tussen documentgrootte van 267 en 6666 is een verschil in nauwkeurigheid van 19,8\%. Voor een vervolgonderzoek kan gekeken worden naar of dit effect er is en wat dit betekent voor de resultaten.\par
 
