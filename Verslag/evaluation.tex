@@ -41,7 +41,7 @@ Tabel \ref{tab:classrapport} laat de scores zien per partij met het aantal docum
 \end{table}
 
 \subsubsection{DV2: Invloed van namen}
-In tabel \ref{tab:MostImportantWords} was al te zien dat de meest karakteristieke woorden voornamelijk bestaan uit partijnamen en namen van Kamerleden. In tabel \ref{tab:rapportwithoutnames} zijn de scores te zien van classificatie met partijnamen en namen van Kamerleden vervangen. In tabel \ref{tab:MostImportantWordsWithoutNames} is vervolgens te zien welke woorden het meest karakteristiek zijn per partij voor deze classificatie.
+In tabel \ref{tab:MostImportantWords} was al te zien dat de meest karakteristieke woorden voornamelijk bestaan uit partijnamen en namen van Kamerleden. In tabel \ref{tab:rapportwithoutnames} zijn de scores te zien van classificatie met partijnamen en namen van Kamerleden vervangen. Deze zijn aanzienlijk lager dan de scores uit deelvraag 1, maar nog steeds hoger dan de baseline. In tabel \ref{tab:MostImportantWordsWithoutNames} is vervolgens te zien welke woorden het meest karakteristiek zijn per partij voor deze classificatie.\par
 \begin{table}[H]
 \caption{Classificatierapport van beste classificatie zonder namen van Kamerleden of partijnamen.}
 \label{tab:rapportwithoutnames}
@@ -64,6 +64,7 @@ In tabel \ref{tab:MostImportantWords} was al te zien dat de meest karakteristiek
 \input{Tables/MostImportantWordsWithoutNames2.tex} 
 \end{table}
 
+In tabel \ref{tab:rapportonlynames} zijn de scores te zien voor een classificatie met alleen namen van partijen Kamerleden. De scores zijn gedaald ten op zichte van de resultaten van deelvraag 1, maar hoger dan die zonder namen.\par
 \begin{table}[H]
 \caption{Classificatierapport van beste classificatie met alleen namen van partijen en Kamerleden. Hiervoor is alleen gebruikgemaakt van unigrams.}
 \label{tab:rapportonlynames}
@@ -85,6 +86,21 @@ In figuur \ref{fig:distributies} zijn de distributies van de errors te zijn van 
     \label{fig:distributies}%
 \end{figure}
 
+\begin{table}[H] 
+\caption{Meest relevante woorden per partij op basis van classificatie uit deelvraag 2 gedurende kabinet-Balkenende IV.} 
+\label{tab:WoordenBalkenende4} 
+\centering
+\hspace*{-1in}
+\input{Tables/WoordenBalkenende41.tex} 
+\end{table} 
+\addtocounter{table}{-1} 
+\begin{table}[H] 
+\caption{Meest relevante woorden per partij op basis van classificatie uit deelvraag 2 gedurende kabinet-Balkenende IV. \emph{(Vervolg)}} 
+\centering
+\hspace*{-0.6in}
+\input{Tables/WoordenBalkenende42.tex} 
+\end{table}
+
 \subsubsection{DV4: Links of rechts}
 
 \subsubsection{DV5: Woordgebruik van sprekers}
@@ -97,14 +113,15 @@ In figuur \ref{fig:distributies} zijn de distributies van de errors te zijn van 
 
 \subsection{Discussie}
 \subsubsection{DV1: Beste classificatiemethode}
-Het onderzoek behaalt resultaten in lijn der verwachting op basis van gerelateerd en daarnaast ruim boven de baseline scores.\par
+Het onderzoek behaalt resultaten in lijn der verwachting op basis van gerelateerd en daarnaast ruim boven de baseline scores. De lage scores voor de coalitiepartijen steunen de hypothese van een afhankelijkheid van partij-status, zoals besproken wordt in deelvraag 3 Het bijna alleen voorkomen van partijnamen en Kamerleden in de meest karakteristieke woorden per partij in tabel \ref{tab:MostImportantWords} steunt daarnaast het vermoeden dat deze classificatie sterk afhankelijk is van die namen, zoals besproken wordt in deelvraag 2.  \par
+** ALINEA OVER HOE DICHT ALLES BIJ ELKAAR LIGT **\par
 Dit onderzoek heeft zich beperkt tot methoden genoemd in vergelijkbare onderzoeken en waarvan de implementatie beschikbaar is in scikit-learn. Een aantal methoden die in gerelateerde literatuur leidden tot goede classificaties zijn daarom niet getest. Ook nieuwe methoden die nog niet gebruikt zijn in een vergelijkbaar onderzoek voor politieke tekst classificatie zijn daarom niet getest. Daarnaast richtte zich dit ook maar op een beperkt aantal parameterwaarden. Een belangrijke hierbij is het maximaal iteraties, wat ver onder het aantal iteraties benodigd voor convergentie ligt. Voor vervolgonderzoek kan daarom dit onderdeel uitgebreid worden.\par
 Het onderzoek van Hirst et al. vond dat resultaten afhankelijk kunnen zijn van documentgrootte. Alle documenten in dit onderzoek zijn kleiner dan de grootste documentgrootte uit het onderzoek van Hirst et al. en ook de minimumfrequentie lager ligt dan de kleinste documentgrootte uit dat onderzoek.
 Het effect wat zij vinden tussen documentgrootte van 267 en 6666 is een verschil in nauwkeurigheid van 19,8\%. Voor een vervolgonderzoek kan gekeken worden naar of dit effect er is en wat dit betekent voor de resultaten.\par
 
 \subsubsection{DV2: Invloed van namen}
-De resultaten laten zien dat de classificatie afhankelijk is van partijnamen en namen van Kamerleden.\par
-De woorden in tabel \ref{tab:MostImportantWordsWithoutNames} komen bij veel partijen overeen met hun ideologie, vooral bij PVV, PvdD en 50PLUS. Daarnaast zijn er ook woorden die niet veel over ideologie zeggen, zoals; \textit{volgens mij}, \textit{ik constateer} en \textit{in elk geval}. Vooral de SGP heeft woorden die niet veel lijken te zeggen over de ideologie. Met name opvallend hierbij is \textit{mevrouw de voorzitter}, aangezien deze woorden door alle partijen gebruikt worden om via de voorzitter te praten. Voor een vervolgonderzoek kan gekeken naar waarom deze woorden zo karakteristiek zijn voor partijen. Een hypothese is dat deze woorden eigen zijn aan een individueel Kamerlid.\par
+De resultaten laten zien dat de classificatie sterk afhankelijk is van partijnamen en namen van Kamerleden. Deze daling was te verwachten op basis van gerelateerd werk.\par
+De woorden in tabel \ref{tab:MostImportantWordsWithoutNames} komen bij veel partijen overeen met hun ideologie, vooral bij PVV, PvdD en 50PLUS. Daarnaast zijn er ook woorden die niet veel over ideologie zeggen, zoals; \textit{volgens mij}, \textit{ik constateer} en \textit{in elk geval}. Vooral de SGP heeft woorden die niet veel lijken te zeggen over de ideologie, hoewel deze partij desalniettemin de hoogste $f_1$ score heeft. Met name opvallend hierbij is \textit{mevrouw de voorzitter}, aangezien deze woorden door alle partijen gebruikt worden om via de voorzitter te praten. Voor een vervolgonderzoek kan gekeken naar waarom deze woorden zo karakteristiek zijn voor partijen. Een hypothese is dat deze woorden eigen zijn aan een individueel Kamerlid.\par
 De classificatiemethode die gebruikt is in deze deelvraag, is gebaseerd op de beste methode voor de dataset uit deelvraag 1. Hierin was gevonden dat een combinatie van uni-, bi- en trigrams het beste resultaat opleverde. In tabel \ref{tab:MostImportantWords} is te zien dat trigrams behoren tot de meest karakteristieke woorden, hoewel de woorden in trigrams vaak overlappen met uni- en bigrams. In tabel \ref{tab:MostImportantWordsWithoutNames} daarentegen zijn er nog maar een paar trigrams, welke grotendeels procedurele zinnen zijn of toevoeging van een lidwoord op een uni- of bigram. Dit verschil suggereert dat trigrams minder belangrijk zijn in de classificatie zonder de namen, dus de classificatiemethode uit deelvraag 1 niet het beste is voor deze classificatie. In vervolgonderzoek kan de opzet van deelvraag 1 toegepast worden op de classificatie zonder de namen, om zo te komen tot een classificatiemethode die het beste resultaat oplevert op de classificatie zonder namen.\par 
 
 \subsubsection{DV3: Oppositie of regering}
@@ -114,3 +131,7 @@ In tabel \ref{tab:classrapport} is het opvallend dat de coalitiepartijen lage sc
 Er zijn verschillende visies op links en rechts, en de indeling van de partijen, ook buiten de twee methoden gekozen in dit onderzoek.\par
 
 \subsubsection{DV5: Woordgebruik van sprekers}
+
+\subsubsection{Algemeen}
+Het vergelijken van deze resultaten met vergelijkbaar werk is problematisch, aangezien de keuzes en eigenschappen van hun onderzoek het niet een één-op-één vergelijking maken. Voorbeelden hiervan zijn de documentgrootte, baselines, behouden of weglaten van namen, een spreker als document zien en het trainen en testen op dezelfde spreker. Hoewel de resultaten dus lager zijn dan die uit vergelijkbaar werk, moet hiermee rekening gehouden worden. Een vervolgonderzoek zou daarom dit onderzoek kunnen reproduceren op een ander parlement om daarmee te kunnen vergelijken.\par
+Dit onderzoek richtte zich hoofdzakelijk op de Handelingen gedurende kabinet-Rutte II. Om te kijken in hoeverre het mogelijk is om deze conclusie door te trekken naar de algemene Handelingen van de Tweede Kamer, kan er in vervolgonderzoek gekeken worden naar meerdere zittingsperioden. Ook kan gekeken worden naar veranderingen als een kabinet demissionair is.\par
