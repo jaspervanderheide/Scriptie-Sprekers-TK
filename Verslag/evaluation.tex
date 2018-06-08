@@ -4,7 +4,7 @@
 \subsection{Resultaten}
 
 \subsubsection{DV1: Beste classificatiemethode}
-Het beste resultaat werd bereikt met Support Vector Machines gebruikmakend van \textit{stochastic gradient descent learning} en Elasticnet regularisatie. De features waren hierbij gestemd, met unigrams, bigrams en trigrams. Geen features zijn hierin weggelaten door minimale of maximale documentfrequenties. De scores zijn ruim hoger dan de baseline scores. De scores liggen binnen de scores gevonden in gerelateerd werk, ondanks dat de baseline scores aanzienlijk lager zijn en de documentgrootte kleiner is.\par
+Het beste resultaat werd bereikt met Support Vector Machines gebruikmakend van \textit{stochastic gradient descent learning} en Elasticnet regularisatie. De features waren hierbij gestemd, met unigrams, bigrams en trigrams. Geen features zijn hierin weggelaten door minimale of maximale documentfrequenties. \par
 Tabel \ref{tab:classrapport} laat de scores zien per partij met het aantal documenten in de test set. De $F_1$ scores per partij liggen tussen de 0.7 en 0.8. De one-issuepartijen, 50PLUS en PvdD, hebben scores daarboven, terwijl de coalitiepartijen, VVD en PvdA, lagere scores hebben. Figuur \ref{fig:confusionmatrix} laat zien waar de fouten in deze classificatie zitten. De meest karakteristieke features per partij zijn te zien in tabel \ref{tab:MostImportantWords}. Hierin is te zien dat vrijwel alle woorden verwijzen naar de partij of een Kamerlid van die partij.\par
 
 \begin{table}[H]
@@ -25,7 +25,7 @@ Tabel \ref{tab:classrapport} laat de scores zien per partij met het aantal docum
 
 
 \begin{table}[H]
-\caption{Meest relevante woorden per partij op basis van beste classificatie gedurende kabinet-Rutte II.} 
+\caption{Meest karakteristieke woorden per partij op basis van beste classificatie gedurende kabinet-Rutte II.} 
 
 \label{tab:MostImportantWords} 
 \centering
@@ -34,14 +34,14 @@ Tabel \ref{tab:classrapport} laat de scores zien per partij met het aantal docum
 \end{table} 
 \addtocounter{table}{-1} 
 \begin{table}[H]
-\caption{Meest relevante woorden per partij op basis van beste classificatie gedurende kabinet-Rutte II. \emph{(Vervolg)}} 
+\caption{Meest karakteristieke woorden per partij op basis van beste classificatie gedurende kabinet-Rutte II. \emph{(Vervolg)}} 
 \centering
 \hspace*{-1in}
 \input{Tables/MostImportantWords2.tex} 
 \end{table}
 
 \subsubsection{DV2: Invloed van namen}
-In tabel \ref{tab:MostImportantWords} was al te zien dat de meest karakteristieke woorden voornamelijk bestaan uit partijnamen en namen van Kamerleden. In tabel \ref{tab:rapportwithoutnames} zijn de scores te zien van classificatie met partijnamen en namen van Kamerleden vervangen. Deze zijn aanzienlijk lager dan de scores uit deelvraag 1, maar nog steeds hoger dan de baseline. In tabel \ref{tab:MostImportantWordsWithoutNames} is vervolgens te zien welke woorden het meest karakteristiek zijn per partij voor deze classificatie.\par
+In tabel \ref{tab:MostImportantWords} was al te zien dat de meest karakteristieke woorden voornamelijk bestaan uit partijnamen en namen van Kamerleden. In tabel \ref{tab:rapportwithoutnames} zijn de scores te zien van classificatie met partijnamen en namen van Kamerleden vervangen. Deze zijn aanzienlijk lager dan de scores uit deelvraag 1. In tabel \ref{tab:MostImportantWordsWithoutNames} is vervolgens te zien welke woorden het meest karakteristiek zijn per partij voor deze classificatie.\par
 \begin{table}[H]
 \caption{Classificatierapport van beste classificatie zonder namen van Kamerleden of partijnamen.}
 \label{tab:rapportwithoutnames}
@@ -87,7 +87,7 @@ In figuur \ref{fig:distributies} zijn de distributies van de errors te zijn van 
 \end{figure}
 
 \begin{table}[H] 
-\caption{Meest relevante woorden per partij op basis van classificatie uit deelvraag 2 gedurende kabinet-Balkenende IV.} 
+\caption{Meest karakteristieke woorden per partij op basis van classificatie uit deelvraag 2 gedurende kabinet-Balkenende IV.} 
 \label{tab:WoordenBalkenende4} 
 \centering
 \hspace*{-1in}
@@ -95,7 +95,7 @@ In figuur \ref{fig:distributies} zijn de distributies van de errors te zijn van 
 \end{table} 
 \addtocounter{table}{-1} 
 \begin{table}[H] 
-\caption{Meest relevante woorden per partij op basis van classificatie uit deelvraag 2 gedurende kabinet-Balkenende IV. \emph{(Vervolg)}} 
+\caption{Meest karakteristieke woorden per partij op basis van classificatie uit deelvraag 2 gedurende kabinet-Balkenende IV. \emph{(Vervolg)}} 
 \centering
 \hspace*{-0.6in}
 \input{Tables/WoordenBalkenende42.tex} 
