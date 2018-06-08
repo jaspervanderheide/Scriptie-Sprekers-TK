@@ -8,7 +8,7 @@ Het beste resultaat werd bereikt met Support Vector Machines gebruikmakend van \
 Tabel \ref{tab:classrapport} laat de scores zien per partij met het aantal documenten in de test set. De $F_1$ scores per partij liggen tussen de 0.7 en 0.8. De one-issuepartijen, 50PLUS en PvdD, hebben scores daarboven, terwijl de coalitiepartijen, VVD en PvdA, lagere scores hebben. Figuur \ref{fig:confusionmatrix} laat zien waar de fouten in deze classificatie zitten. De meest karakteristieke features per partij zijn te zien in tabel \ref{tab:MostImportantWords}. Hierin is te zien dat vrijwel alle woorden verwijzen naar de partij of een Kamerlid van die partij.\par
 
 \begin{table}[H]
-\caption{Classificatierapport van beste classificatie.}
+\caption{Classificatierapport van beste classificatiemethode. Gemiddelde van vijf iteraties.}
 \label{tab:classrapport}
 \centering
 \input{Tables/confusionmatrix.tex}
@@ -88,6 +88,12 @@ In figuur \ref{fig:distributies} zijn de distributies van de errors te zijn van 
 \subsubsection{DV4: Links of rechts}
 
 \subsubsection{DV5: Woordgebruik van sprekers}
+\begin{table}[H]
+\caption{Classificatierapport van beste classificatie met de Kamerleden verdeeld over training en test set.}
+\label{tab:rapporttaalgebruik}
+\centering
+\input{Verslag/Tables/taalgebruik.tex}
+\end{table}
 
 \subsection{Discussie}
 \subsubsection{DV1: Beste classificatiemethode}
