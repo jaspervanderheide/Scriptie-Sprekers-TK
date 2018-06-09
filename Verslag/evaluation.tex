@@ -101,6 +101,20 @@ In figuur \ref{fig:distributies} zijn de distributies van de errors te zijn van 
 \input{Tables/WoordenBalkenende42.tex} 
 \end{table}
 
+\begin{table}[H]
+\caption{Classificatierapport van beste classificatie met de Kamerleden verdeeld over training en test set.}
+\label{tab:rapporttaalgebruik}
+\centering
+\input{Verslag/Tables/taalgebruik.tex}
+\end{table}
+
+\begin{table}[H]
+\caption{Classificatierapport van beste classificatie met de Kamerleden verdeeld over training en test set.}
+\label{tab:rapporttaalgebruik}
+\centering
+\input{Verslag/Tables/taalgebruik.tex}
+\end{table}
+
 \subsubsection{DV4: Links of rechts}
 
 \subsubsection{DV5: Woordgebruik van sprekers}
@@ -115,7 +129,7 @@ In tabel \ref{tab:rapporttaalgebruik} staan de scores van classificatie waarbij 
 \subsection{Discussie}
 \subsubsection{DV1: Beste classificatiemethode}
 Het onderzoek behaalt resultaten in lijn der verwachting op basis van gerelateerd en daarnaast ruim boven de baseline scores. De lage scores voor de coalitiepartijen steunen de hypothese van een afhankelijkheid van partij-status, zoals besproken wordt in deelvraag 3 Het bijna alleen voorkomen van partijnamen en Kamerleden in de meest karakteristieke woorden per partij in tabel \ref{tab:MostImportantWords} steunt daarnaast het vermoeden dat deze classificatie sterk afhankelijk is van die namen, zoals besproken wordt in deelvraag 2.  \par
-Dit onderzoek heeft zich beperkt tot methoden genoemd in vergelijkbare onderzoeken en waarvan de implementatie beschikbaar is in scikit-learn. Een aantal methoden die in gerelateerde literatuur leidden tot goede classificaties zijn daarom niet getest. Ook nieuwe methoden die nog niet gebruikt zijn in een vergelijkbaar onderzoek voor politieke tekst classificatie zijn daarom niet getest. Daarnaast richtte zich dit ook maar op een beperkt aantal parameterwaarden. Een belangrijke hierbij is het maximaal iteraties, wat ver onder het aantal iteraties benodigd voor convergentie ligt. Voor vervolgonderzoek kan daarom dit onderdeel uitgebreid worden.\par
+Dit onderzoek heeft zich beperkt tot methoden genoemd in vergelijkbare onderzoeken en waarvan de implementatie beschikbaar is in scikit-learn. Een aantal methoden die in gerelateerde literatuur leidden tot goede classificaties zijn daarom niet getest. Ook nieuwe methoden die nog niet gebruikt zijn in een vergelijkbaar onderzoek voor politieke tekst classificatie zijn daarom niet getest. Daarnaast richtte zich dit ook maar op een beperkt aantal parameterwaarden. Voor vervolgonderzoek kan daarom dit onderdeel uitgebreid worden. Het effect van het beperkte aantal maximum iteraties was bij de beste classificatiemethode beperkt.\par
 Het onderzoek van Hirst et al. vond dat resultaten afhankelijk kunnen zijn van documentgrootte. Alle documenten in dit onderzoek zijn kleiner dan de grootste documentgrootte uit het onderzoek van Hirst et al. en ook de minimumfrequentie lager ligt dan de kleinste documentgrootte uit dat onderzoek.
 Het effect wat zij vinden tussen documentgrootte van 267 en 6666 is een verschil in nauwkeurigheid van 19,8\%. Voor een vervolgonderzoek kan gekeken worden naar of dit effect er is en wat dit betekent voor de resultaten.\par
 
