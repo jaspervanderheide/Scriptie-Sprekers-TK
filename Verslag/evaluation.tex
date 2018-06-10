@@ -109,10 +109,10 @@ In figuur \ref{fig:distributies} zijn de distributies van de errors te zijn van 
 \end{table}
 
 \begin{table}[H]
-\caption{Classificatierapport van beste classificatie met de Kamerleden verdeeld over training en test set.}
+\caption{Rutte to Balkenende}
 \label{tab:rapporttaalgebruik}
 \centering
-\input{Verslag/Tables/taalgebruik.tex}
+\input{Verslag/Tables/RutToBal.tex}
 \end{table}
 
 \subsubsection{DV4: Links of rechts}
@@ -147,14 +147,26 @@ De classificatiemethode die gebruikt is in deze deelvraag, is gebaseerd op de be
 
 \subsubsection{DV3: Oppositie of regering}
 In tabel \ref{tab:classrapport} is het opvallend dat de coalitiepartijen lage scores krijgt. Daarnaast laat figuur \ref{fig:confusionmatrix} zien dat er een hoge overlap zit tussen deze twee partijen.\par
-De overlap van 100 meest karakteristieke woorden tussen regeringspartijen die niet voorkomen bij oppositiepartijen gedurende kabinet-Rutte II beperkt zich tot de woorden \textit{en} en \textit{blij}, als ook \textit{toezegging} voor VVD en \textit{toezeggingen} voor PvdA. \textit{toezegging} en \textit{blij} staan gedurende kabinet-Balkenende IV bij 100 meest karakteristieke woorden voor twee regeringspartijen, respectievelijk CDA en ChristenUnie. Het woord \textit{en} is daarentegen alleen terug te vinden bij oppositiepartij GroenLinks.\par
+De overlap van 100 meest karakteristieke woorden tussen regeringspartijen die niet voorkomen bij oppositiepartijen gedurende kabinet-Rutte II beperkt zich tot de woorden \textit{en} en \textit{blij}, als ook \textit{toezegging} voor VVD en \textit{toezeggingen} voor PvdA.\par
 \begin{table}[H]
-\label{aantallen}
-\caption{Aantal documenten per partij gedurende het missionaire kabinet-Rutte II.}
+\label{tab:overlapkabinetten}
+\caption{Woorden die:\\
+In 100 meest karakteristieke woorden voor een regeringspartij gedurende kabinet-Balkenende IV voorkomen,\\
+Niet in 100 meest karakteristieke woorden voor die partij voorkomen gedurende kabinet-Rutte II,\\
+In 100 meest karakteristieke woorden voor een regeringspartij gedurende kabinet-Rutte II voorkomen,\\
+niet in 100 meest karakteristieke woorden voor die partij voorkomen gedurende kabinet-Balkenende IV.}
 \centering
-\input{Tables/commontable.tex}
+\begin{tabular}{|l|l|l|}
+\toprule
+      &   PvdA &    VVD\\
+\midrule
+         CDA &    \makecell[l]{toezeggingen\\hun\\collega KAMERLID\\in\\aanpak\\collega} &            \makecell[l]{algemeen\\algemeen overleg\\toezegging\\helder\\overleg\\aangegeven\\voor\\voor PARTIJ} \\ \hline
+ ChristenUnie &  \makecell[l]{mijn\\waarop\\blij\\collega KAMERLID\\erg} &        \makecell[l]{gaan\\termijn\\blij met de\\volgens\\volgens mij\\blij\\beantwoording}  \\ \hline
+  PvdA &   & \makecell[l]{volgens\\volgens mij}            \\
+\bottomrule
+\end{tabular}
 \end{table}
-Hoewel er een aantal overeenkomsten zijn qua meest karakteristieke woorden tussen regeringspartijen, lijkt dit beperkt. Voor een vervolgonderzoek kan uitgebreider gekeken worden naar de meest karakteristieke woorden en wat deze zeggen over een partij.\par
+Hoewel er een aantal overeenkomsten zijn qua meest karakteristieke woorden tussen regeringspartijen, lijkt dit beperkt. De meeste overeenkomsten lijken daarnaast niet heel inhoudelijk gerelateerd aan partij-status. Voor een vervolgonderzoek kan uitgebreider gekeken worden naar de meest karakteristieke woorden en wat deze zeggen over een partij.\par
 
 \subsubsection{DV4: Links of rechts}
 Er zijn verschillende visies op links en rechts, en de indeling van de partijen, ook buiten de twee methoden gekozen in dit onderzoek.\par
