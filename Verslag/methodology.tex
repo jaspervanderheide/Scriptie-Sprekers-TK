@@ -27,14 +27,14 @@ Om toch de uitschieters er uit te halen, is aangenomen dat de distributie wel lo
 \centering
 \input{Tables/Spreekbeurten}
 \end{table}
-Deze 14899 documenten zijn verdeeld over 2984 debatten, waarbij elke vraag tijdens het vragenuur als één debat gezien wordt. Op basis van de aantallen is er voor classificatie een baseline \textit{accuracy} van 0.15 (door altijd grootste partij te kiezen) en baseline $F_1$ score van 0.11 (door willekeurig te voorspellen gewogen bij aantal documenten in klasse).\par
+Deze 14899 documenten zijn verdeeld over 2984 debatten, waarbij elke vraag tijdens het vragenuur als één debat gezien wordt. Op basis van de aantallen is er voor classificatie een baseline \textit{accuracy} van 0.15 (door altijd grootste partij te kiezen) en baseline $F_1$ score van 0.11 (door te gokken gewogen bij aantal documenten van een partij).\par
 
 
 \subsection{Methoden}
 
 
 \subsubsection{DV1: Beste classificatiemethode}
-Om deze deelvraag te beantwoorden zullen een aantal classificatiemethoden vergeleken worden. Aangezien het onmogelijk is om alle classificatiemethoden te vergelijken, beperkt dit onderzoek zich tot classificatiemethoden die gebruikt zijn in vergelijkbare onderzoeken, zoals besproken in \ref{sec:Deelvraag1}. Er is ervoor gekozen om alleen gebruik te maken van methoden waarvan reeds implementaties beschikbaar waren in scikit-learn. Voor alle methoden wordt gezocht naar de beste parameters; een grid search. Deze grid search wordt gedaan door 5-fold cross-validation, waarbij de trainings set steeds 80\% is en de test set 20\% van de totale dataset. De hypothese is dat de scores lager zijn dan die gevonden in het gerelateerd werk, omdat de documentgrootte kleiner is en de baseline lager.
+Om deze deelvraag te beantwoorden zullen een aantal classificatiemethoden vergeleken worden. Aangezien het onmogelijk is om alle classificatiemethoden te vergelijken, beperkt dit onderzoek zich tot classificatiemethoden die gebruikt zijn in vergelijkbare onderzoeken, zoals besproken in \ref{sec:Deelvraag1}. Er is ervoor gekozen om alleen gebruik te maken van methoden waarvan reeds implementaties beschikbaar waren in scikit-learn. Voor alle methoden wordt gezocht naar de beste parameters, ook wel bekend als een grid search. Deze grid search wordt gedaan door 5-fold cross-validation, waarbij de training set steeds 80\% is en de test set 20\% van de totale dataset. De hypothese is dat de scores lager zijn dan die gevonden in het gerelateerd werk, omdat de documentgrootte kleiner is en de baseline lager.
 
 \paragraph{Pre-processing}
 Voor pre-processing is gebruik gemaakt van tokenisation en lowercasing. Voor tokenisation is de reguliere expressie $\\w+$ gebruikt, waardoor allesbehalve letters en cijfers weggehaald wordt. Vervolgens is er gevarieerd tussen wel of geen gebruik maken van stemming. In het geval van stemming is gebruik gemaakt van de Snowball Stemmer via de Python NLTK module.
@@ -52,7 +52,7 @@ De meest voorkomende techniek in vergelijkbaar onderzoek is Support Vector Machi
 Een simpelere techniek die gebruikt wordt voor politieke tekstclassificatie is Naive Bayes. Dit algoritme neemt aan dat elke \textit{feature} onafhankelijk is ten op zichte van de rest. Dit is bij tekstclassificatie vaak niet het geval omdat het gebruik van sommige woorden gepaard kan gaan met het gebruik van andere woorden. Daarnaast is het gebruik van meerdere n-grams in een classificatie schending van de aanname, want als bijvoorbeeld een bigram er in voorkomt dan komen ook beide unigrams er sowieso in voor. Desalniettemin blijkt Naive Bayes effectief te zijn voor tekstclassificatie\cite{scikit-learn,bhand}. Hiervoor zijn de functies van scikit-learn MultinomialNB en BernoulliNB gebruikt.\cite{scikit-learn,bhand}\par
 
 \paragraph{Beoordelen van kwaliteit}
-De meest gebruikte methoden om kwaliteit van politieke tekstclassificatie te beoordelen zijn \textit{accuracy} en $F_1$ score, die opgebouwd is uit recall en precision. Deze scores zijn opgebouwd uit vier variabelen. Deze variabelen geven weer hoeveel documenten wel of niet bij een klasse horen, en of deze wel of niet als dusdanig zijn geclassificeerd \cite{Manning:2008:IIR:1394399} .\par
+De meest gebruikte methoden om kwaliteit van politieke tekstclassificatie te beoordelen zijn \textit{accuracy} en $F_1$ score, die opgebouwd is uit recall en precision. Deze scores zijn opgebouwd uit vier variabelen. Deze variabelen geven weer hoeveel documenten wel of niet bij een partij horen, en of deze wel of niet als dusdanig zijn geclassificeerd \cite{Manning:2008:IIR:1394399} .\par
 
 \begin{table}[H]
 \label{tab:scores}
@@ -75,11 +75,11 @@ Niet geclassificeerd als partij & \textit{false negative (fn)} & \textit{true ne
 \begin{equation}
     F_1 = 2 * \frac{Precision * Recall}{Precision + Recall}
 \end{equation}
-\textit{Accuracy} is het percentage van documenten dat correct geclassificeerd is. Precision is het percentage van documenten geclassificeerd als klasse, dat ook bij die klasse hoort. Recall is het percentage documenten van documenten behorende tot een klasse, dat ook als dusdanig geclassificeerd is. $F_1$ is het harmonisch gemiddelde van recall en precision. Precision, recall en dus ook $F_1$ worden per klasse berekend. Er zijn drie varianten om deze scores voor de hele classificatie te berekenen. \par
-Allereerst is er $micro$, daarbij worden alle waarden bij elkaar opgeteld en dan berekend. Dit leidt ertoe dat resultaten van klassen met veel documenten belangrijker zijn. Als een classificatie kleine klassen grotendeels fout classificeert, kan deze score alsnog hoog zijn. In het geval van meer dan twee klassen is dit hetzelfde als \textit{accuracy}.\par 
-Als tweede is er \textit{macro}, daarbij worden alle scores per klasse berekend en wordt daarvan het gemiddelde genomen. Dit leidt er dan weer toe dat resultaten van klassen met weinig documenten net zo belangrijk zijn. Hierdoor kan een classificatie met een laag aantal correct geclassificeerde documenten hoog scoren door vooral kleine klassen goed te classificeren.\par
-Als laatste is er dan nog \textit{gewogen}, deze berekent net als \textit{macro} de scores per klasse, maar neemt hiervan het gemiddelde gewogen bij het aantal documenten behorend tot een klasse. Deze wijkt weinig af van de $micro$ variant, tenzij er uitschieters zijn bij klassen.\par
-Aangezien $micro$ al terugkomt in \textit{accuracy} en het nadeel van \textit{macro} te groot is omdat de klassen nogal variëren in grootte, is gekozen voor \textit{gewogen} $F_1$ scoring naast \textit{accuracy}.
+\textit{Accuracy} is het percentage van documenten dat correct geclassificeerd is. Precision is het percentage van documenten geclassificeerd als partij, dat ook bij die partij hoort. Recall is het percentage documenten van documenten behorende tot een partij, dat ook als die partij geclassificeerd is. $F_1$ is het harmonisch gemiddelde van recall en precision. Precision, recall en dus ook $F_1$ worden per partji berekend. Er zijn drie varianten om deze scores voor de hele classificatie te berekenen. \par
+Allereerst is er $micro$, daarbij worden alle waarden bij elkaar opgeteld en dan berekend. Dit leidt ertoe dat resultaten van partijen met veel documenten belangrijker zijn. Als een classificatie kleine partijen grotendeels fout classificeert, kan deze score alsnog hoog zijn. In het geval van meer dan twee partijen is dit hetzelfde als \textit{accuracy}.\par 
+Als tweede is er \textit{macro}, daarbij worden alle scores per partij berekend en wordt daarvan het gemiddelde genomen. Dit leidt er dan weer toe dat resultaten van partijen met weinig documenten net zo belangrijk zijn. Hierdoor kan een classificatie met een laag aantal correct geclassificeerde documenten hoog scoren door vooral kleine partijen goed te classificeren.\par
+Als laatste is er dan nog \textit{gewogen}, deze berekent net als \textit{macro} de scores per partij, maar neemt hiervan het gemiddelde gewogen bij het aantal documenten behorend tot een partij. Deze wijkt weinig af van de $micro$ variant, tenzij er uitschieters zijn bij partijen.\par
+Aangezien $micro$ al terugkomt in \textit{accuracy} en het nadeel van \textit{macro} te groot is omdat de partijen nogal variëren in grootte, is gekozen voor \textit{gewogen} $F_1$ scoring naast \textit{accuracy}.
 \bigskip
 
 \subsubsection{DV2: Invloed van namen}
