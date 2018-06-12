@@ -1,3 +1,41 @@
+## MM 12 juni
+
+**Ik heb dit nieuwe deel met erg veel plezier gelezen. Gaaf werk en mooi uitgevoerd.**
+
+* Methode deelvraag 5
+	* Let op l468. Verder heel helder geschreven en duidelijk wat je wilt gaan doen
+* Resultaat deelvraag 1,2,5
+	* Tabel 3, let op de dollars bij F1. Ik zou Accuracy weglaten. En tussen de anderen en totaal een lijntje of zo plaatsen. Hernoem de tabel ook in de caption, naar Classificatie scores per partij voor de beste classificatiemethode (SVM). 
+		* Je analyse van de tabel is sterk en inzichtelijk. Maar maak dat dan ook duidelijk in de tabel! Dus bijvoorbeeld door "bijna" te ordenen op F1, en zo de one-issue partijen bovenaan en de coalitie onderaan te krijgen. En zorg dan dat je die 3 groepen netjes onderscheid in de tabel. 
+	* Table 4 is toch ook prachtig!! Echt lachen. Ik zou het niet "woorden" noemen maar "1,2 en 3-grammen" ind e titel. En geef in bold de woorden weer die NIET naar een persoon, partij of fractie verwijzen. Dat zijn er maar heel weinig en verdomd, je zit weer bij de 0ne-issue partijen (als we PVV ook als een one issue (islam) zien. Zeker een opmerking waard! 
+	* l489 en later: vertel je ooit wel eens hoe je die meest karakteristieke woorden eruit haalt? "karakteristiek" heeft een sterke conotatie in het nederlands, die misschien niet helemaal overeenkomt met de technische manier hoe jij ze gepakt hebt. Let daar op!
+* DV2
+	* Gaaf! 
+	* let op grammatica in l492/3, en maak nog even duidelijk wat je gedaan hebt. 
+	* Maar je maakt het de lezer onnodig moeilijk. Je bent benieuwd naar veranderingen. Maar je laat het aan de lezer over om die veranderingen te spotten. Dank je, ik moet echt heel veel vergelijkingen maken! 
+	* Dus los dit zo op
+		1. In de lopende tekst geef je het algemene beeld van de 2 experimenten (iets als "de F1 waarde over alle klassen daalde met XXX % als we partijnamen en leden weglieten en ....." Bij alle partijen zagen we een daling, en die lag tussen XXX en VVV %.
+		2. Ik zou dus het percentage daling weergeven in de tabellen. Dus niet procent punt (abslotue verschil) maar echt het percetage. Dus als het eerst .80 was en nu .60 is het met 25% gedaald. 
+		3. Gebruik ook hier weer dezelfde ordeing en indeling als ik eerder voorstelde.
+* DV5 
+	* wow, heeft Hirst datzelfde experiment gedaan, of noemde hij alleen die mogelijkheid? 
+	* Dit is zeker interresant joh! 
+	* Maar ik denk dat je dit veel beter kan krijgen, maar dan met een heel heftige feature selctie. Denk je ook niet? Dat lijkt jouw analyse in DV2 toch wel te zeggen: als je precies die woorden die bij zo'n partij horen plus de namen kan pakken, krijg je het vast al veel beter. 
+	* Kan je niet eens proberen met alleen de top 20/50/100 meest "karakteristieke woorden" per partij te draaien? 
+	* Ik denk dat je nu verdrinkt in de overeenkomsten.
+		* Een mooie grafiek die dit zou aantonen zou zijn om F1 af te zetten tegen de N meest karakteristieke woorden per partij. Ik verwacht dan dat het maximum bij een redelijk lage N ligt, en dat ie daarna dus snel gaat dalen. 
+		* tewrijl bij ej andere experiment dat dus heel anders kan liggen (heb je dit gedaan?)
+* Discussie deelvraag 1,2,5
+	* let op l511
+	* DV1 heel goed verwoord! Mooi die grafiek 5. Ik zou in de caption nog de medianen van blauw en oranje vermelden.
+		* Met seagram distplot krijg je toch ook een mooie density estimation curve erbij? Ken je dat? Dat ziet er ook netjes uit.
+	* DV2
+		* 548, je zou nog even kunnen tellen hoeveel van de docs van de SGP van 1 persoon komen. Maar dat moet bij de PvdD nog veel erger zijn, denk ik. Ik denk dat je conclusie klopt dat je "persoonlijke stopwoorden" van Kees van der Staaij hebt opgepikt.
+		* l549-560 Goed, en in lijn met wat ik boven zei. 
+	* DV5 
+		* Mee eens, en jouw analyse is in lijn met wat ik zei over het sterk verminderen van het aantal features. Die "onderwerp-woorden" die jij noemt zijn precies de ruis die ik weg zou willen filteren. 
+* Conclusie
+	* Mooi opgezet, even heel kort samenvatten, en dan naar de belangrijkste bevinding, helemaal in lijn met wat Graeme Hirst denkt. Ik vind dat je er best wel wat meer over mag zeggen, dan alleen die laatste zin. Probeer net als een advocaat een mooi betoog op basis vanje vergaarde bewijs op te bouwen.
 
 ## comments MM 29 mei, related work
 
