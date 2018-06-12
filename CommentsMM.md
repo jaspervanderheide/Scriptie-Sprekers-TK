@@ -3,7 +3,7 @@
 **Ik heb dit nieuwe deel met erg veel plezier gelezen. Gaaf werk en mooi uitgevoerd.**
 
 * Methode deelvraag 5
-	* Let op l468. Verder heel helder geschreven en duidelijk wat je wilt gaan doen
+	* ~Let op l468. Verder heel helder geschreven en duidelijk wat je wilt gaan doen~
 * Resultaat deelvraag 1,2,5
 	* Tabel 3, let op de dollars bij F1. Ik zou Accuracy weglaten. En tussen de anderen en totaal een lijntje of zo plaatsen. Hernoem de tabel ook in de caption, naar Classificatie scores per partij voor de beste classificatiemethode (SVM). 
 		* Je analyse van de tabel is sterk en inzichtelijk. Maar maak dat dan ook duidelijk in de tabel! Dus bijvoorbeeld door "bijna" te ordenen op F1, en zo de one-issue partijen bovenaan en de coalitie onderaan te krijgen. En zorg dan dat je die 3 groepen netjes onderscheid in de tabel. 
@@ -50,13 +50,13 @@ Zinnen als
 kan je best toevoegen en geven wat meer kleur. 
 
 1. Begin even met een kort overzicht van wat je gaat behandelen. Noem hier expliciet dat alle onderzoekn die je bespreekt **text** classificatie doen: dus op basis van uitgesproken woorden in het parlement iets vorspellen. Ga dan nu al in op het feit dat een 2 deling makkelijker is dan om te raden uit meerdere klasses, en noem ook baselines. 
-2. Diermeir [4] Leuk en zeer relavnt. Maar vertel er even bij hoeveel klasses er zijn (ik neem aan 2 maar dat hoeft niet). Zeg dan ook dat die 52 % bijna niet beter is dan altijd liberaal zeggn in deze opzet.
+2. ~Diermeir [4] Leuk en zeer relavnt. Maar vertel er even bij hoeveel klasses er zijn (ik neem aan 2 maar dat hoeft niet). Zeg dan ook dat die 52 % bijna niet beter is dan altijd liberaal zeggn in deze opzet.~
 3. l93 _spreekbeurten_???
-4. Gaat het bij Hirst ook weer om gebalanceerde 2 klasse datasets? Dus moeten we het vergelijkne met een baseline van 50%. Geef dit ook aan.
-	5. hier ga je misschien de mist in bij de vergelijking met het EP, want daar veel lagere scores, maar ik neem aan ook meer (7 of zo) klasses. 
-6. _In het onderzoek van Graeme Hirst et al. maakten ze gebruik_ weg en gewoon _Graeme Hirst et al.  gebruikten ook ...._ en ook in anmdere gevallen
-7. sectie 2.3 vertel wat die baseline dan is. Dan begint de lezer het te snappen.
-8. l170 _de status van de partij_ voeg toe, _namelijk of ze in de regeringscoalitie zitten of in de oppositie_
+4. ~Gaat het bij Hirst ook weer om gebalanceerde 2 klasse datasets? Dus moeten we het vergelijkne met een baseline van 50%. Geef dit ook aan.
+	5. hier ga je misschien de mist in bij de vergelijking met het EP, want daar veel lagere scores, maar ik neem aan ook meer (7 of zo) klasses. ~
+6. ~_In het onderzoek van Graeme Hirst et al. maakten ze gebruik_ weg en gewoon _Graeme Hirst et al.  gebruikten ook ...._ en ook in anmdere gevallen~
+7. ~sectie 2.3 vertel wat die baseline dan is. Dan begint de lezer het te snappen.! 
+8. ~l170 _de status van de partij_ voeg toe, _namelijk of ze in de regeringscoalitie zitten of in de oppositie_~
  
 
 # Comments MM 22 Mei
