@@ -8,7 +8,7 @@ Het beste resultaat werd bereikt met Support Vector Machines gebruikmakend van \
 Tabel \ref{tab:classrapport} laat de scores zien per partij met het aantal documenten in de test set. De $F_1$ scores per partij liggen tussen de 0.7 en 0.8. De one-issuepartijen, 50PLUS en PvdD, hebben scores daarboven, terwijl de coalitiepartijen, VVD en PvdA, lagere scores hebben. Figuur \ref{fig:confusionmatrix} laat zien waar de fouten in deze classificatie zitten. De meest karakteristieke features per partij zijn te zien in tabel \ref{tab:MostImportantWords}. Hierin is te zien dat vrijwel alle woorden verwijzen naar de partij of een Kamerlid van die partij.\par
 
 \begin{table}[H]
-\caption{Classificatierapport van beste classificatiemethode. Gemiddelde van vijf iteraties.}
+\caption{Classificatie scores per partij van beste classificatiemethode (SVM). Gemiddelde van vijf iteraties.}
 \label{tab:classrapport}
 \centering
 \input{Tables/confusionmatrix.tex}
@@ -25,7 +25,7 @@ Tabel \ref{tab:classrapport} laat de scores zien per partij met het aantal docum
 
 
 \begin{table}[H]
-\caption{Meest karakteristieke woorden per partij op basis van beste classificatie gedurende kabinet-Rutte II.} 
+\caption{Meest karakteristieke n-grams per partij op basis van beste classificatie gedurende kabinet-Rutte II.}
 
 \label{tab:MostImportantWords} 
 \centering
@@ -34,7 +34,7 @@ Tabel \ref{tab:classrapport} laat de scores zien per partij met het aantal docum
 \end{table} 
 \addtocounter{table}{-1} 
 \begin{table}[H]
-\caption{Meest karakteristieke woorden per partij op basis van beste classificatie gedurende kabinet-Rutte II. \emph{(Vervolg)}} 
+\caption{Meest karakteristieke n-grams per partij op basis van beste classificatie gedurende kabinet-Rutte II. \emph{(Vervolg)}} 
 \centering
 \hspace*{-1in}
 \input{Tables/MostImportantWords2.tex} 
@@ -43,7 +43,7 @@ Tabel \ref{tab:classrapport} laat de scores zien per partij met het aantal docum
 \subsubsection{DV2: Invloed van namen}
 In tabel \ref{tab:MostImportantWords} was al te zien dat de meest karakteristieke woorden voornamelijk bestaan uit partijnamen en namen van Kamerleden. In tabel \ref{tab:rapportwithoutnames} zijn de scores te zien van classificatie met partijnamen en namen van Kamerleden vervangen. Deze zijn aanzienlijk lager dan de scores uit deelvraag 1. In tabel \ref{tab:MostImportantWordsWithoutNames} is vervolgens te zien welke woorden het meest karakteristiek zijn per partij voor deze classificatie.\par
 \begin{table}[H]
-\caption{Classificatierapport van beste classificatie zonder namen van Kamerleden of partijnamen.}
+\caption{Classificatie scores per partij van beste classificatie zonder namen van Kamerleden of partijnamen.}
 \label{tab:rapportwithoutnames}
 \centering
 \input{Verslag/Tables/withoutnames.tex}
@@ -147,14 +147,11 @@ De classificatiemethode die gebruikt is in deze deelvraag, is gebaseerd op de be
 
 \subsubsection{DV3: Oppositie of regering}
 In tabel \ref{tab:classrapport} is het opvallend dat de coalitiepartijen lage scores krijgt. Daarnaast laat figuur \ref{fig:confusionmatrix} zien dat er een hoge overlap zit tussen deze twee partijen.\par
+De resultaten 
 De overlap van 100 meest karakteristieke woorden tussen regeringspartijen die niet voorkomen bij oppositiepartijen gedurende kabinet-Rutte II beperkt zich tot de woorden \textit{en} en \textit{blij}, als ook \textit{toezegging} voor VVD en \textit{toezeggingen} voor PvdA.\par
 \begin{table}[H]
 \label{tab:overlapkabinetten}
-\caption{Woorden die:\\
-In 100 meest karakteristieke woorden voor een regeringspartij gedurende kabinet-Balkenende IV voorkomen,\\
-Niet in 100 meest karakteristieke woorden voor die partij voorkomen gedurende kabinet-Rutte II,\\
-In 100 meest karakteristieke woorden voor een regeringspartij gedurende kabinet-Rutte II voorkomen,\\
-niet in 100 meest karakteristieke woorden voor die partij voorkomen gedurende kabinet-Balkenende IV.}
+\caption{Woorden die bij minimaal één regeringspartij in beide kabinetten voorkomen in de 100 meest karakteristieke woorden, maar niet toen deze partijen in oppositie zaten.}
 \centering
 \begin{tabular}{|l|l|l|}
 \toprule
