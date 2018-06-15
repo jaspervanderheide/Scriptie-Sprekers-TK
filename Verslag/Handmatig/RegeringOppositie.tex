@@ -1,19 +1,20 @@
-\begin{tabular}{ll|ll}
+\begin{tabular}{ll|cccc}
 \toprule
-{}& {}&\multicolumn{2}{l}{Training set$\rightarrow$ Test set}\\
+{}& {}&\multicolumn{4}{l}{Training set$\rightarrow$ Test set}\\
 \midrule
-{} &Rutte II &\makecell{Balkenende IV $\rightarrow$ Rutte II\\Baseline = 0.11}&  \makecell{Rutte II $\rightarrow$ Balkenende IV\\Baseline = 0.12}  \\
+{} &Rutte II &\multicolumn{2}{l}{\makecell{Balkenende IV $\rightarrow$ Rutte II\\Baseline = 0.11}}&  \multicolumn{2}{l}{\makecell{Rutte II $\rightarrow$ Balkenende IV\\Baseline = 0.12}}  \\
+{} & $F_1$ & $F_1$ & $\Delta F_1$ score (\%) &  $F_1$& $\Delta F_1$ score (\%) \\
 \midrule
-CDA*          &0.53&       0.28 &    0.43  \\
-ChristenUnie* &0.55&       0.37 &    0.22  \\
-D66          &0.54&       0.16 &    0.28  \\
-GroenLinks   &0.49&       0.31 &    0.04  \\
-PVV          &0.70&       0.50 &    0.60  \\
-PvdA         &0.52&       0.29 &    0.27  \\
-PvdD         &0.73&       0.64 &    0.45 \\
-SGP          &0.74&       0.56 &    0.49  \\
-SP           &0.61&       0.41 &    0.53 \\
-VVD*          &0.51&       0.18 &    0.10  \\ \hline
-Totaal       &0.58&       0.34 &    0.35 \\
+SGP          &0.74&       0.56 &  -24 &   0.49 & -34 \\
+PvdD         &0.73&       0.64 &  -12 &  0.45 & -38\\
+PVV          &0.70&       0.50 &  -29 &   0.60  & -14 \\
+SP           &0.61&       0.41 & -33 &   0.53 & -13 \\
+ChristenUnie* &0.55&       0.37 &  -33 & 0.22 &-60 \\
+D66          &0.54&       0.16 &  -70 & 0.28 & -48 \\
+CDA*          &0.53&       0.28 & -47&   0.43 & -19 \\
+PvdA         &0.52&       0.29 & -44 &   0.27 & -48 \\
+VVD*          &0.51&       0.18 & -65 &   0.10 & -80  \\ 
+GroenLinks   &0.49&       0.31 &  -37 &   0.04 & -92 \\ \hline
+Totaal       &0.58&       0.34 & -41 &  0.35 & -40 \\
 \bottomrule
 \end{tabular}
