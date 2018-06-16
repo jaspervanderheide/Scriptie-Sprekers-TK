@@ -70,18 +70,33 @@ In tabel \ref{tab:rapportonlynames} zijn de scores te zien voor een classificati
 \end{table}
 
 \subsection{DV3: Oppositie of regering}
-In figuur \ref{fig:distributies} zijn de distributies van de errors, zoals gedefinieerd in formule \ref{eq:error}, te zijn van combinaties tussen regerings- en oppositiepartijen.
+In figuur \ref{fig:distributies} zijn de distributies van de errors, zoals gedefinieerd in formule \ref{eq:error} te zien van combinaties tussen regerings- en oppositiepartijen.
 \begin{figure}[H]
     \centering
     \hspace*{-0.2in}
-    \subfloat[Tussen twee regeringspartijen]{{\includegraphics[width=7cm]{Verslag/Tables/Regering.png} }}%
-    \subfloat[Tussen twee oppositiepartijen]{{\includegraphics[width=7cm]{Verslag/Tables/Oppositie.png} }}\quad
+    \subfloat[Tussen twee regeringspartijen]{{\includegraphics[width=7cm]{Verslag/Handmatig/Regering.png} }}%
+    \subfloat[Tussen twee oppositiepartijen]{{\includegraphics[width=7cm]{Verslag/Handmatig/Oppositie.png} }}\quad
     \hspace*{-0.2in}
-    \subfloat[Tussen een regeringspartij en een oppositiepartij]{{\includegraphics[width=7cm]{Verslag/Tables/Mix.png} }}%
-    \subfloat[Totaal]{{\includegraphics[width=7cm]{Verslag/Tables/Totaal.png} }}\quad
+    \subfloat[Tussen een regeringspartij en een oppositiepartij]{{\includegraphics[width=7cm]{Verslag/Handmatig/Mix.png} }}%
+    \subfloat[Totaal]{{\includegraphics[width=7cm]{Verslag/Handmatig/Totaal.png} }}\quad
     \caption{Distributie van de error uit formule \ref{eq:error} voor de verschillende combinaties.}%
     \label{fig:distributies}%
 \end{figure}
+Voor alle distributies kan de nulhypothese verworpen worden dat deze normaal verdeeld zijn, hoewel dit wel verwacht was. In tabel \ref{tab:whitney} is vervolgens te zien dat er een significant verschil is tussen de distributies binnen regering en oppositie tegenover de distributie tussen regering en oppositiepartij.
+
+\begin{table}[H]
+\caption{Uitslagen van eenzijdige Mann-whitneytoets tussen de distributie tussen een regeringspartij en oppositiepartij en twee distributies. $\alpha$ is 0.05.}
+\label{tab:whitney}
+\centering
+\begin{tabular}{lrr}
+\toprule
+{} &  p-waarde &  U-waarde\\
+\midrule
+Tussen twee regeringspartijen       &       \num{3e-124} &    717653 \\
+Tussen twee oppositiepartijen         &       \num{1e-93} &    16090205 \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \begin{table}[H] 
 \caption{Meest karakteristieke n-grams per partij op basis van classificatie uit deelvraag 2 gedurende kabinet-Balkenende IV.} 
@@ -99,7 +114,7 @@ In figuur \ref{fig:distributies} zijn de distributies van de errors, zoals gedef
 \end{table}
 In tabel \ref{RegeringOppositie} zijn de resultaten van de classificatiescores te zien waarbij de classificatie getraind is op een zittingsperiode, maar getest op een andere. \par
 \begin{table}[H]
-\caption{$F_1$ scores van de classificatie getraind op ene zittingsperiode en getest op andere zittingsperiode. Scores van een classificatie getraind en getest op kabinet-Rutte II zonder 50PLUS zijn bijgevoegd ter referentie, als ook de relatieve daling. Classificatiemethode uit deelvraag 1 is gebruikt zonder achternamen van Kamerleden en partijnamen. Partijen met een asterisk zijn gewisseld van partij-status.}
+\caption{$F_1$ scores van de classificatie getraind op ene zittingsperiode en getest op andere zittingsperiode. Scores van een classificatie getraind en getest op kabinet-Rutte II zonder 50PLUS zijn bijgevoegd ter referentie, als ook de relatieve daling. De classificatiemethode uit deelvraag 1 is gebruikt zonder achternamen van Kamerleden en partijnamen. Partijen met een asterisk zijn gewisseld van partij-status.}
 \centering
 \label{RegeringOppositie}
 \input{Verslag/Handmatig/RegeringOppositie.tex}

@@ -2,7 +2,7 @@
 \subsection{DV1: Beste classificatiemethode}
 Het onderzoek behaalt resultaten in lijn der verwachting op basis van gerelateerd werk en daarnaast ruim boven de baseline scores. De lage scores voor de coalitiepartijen steunen de hypothese van een afhankelijkheid van partij-status, zoals besproken wordt in deelvraag 3. Het bijna alleen voorkomen van namen van partijen en Kamerleden in de meest karakteristieke n-grams per partij in tabel \ref{tab:MostImportantWords} steunt daarnaast het vermoeden dat deze classificatie sterk afhankelijk is van die namen, zoals besproken wordt in deelvraag 2.\par
 Dit onderzoek heeft zich beperkt tot methoden genoemd in vergelijkbare onderzoeken en waarvan de implementatie beschikbaar is in scikit-learn. Een aantal methoden die in gerelateerde literatuur leidden tot goede classificaties zijn daarom niet getest. Ook nieuwe methoden die nog niet gebruikt zijn in een vergelijkbaar onderzoek voor politieke tekst classificatie zijn daarom niet getest. Daarnaast richtte zich dit ook maar op een beperkt aantal parameterwaarden. Voor vervolgonderzoek kan daarom dit onderdeel uitgebreid worden. Het effect van het beperkte aantal maximum iteraties leek bij de beste classificatiemethode beperkt.\par
-Het onderzoek van Hirst et al. vond dat resultaten afhankelijk kunnen zijn van documentgrootte. Alle documenten in dit onderzoek zijn kleiner dan de grootste documentgrootte uit het onderzoek van Hirst et al. en ook de minimumfrequentie lager ligt dan de kleinste documentgrootte uit dat onderzoek.
+Het onderzoek van Hirst et al. vond dat resultaten afhankelijk kunnen zijn van documentgrootte. Alle documenten in dit onderzoek zijn kleiner dan de grootste documentgrootte uit het onderzoek van Hirst et al. en ook de minimale documentgrootte ligt lager dan de kleinste documentgrootte uit dat onderzoek.
 Het effect wat zij vinden tussen documentgrootte van 267 en 6666 is een verschil in \textit{accuracy} van 19,8\%. Dit onderzoek vindt inderdaad dat kleinere documenten vaker foutief geclassificeerd worden.
 \begin{figure}[H]
   \centering
@@ -11,6 +11,9 @@ Het effect wat zij vinden tussen documentgrootte van 267 en 6666 is een verschil
 \label{fig:misclassified}
 \end{figure}
 Voor een vervolgonderzoek kan uitgebreider gekeken worden naar dit effect en wat dit betekent voor de resultaten. Het percentage documenten van een vragenuur is tweemaal zo hoog bij foutief geclassificeerde documenten, maar dit lijk te komen doordat deze documenten vaak kleiner zijn (mediaan is 286).\par
+Er is verder nog gekeken naar andere verbanden tussen documenten die verkeerd zijn geclassificeerd. Daarbij is nog te zien dat sprekers met weinig documenten relatief iets meer voorkomen in verkeerd geclassificeerde documenten.
+Dit zou het vermoeden versterken dat de classificatie mede plaatsvindt op basis van woordgebruik van individuele sprekers, zoals besproken wordt in deelvraag 5.\par
+
 
 \subsection{DV2: Invloed van namen}
 De resultaten laten zien dat de classificatie sterk afhankelijk is van partijnamen en achternamen van Kamerleden. Deze daling was te verwachten op basis van gerelateerd werk.\par
@@ -26,15 +29,7 @@ De overlap van 100 meest karakteristieke n-grams tussen regeringspartijen die ni
 \label{tab:overlapkabinetten}
 \caption{N-grams die bij minimaal één regeringspartij in beide kabinetten voorkomen in de 100 meest karakteristieke n-grams, maar niet toen deze partijen in oppositie zaten.}
 \centering
-\begin{tabular}{|l|l|l|}
-\toprule
-      &   PvdA &    VVD\\
-\midrule
-         CDA &    \makecell[l]{toezeggingen\\hun\\collega KAMERLID\\in\\aanpak\\collega} &            \makecell[l]{algemeen\\algemeen overleg\\toezegging\\helder\\overleg\\aangegeven\\voor\\voor PARTIJ} \\ \hline
- ChristenUnie &  \makecell[l]{mijn\\waarop\\blij\\collega KAMERLID\\erg} &        \makecell[l]{gaan\\termijn\\blij met de\\volgens\\volgens mij\\blij\\beantwoording}  \\ \hline
-  PvdA &   & \makecell[l]{volgens\\volgens mij}            \\
-\bottomrule
-\end{tabular}
+\input{Handmatig/overlap.tex} 
 \end{table}
 Hoewel er een aantal overeenkomsten zijn qua meest karakteristieke n-grams tussen regeringspartijen van de twee kabinetten, lijkt dit beperkt. De meeste overeenkomsten lijken daarnaast niet heel inhoudelijk gerelateerd aan partij-status. Deze resultaten suggereren daarom ook maar een beperkte invloed van partij-status op de classificatie. Voor een vervolgonderzoek kan uitgebreider gekeken worden naar de overlappende meest karakteristieke n-grams en wat deze zeggen over een regeringspartij.\par
 De scores in tabel \ref{RegeringOppositie} laten een duidelijke daling zien ten opzichte van een classificatie van alleen kabinet-Rutte II. Deze algemene daling kan verklaard worden door verschuiving in ideologie, verschil in woordgebruik en/of verandering van onderwerpen. De daling is het grootst bij VVD, maar valt mee bij de twee andere partijen die gewisseld zijn van partij-status, ChristenUnie en CDA. Daarnaast is de daling ook heel sterk bij oppositiepartijen GroenLinks en D66, alsook de regeringspartij in beide kabinetten, PvdA. Dat de daling niet consequent groter is bij partijen die gewisseld zijn van partij-status, suggereert dat de invloed van partij-status beperkt is op de classificatie.\par
