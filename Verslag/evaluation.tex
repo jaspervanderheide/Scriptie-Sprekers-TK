@@ -125,12 +125,28 @@ In tabel \ref{RegeringOppositie} zijn de resultaten van de classificatiescores t
 
 
 \subsection{DV4: Links/rechts}
+In tabel \ref{fig:distanceerror} is de error te zien ten opzichte van de afstand op de links/rechts schaal.
 \begin{figure}[H]
   \centering
     \includegraphics[width=0.50\paperwidth]{Verslag/Tables/Ideology.png}
-\caption{Aantal misclassificaties gedeeld door totaal aantal documenten per spreker tegenover totaal aantal documenten van een spreker. Misclassificaties zijn totaal van 5-fold cross-validation, waardoor documenten vaker mee kunnen tellen. De pearson correlatie is -0.28 en de p-waarde \num{1.07e-4}.}
-\label{fig:misclassifiedsprekers}
+\caption{Error ten opzichte van de afstand op de links/rechts schaal van twee partijen. Gebaseerd op 100 classificaties met verschillende test en train set. De pearson correlatie is 0.09 en de p-waarde \num{2.39e-20}.}
+\label{fig:distanceerror}
 \end{figure}
+De correlatie is met daarmee significant op het significantieniveau van 0.05, maar wel positief. Uit deelvraag 3 bleek dat de error binnen oppositie of regering significant afweek van de error tussen regering en oppositie. Dit effect lijkt ook zichtbaar in tabel \ref{fig:distanceerror}. Daarom wordt er in tabel \ref{tab:pearson} ook gekeken naar de correlatie tussen afstand op de links/rechts schaal en error binnen oppositie en tussen regerings- en oppositiepartij.
+
+\begin{table}[H]
+\caption{Uitslagen van eenzijdige Mann-whitneytoets tussen de distributie tussen een regeringspartij en oppositiepartij en twee distributies. $\alpha$ is 0.05.}
+\label{tab:pearson}
+\centering
+\begin{tabular}{lrr}
+\toprule
+{} &  Pearson correlatie &  p-waarde\\
+\midrule
+Tussen oppositie- en regeringspartij       &       -0.29 &    \num{3.44e-69} \\
+Tussen twee oppositiepartijen         &       0.18 &    \num{1.76e-55} \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \subsection{DV5: Woordgebruik van sprekers}
 In tabel \ref{tab:rapporttaalgebruik} staan de scores van classificatie waarbij de Kamerleden verdeeld zijn over de training en test set. De scores zijn hierbij amper hoger dan de baseline.
