@@ -46,7 +46,7 @@ In tabel \ref{tab:MostImportantWords} was al te zien dat de meest karakteristiek
 \input{Verslag/Handmatig/onlynames.tex}
 \end{table}
 
-In tabel \ref{tab:rapportwithoutnames} zijn de scores te zien van classificatie met achternamen van Kamerleden en partijnamen vervangen. Deze zijn aanzienlijk lager dan de scores uit deelvraag 1 en ook nog lager dan de scores met alleen namen. Wel zijn de scores nog ruim hoger dan de baseline. In tabel \ref{tab:MostImportantWordsWithoutNames} is vervolgens te zien welke n-grams het meest karakteristiek zijn per partij voor deze classificatie.\par
+In tabel \ref{tab:rapportwithoutnames} zijn de $F_1$scores te zien van classificatie met achternamen van Kamerleden en partijnamen vervangen. De \textit{accuracy} hiervan is 0.58. De scores zijn aanzienlijk lager dan die uit deelvraag 1 en ook nog lager dan van de classificatie met alleen namen. Wel zijn de scores nog ruim hoger dan de baseline. In tabel \ref{tab:MostImportantWordsWithoutNames} is vervolgens te zien welke n-grams het meest karakteristiek zijn per partij voor deze classificatie.\par
 \begin{table}[H]
 \caption{Classificatie scores per partij van beste classificatie zonder achternamen van Kamerleden en partijnamen met het relatieve verschil ten opzichte van tabel \ref{tab:classrapport}. Gemiddelde van vijf splitsingen van training en test set.}
 \label{tab:rapportwithoutnames}
@@ -94,8 +94,8 @@ Voor alle distributies kan de nulhypothese verworpen worden dat deze normaal ver
 \toprule
 {} &  p-waarde &  U-waarde\\
 \midrule
-Tussen twee regeringspartijen       &       \num{3e-124} &    717653 \\
-Tussen twee oppositiepartijen         &       \num{1e-93} &    16090205 \\
+Tussen twee regeringspartijen       &       \num{7.04e-124} &    717042 \\
+Tussen twee oppositiepartijen         &       \num{4.4e-108} &    16328471 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -125,6 +125,12 @@ In tabel \ref{RegeringOppositie} zijn de resultaten van de classificatiescores t
 
 
 \subsection{DV4: Links/rechts}
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=0.60\paperwidth]{Verslag/Tables/Ideology.png}
+\caption{Aantal misclassificaties gedeeld door totaal aantal documenten per spreker tegenover totaal aantal documenten van een spreker. Misclassificaties zijn totaal van 5-fold cross-validation, waardoor documenten vaker mee kunnen tellen. De pearson correlatie is -0.28 en de p-waarde \num{1.07e-4}.}
+\label{fig:misclassifiedsprekers}
+\end{figure}
 
 \subsection{DV5: Woordgebruik van sprekers}
 In tabel \ref{tab:rapporttaalgebruik} staan de scores van classificatie waarbij de Kamerleden verdeeld zijn over de training en test set. De scores zijn hierbij amper hoger dan de baseline.
