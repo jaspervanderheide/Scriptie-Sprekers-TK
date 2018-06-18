@@ -16,7 +16,7 @@ Tabel \ref{tab:classrapport} laat de scores zien per partij met het aantal docum
 \begin{figure}[H]
   \centering
     \includegraphics[width=0.50\paperwidth]{Verslag/Tables/confusionmatrix.png}
-\caption{Confusion matrix van beste classificatie. Gemiddelde van vijf splitsingen van training en test set.}
+\caption{Confusion matrix van beste classificatiemethode (SVM). Gemiddelde van vijf splitsingen van training en test set.}
 \label{fig:confusionmatrix}
 \end{figure}
 
@@ -50,7 +50,7 @@ In tabel \ref{tab:MostImportantWords} was al te zien dat de meest karakteristiek
 \caption{Meest karakteristieke n-grams per partij op basis van classificatie uit deelvraag 1 zonder achternamen van Kamerleden en partijnamen gedurende kabinet-Rutte II.} 
 \label{tab:MostImportantWordsWithoutNames} 
 \centering
-\hspace*{-1in}
+\hspace*{-0.8in}
 \input{Tables/MostImportantWordsWithoutNames1.tex} 
 \end{table} 
 \addtocounter{table}{-1} 
@@ -61,7 +61,7 @@ In tabel \ref{tab:MostImportantWords} was al te zien dat de meest karakteristiek
 \input{Tables/MostImportantWordsWithoutNames2.tex} 
 \end{table}
 
-In tabel \ref{tab:rapportonlynames} zijn de scores te zien voor een classificatie met alleen achternamen van Kamerleden en partijnamen. De scores zijn gedaald ten opzichte van de resultaten van deelvraag 1, maar hoger dan die zonder achternamen van Kamerleden en partijnamen.\par
+In tabel \ref{tab:rapportonlynames} zijn de scores te zien voor een classificatie met alleen achternamen van Kamerleden en partijnamen. De \textit{accuracy} is 0.61. De scores zijn gedaald ten opzichte van de resultaten van deelvraag 1, maar hoger dan die zonder achternamen van Kamerleden en partijnamen.\par
 \begin{table}[H]
 \caption{Classificatierapport van beste classificatie met alleen achternamen van Kamerleden en partijnamen. Hiervoor is alleen gebruikgemaakt van unigrams. Gemiddelde van vijf splitsingen van training en test set.}
 \label{tab:rapportonlynames}
@@ -70,16 +70,16 @@ In tabel \ref{tab:rapportonlynames} zijn de scores te zien voor een classificati
 \end{table}
 
 \subsection{DV3: Oppositie of regering}
-In figuur \ref{fig:distributies} zijn de distributies van de errors, zoals gedefinieerd in formule \ref{eq:error} te zien van combinaties tussen regerings- en oppositiepartijen.
+In figuur \ref{fig:distributies} zijn de distributies van de errors, zoals gedefinieerd in formule \ref{eq:error} te zien van combinaties van regerings- en oppositiepartijen.
 \begin{figure}[H]
     \centering
     \hspace*{-0.2in}
-    \subfloat[Tussen twee regeringspartijen]{{\includegraphics[width=7cm]{Verslag/Handmatig/Regering.png} }}%
-    \subfloat[Tussen twee oppositiepartijen]{{\includegraphics[width=7cm]{Verslag/Handmatig/Oppositie.png} }}\quad
+    \subfloat[Tussen twee regeringspartijen (N=200)]{{\includegraphics[width=7cm]{Verslag/Handmatig/Regering.png} }}%
+    \subfloat[Tussen twee oppositiepartijen (N=8100)]{{\includegraphics[width=7cm]{Verslag/Handmatig/Oppositie.png} }}\quad
     \hspace*{-0.2in}
-    \subfloat[Tussen een regeringspartij en een oppositiepartij]{{\includegraphics[width=7cm]{Verslag/Handmatig/Mix.png} }}%
-    \subfloat[Totaal]{{\includegraphics[width=7cm]{Verslag/Handmatig/Totaal.png} }}\quad
-    \caption{Distributie van de error uit formule \ref{eq:error} voor de verschillende combinaties.}%
+    \subfloat[Tussen een regeringspartij en een oppositiepartij (N=4000)]{{\includegraphics[width=7cm]{Verslag/Handmatig/Mix.png} }}%
+    \subfloat[Totaal (N=12100)]{{\includegraphics[width=7cm]{Verslag/Handmatig/Totaal.png} }}\quad
+    \caption{Genormaliseerde distributie van de error uit formule \ref{eq:error} voor de verschillende combinaties.}%
     \label{fig:distributies}%
 \end{figure}
 Voor alle distributies kan de nulhypothese verworpen worden dat deze normaal verdeeld zijn, hoewel dit wel verwacht was. In tabel \ref{tab:whitney} is vervolgens te zien dat er een significant verschil is tussen de distributies binnen regering en oppositie tegenover de distributie tussen regering en oppositiepartij.
@@ -97,7 +97,7 @@ Tussen twee oppositiepartijen         &       \num{1e-93} &    16090205 \\
 \bottomrule
 \end{tabular}
 \end{table}
-
+In tabel \ref{tab:WoordenBalkenende4} zijn de meest karakteristieke woorden te zien
 \begin{table}[H] 
 \caption{Meest karakteristieke n-grams per partij op basis van classificatie uit deelvraag 2 gedurende kabinet-Balkenende IV.} 
 \label{tab:WoordenBalkenende4} 
