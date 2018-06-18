@@ -2,8 +2,8 @@
 \section{Resultaten}
 
 \subsection{DV1: Beste classificatiemethode}
-Het beste resultaat werd bereikt met Support Vector Machines gebruikmakend van \textit{stochastic gradient descent learning} en Elasticnet regularisatie. De features waren hierbij gestemd, met unigrams, bigrams en trigrams. Geen features zijn hierin weggelaten door minimale of maximale documentfrequenties. Het maximum aantal iteraties was 5 voor de grid search, maar alle resultaten zijn op basis van 100.\par
-Tabel \ref{tab:classrapport} laat de scores zien per partij met het aantal documenten in de test set. De $F_1$ scores per partij liggen tussen de 0.7 en 0.9. De one-issuepartijen, 50PLUS, PVV en PvdD, als ook de SGP hebben hoge scores, terwijl de coalitiepartijen, VVD en PvdA, lagere scores hebben. Figuur \ref{fig:confusionmatrix} laat zien waar de fouten in deze classificatie zitten. De meest karakteristieke features per partij zijn te zien in tabel \ref{tab:MostImportantWords}. Met meest karakteristiek worden de n-grams bedoeld die de hoogste coëfficiënt hebben in de classificatie en die dus relatief het meeste invloed hebben. Hierin is te zien dat vrijwel alle n-grams achternamen van Kamerleden of partijnamen bevatten.\par
+Het beste resultaat werd bereikt met Support Vector Machines gebruikmakend van \textit{stochastic gradient descent learning} en Elasticnet regularisatie. De woorden waren hierbij gestemd. De features waren zowel unigrams, bigrams als trigrams. Geen features zijn hierin weggelaten door minimale of maximale documentfrequenties. Het maximum aantal iteraties was 5 voor de grid search, maar alle resultaten zijn op basis van 100.\par
+Tabel \ref{tab:classrapport} laat de scores zien per partij met het aantal documenten in de test set. De \textit{accuracy} voor deze classificatie is 0.80. De $F_1$ scores per partij liggen tussen de 0.7 en 0.9. De partijen met een sterke focus op één onderwerp, 50PLUS, PVV en PvdD, als ook de SGP hebben hoge scores, terwijl de coalitiepartijen, VVD en PvdA, lagere scores hebben. Figuur \ref{fig:confusionmatrix} laat zien waar de fouten in deze classificatie zitten. De meest karakteristieke features per partij zijn te zien in tabel \ref{tab:MostImportantWords}. Met meest karakteristiek worden de n-grams bedoeld die de hoogste coëfficiënt hebben in de classificatie en die dus relatief het meeste belangrijk zijn voor de classificatie van een partij. Hierin is te zien dat vrijwel alle n-grams achternamen van Kamerleden of partijnamen bevatten.\par
 
 \begin{table}[H]
 \caption{Classificatie scores per partij van beste classificatiemethode (SVM). Gemiddelde van vijf splitsingen van training en test set. Maximum aantal iteraties is 100.}
@@ -15,7 +15,7 @@ Tabel \ref{tab:classrapport} laat de scores zien per partij met het aantal docum
 
 \begin{figure}[H]
   \centering
-    \includegraphics[width=0.60\paperwidth]{Verslag/Tables/confusionmatrix.png}
+    \includegraphics[width=0.50\paperwidth]{Verslag/Tables/confusionmatrix.png}
 \caption{Confusion matrix van beste classificatie. Gemiddelde van vijf splitsingen van training en test set.}
 \label{fig:confusionmatrix}
 \end{figure}
@@ -33,7 +33,7 @@ Tabel \ref{tab:classrapport} laat de scores zien per partij met het aantal docum
 \begin{table}[H]
 \caption{Meest karakteristieke n-grams per partij op basis van beste classificatie gedurende kabinet-Rutte II. N-grams die niet achternamen van Kamerleden of partijnamen bevatten, zijn dikgedrukt.  \emph{(Vervolg)}} 
 \centering
-\hspace*{-1in}
+\hspace*{-1.3in}
 \input{Handmatig/MostImportantWords2.tex} 
 \end{table}
 
@@ -57,7 +57,7 @@ In tabel \ref{tab:MostImportantWords} was al te zien dat de meest karakteristiek
 \begin{table}[H] 
 \caption{Meest relevante n-grams per partij op basis van classificatie uit deelvraag 1 zonder achternamen van Kamerleden en partijnamen gedurende kabinet-Rutte II. \emph{(Vervolg)}} 
 \centering
-\hspace*{-0.6in}
+\hspace*{-1.3in}
 \input{Tables/MostImportantWordsWithoutNames2.tex} 
 \end{table}
 
@@ -102,20 +102,21 @@ Tussen twee oppositiepartijen         &       \num{1e-93} &    16090205 \\
 \caption{Meest karakteristieke n-grams per partij op basis van classificatie uit deelvraag 2 gedurende kabinet-Balkenende IV.} 
 \label{tab:WoordenBalkenende4} 
 \centering
-\hspace*{-1in}
+\hspace*{-0.6in}
 \input{Tables/WoordenBalkenende41.tex} 
 \end{table} 
 \addtocounter{table}{-1} 
 \begin{table}[H] 
 \caption{Meest karakteristieke n-grams per partij op basis van classificatie uit deelvraag 2 gedurende kabinet-Balkenende IV.\emph{(Vervolg)}} 
 \centering
-\hspace*{-0.6in}
+\hspace*{-0.4in}
 \input{Tables/WoordenBalkenende42.tex} 
 \end{table}
 In tabel \ref{RegeringOppositie} zijn de resultaten van de classificatiescores te zien waarbij de classificatie getraind is op een zittingsperiode, maar getest op een andere. \par
 \begin{table}[H]
 \caption{$F_1$ scores van de classificatie getraind op ene zittingsperiode en getest op andere zittingsperiode. Scores van een classificatie getraind en getest op kabinet-Rutte II zonder 50PLUS zijn bijgevoegd ter referentie, als ook de relatieve daling. De classificatiemethode uit deelvraag 1 is gebruikt zonder achternamen van Kamerleden en partijnamen. Partijen met een asterisk zijn gewisseld van partij-status.}
 \centering
+\hspace*{-0.2in}
 \label{RegeringOppositie}
 \input{Verslag/Handmatig/RegeringOppositie.tex}
 \end{table}
