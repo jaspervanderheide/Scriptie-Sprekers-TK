@@ -38,7 +38,15 @@ Tabel \ref{tab:classrapport} laat de scores zien per partij met het aantal docum
 \end{table}
 
 \subsection{DV2: Invloed van namen}
-In tabel \ref{tab:MostImportantWords} was al te zien dat de meest karakteristieke n-grams voornamelijk achternamen van Kamerleden of partijnamen bevatten. In tabel \ref{tab:rapportwithoutnames} zijn de scores te zien van classificatie met achternamen van Kamerleden en partijnamen vervangen. Deze zijn aanzienlijk lager dan de scores uit deelvraag 1. In tabel \ref{tab:MostImportantWordsWithoutNames} is vervolgens te zien welke n-grams het meest karakteristiek zijn per partij voor deze classificatie.\par
+In tabel \ref{tab:MostImportantWords} was al te zien dat de meest karakteristieke n-grams voornamelijk achternamen van Kamerleden of partijnamen bevatten. In tabel \ref{tab:rapportonlynames} zijn de scores te zien voor een classificatie met alleen achternamen van Kamerleden en partijnamen. De \textit{accuracy} is 0.61. De scores zijn gedaald ten opzichte van de resultaten van deelvraag 1, maar ruim hoger dan de baseline scores.\par
+\begin{table}[H]
+\caption{Classificatierapport van beste classificatie met alleen achternamen van Kamerleden en partijnamen. Hiervoor is alleen gebruikgemaakt van unigrams. Gemiddelde van vijf splitsingen van training en test set.}
+\label{tab:rapportonlynames}
+\centering
+\input{Verslag/Handmatig/onlynames.tex}
+\end{table}
+
+In tabel \ref{tab:rapportwithoutnames} zijn de scores te zien van classificatie met achternamen van Kamerleden en partijnamen vervangen. Deze zijn aanzienlijk lager dan de scores uit deelvraag 1 en ook nog lager dan de scores met alleen namen. Wel zijn de scores nog ruim hoger dan de baseline. In tabel \ref{tab:MostImportantWordsWithoutNames} is vervolgens te zien welke n-grams het meest karakteristiek zijn per partij voor deze classificatie.\par
 \begin{table}[H]
 \caption{Classificatie scores per partij van beste classificatie zonder achternamen van Kamerleden en partijnamen met het relatieve verschil ten opzichte van tabel \ref{tab:classrapport}. Gemiddelde van vijf splitsingen van training en test set.}
 \label{tab:rapportwithoutnames}
@@ -61,13 +69,7 @@ In tabel \ref{tab:MostImportantWords} was al te zien dat de meest karakteristiek
 \input{Tables/MostImportantWordsWithoutNames2.tex} 
 \end{table}
 
-In tabel \ref{tab:rapportonlynames} zijn de scores te zien voor een classificatie met alleen achternamen van Kamerleden en partijnamen. De \textit{accuracy} is 0.61. De scores zijn gedaald ten opzichte van de resultaten van deelvraag 1, maar hoger dan die zonder achternamen van Kamerleden en partijnamen.\par
-\begin{table}[H]
-\caption{Classificatierapport van beste classificatie met alleen achternamen van Kamerleden en partijnamen. Hiervoor is alleen gebruikgemaakt van unigrams. Gemiddelde van vijf splitsingen van training en test set.}
-\label{tab:rapportonlynames}
-\centering
-\input{Verslag/Handmatig/onlynames.tex}
-\end{table}
+
 
 \subsection{DV3: Oppositie of regering}
 In figuur \ref{fig:distributies} zijn de distributies van de errors, zoals gedefinieerd in formule \ref{eq:error} te zien van combinaties van regerings- en oppositiepartijen.
@@ -97,7 +99,7 @@ Tussen twee oppositiepartijen         &       \num{1e-93} &    16090205 \\
 \bottomrule
 \end{tabular}
 \end{table}
-In tabel \ref{tab:WoordenBalkenende4} zijn de meest karakteristieke woorden te zien
+In tabel \ref{tab:WoordenBalkenende4} zijn de meest karakteristieke n-grams te zien voor classificatie van kabinet-Balkenende IV. Hierin zijn geen opvallende overlappen te zien van regeringspartijen met de classificatie van kabinet-Rutte II in tabel \ref{tab:MostImportantWordsWithoutNames}.
 \begin{table}[H] 
 \caption{Meest karakteristieke n-grams per partij op basis van classificatie uit deelvraag 2 gedurende kabinet-Balkenende IV.} 
 \label{tab:WoordenBalkenende4} 
@@ -112,7 +114,7 @@ In tabel \ref{tab:WoordenBalkenende4} zijn de meest karakteristieke woorden te z
 \hspace*{-0.4in}
 \input{Tables/WoordenBalkenende42.tex} 
 \end{table}
-In tabel \ref{RegeringOppositie} zijn de resultaten van de classificatiescores te zien waarbij de classificatie getraind is op een zittingsperiode, maar getest op een andere. \par
+In tabel \ref{RegeringOppositie} zijn de resultaten van de classificatiescores te zien waarbij de classificatie getraind is op een zittingsperiode, maar getest op een andere. De resultaten zijn sterk  gedaald, maar nog boven de baseline. De daling verschilt enorm per partij en zittingsperiode met dalingen van $F_1$ scores tussen 12 en 92\%. \par
 \begin{table}[H]
 \caption{$F_1$ scores van de classificatie getraind op ene zittingsperiode en getest op andere zittingsperiode. Scores van een classificatie getraind en getest op kabinet-Rutte II zonder 50PLUS zijn bijgevoegd ter referentie, als ook de relatieve daling. De classificatiemethode uit deelvraag 1 is gebruikt zonder achternamen van Kamerleden en partijnamen. Partijen met een asterisk zijn gewisseld van partij-status.}
 \centering
@@ -122,7 +124,7 @@ In tabel \ref{RegeringOppositie} zijn de resultaten van de classificatiescores t
 \end{table}
 
 
-\subsection{DV4: Links of rechts}
+\subsection{DV4: Links/rechts}
 
 \subsection{DV5: Woordgebruik van sprekers}
 In tabel \ref{tab:rapporttaalgebruik} staan de scores van classificatie waarbij de Kamerleden verdeeld zijn over de training en test set. De scores zijn hierbij amper hoger dan de baseline.
