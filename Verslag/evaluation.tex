@@ -84,7 +84,7 @@ In figuur \ref{fig:distributies} zijn de distributies van de errors, zoals gedef
     \caption{Genormaliseerde distributie van de error uit formule \ref{eq:error} voor de verschillende combinaties.}%
     \label{fig:distributies}%
 \end{figure}
-Voor alle distributies kan de nulhypothese verworpen worden dat deze normaal verdeeld zijn, hoewel dit wel verwacht was. In tabel \ref{tab:whitney} is vervolgens te zien dat er een significant verschil is tussen de distributies binnen regering en oppositie tegenover de distributie tussen regering en oppositiepartij.
+Voor alle distributies kan de nulhypothese verworpen worden dat deze normaal verdeeld zijn. In tabel \ref{tab:whitney} is vervolgens te zien dat er een significant verschil is tussen de distributies binnen regering en oppositie tegenover de distributie tussen regering en oppositiepartij.
 
 \begin{table}[H]
 \caption{Uitslagen van eenzijdige Mann-whitneytoets tussen de distributie tussen een regeringspartij en oppositiepartij en twee distributies. $\alpha$ is 0.05.}
@@ -124,18 +124,18 @@ In tabel \ref{RegeringOppositie} zijn de resultaten van de classificatiescores t
 \end{table}
 
 
-\subsection{DV4: Links/rechts}
-In tabel \ref{fig:distanceerror} is de error te zien ten opzichte van de afstand op de links/rechts schaal.
+\subsection{DV4: Links-rechts as}
+In tabel \ref{fig:distanceerror} is de error te zien ten opzichte van de afstand op de links-rechts as.
 \begin{figure}[H]
   \centering
-    \includegraphics[width=0.50\paperwidth]{Verslag/Tables/Ideology.png}
-\caption{Error ten opzichte van de afstand op de links/rechts schaal van twee partijen. Gebaseerd op 100 classificaties met verschillende test en train set. De pearson correlatie is 0.09 en de p-waarde \num{2.39e-20}.}
+    \includegraphics[width=0.60\paperwidth]{Verslag/Tables/Ideology.png}
+\caption{Error ten opzichte van de afstand op de links-rechts as van twee partijen. Gebaseerd op 100 classificaties met verschillende test en train set. De Pearson correlatie is 0.09 en de p-waarde \num{2.39e-20}.}
 \label{fig:distanceerror}
 \end{figure}
-De correlatie is met daarmee significant op het significantieniveau van 0.05, maar wel positief. Uit deelvraag 3 bleek dat de error binnen oppositie of regering significant afweek van de error tussen regering en oppositie. Dit effect lijkt ook zichtbaar in tabel \ref{fig:distanceerror}. Daarom wordt er in tabel \ref{tab:pearson} ook gekeken naar de correlatie tussen afstand op de links/rechts schaal en error binnen oppositie en tussen regerings- en oppositiepartij.
+De Pearson correlatie van 0.09 is daarmee met een p-waarde van \num{2.39e-20} significant op het significantieniveau van 0.01, maar wel positief. Uit deelvraag 3 bleek dat de error binnen oppositie of regering significant afweek van de error tussen regering en oppositie. Dit effect lijkt ook zichtbaar in figuur \ref{fig:distanceerror}. Daarom wordt er in tabel \ref{tab:pearson} ook gekeken naar de correlatie tussen afstand op de links-rechts as en error binnen oppositie en tussen regerings- en oppositiepartij. Beide correlaties zijn statistische significant op het significantieniveau van 0.01, maar opvallend genoeg in tegengestelde richting.
 
 \begin{table}[H]
-\caption{Uitslagen van eenzijdige Mann-whitneytoets tussen de distributie tussen een regeringspartij en oppositiepartij en twee distributies. $\alpha$ is 0.05.}
+\caption{Pearson correlatie tussen error en afstand op de links-rechts as voor combinaties van partij-status.}
 \label{tab:pearson}
 \centering
 \begin{tabular}{lrr}
