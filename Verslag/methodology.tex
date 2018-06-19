@@ -6,7 +6,7 @@
 \label{data}
 De data die gebruikt worden, zijn de Handelingen van de Tweede Kamer gedurende het missionaire kabinet-Rutte II (5 november 2012 tot 22 maart 2017). Er is gekozen voor dit kabinet, omdat de data hiervoor makkelijk verkrijgbaar was, het kabinet lang zat - waardoor er veel data is - en het recent is waardoor het makkelijker te interpreteren is. In dit kabinet zaten de PvdA en VVD. Deze data zijn in xml-formaat van de website officielebekendmakingen.nl gehaald samen met bijbehorende metadatabestanden. De bestanden van de Handelingen bevatten voornamelijk informatie over spreekbeurten tijdens een debat, waaronder naam van een spreker, partij-affiliatie, inhoud van de spreekbeurt en het soort spreekbeurt. Deze gegevens zijn samengevoegd tot één tabel.\par
 Deze dataset bestaat uit een aantal soorten spreekbeurten; debatbijdragen, interrupties en antwoorden. Een debatbijdrage is de eerste onafgebroken spreekbeurt die een spreker geeft achter een spreekgestoelte, aangeduid in de xml-file met het attribuut \textit{nieuw="ja"}. Dit kan een bijdrage in een debat zijn of een vraag tijdens een vragenuur. Interrupties zijn de vragen die andere politici stellen vanachter de interruptiemicrofoon aan een spreker. De antwoorden zijn vervolgens de reactie van een spreker achter het spreekgestoelte op een interruptie. Aangezien een debatbijdrage geïnterrumpeerd kan worden, kan deze inhoudelijk doorlopen in een antwoord van een spreker.  Gerelateerde onderzoeken voegen vaak alle teksten van een spreker samen tot één document. Dit is alleen niet mogelijk met de hoeveelheid kleine partijen in de Tweede Kamer, die dan niet altijd in een training of test set zijn vertegenwoordigd. Daarom is in dit onderzoek ervoor gekozen om een debatbijdrage met alle bijbehorende antwoorden samen te voegen tot één document voor de classificatie.\par
-Daarnaast zijn er verschillende soorten sprekers; de voorzitter, Tweede Kamerleden, leden van het kabinet en gastsprekers. Hieruit is alleen gekozen voor sprekers waarvan er een partij-affiliatie vermeld staat. Dit is niet het geval voor leden van het kabinet, de voorzitter en gastsprekers (met uitzondering van Nederlandse leden van het Europees Parlement).\par
+Daarnaast zijn er verschillende soorten sprekers; de voorzitter, Tweede Kamerleden, leden van het kabinet en gastsprekers. Hieruit is alleen gekozen voor sprekers waarvan er een partij-affiliatie vermeld staat. Dit is niet het geval voor leden van het kabinet, de voorzitter en gastsprekers met uitzondering van Nederlandse leden van het Europees Parlement.\par
 Deze dataset bevat vervolgens naast de verkozen partijen na de Tweede Kamerverkiezingen van 2012 ook afsplitsingen van die partijen (tien in totaal) en bezoeken van vertegenwoordigingen van Nederlandse partijen uit het Europees Parlement (tien in totaal). Omdat van beide categorieën relatief weinig data is en er overlap zit met hun oorspronkelijke of gelieerde partij, zijn deze er uit gehaald. 50PLUS is in 2014 \cite{50PLUSNRC} uiteengevallen in twee fracties die aanspraak maakten op de partij-affiliatie 50PLUS. Vanaf dit moment zijn deze documenten niet meer meegenomen om onduidelijkheid te voorkomen.\par
 
 De documenten verschillen in grootte. De distributie van documentgrootte lijkt op een lognormale verdeling, maar met een Kolmogorov-Smirnov test is hier geen bewijs voor gevonden \cite{Scipy}.
@@ -87,27 +87,27 @@ Ook wordt gekeken naar classificatie met alleen partijnamen en achternamen van K
 
 \subsubsection{DV3: Oppositie of regering}
 
-Om deze deelvraag te beantwoorden zal een analyse gedaan worden van de confusion matrix en zullen twee experimenten die gebaseerd zijn op experimenten uit Hirst et al. voor dezelfde vraag uitgevoerd worden op de dataset van de Tweede Kamer. Bij deze deelvraag zal de classificatiemethode uit deelvraag 2 gebruikt worden.\par
+Om deze deelvraag te beantwoorden zijn drie experimenten uitgevoerd. Twee daarvan zijn gebaseerd op experimenten uit Hirst et al. \cite{Hirst_textto} voor dezelfde vraag. De derde is ontwikkeld voor dit onderzoek. Met deze laatste wordt begonnen. Bij deze deelvraag is de classificatiemethode uit deelvraag 2 gebruikt.\par
 Als er een afhankelijkheid is van partij-status, dan is te verwachten dat het aantal misclassificaties minus verwachte waarde binnen regeringspartijen en binnen oppositiepartijen hoger ligt dan tussen oppositiepartijen en regeringspartijen. De verwachte waarde is afhankelijk van het aantal documenten van een partij in de training set \cite{Sahare}. Aangezien de test set uit dezelfde set als de training is gehaald, is de verwachte waarde ook afhankelijk van het aantal documenten van een partij in de test set. Uit de voorverkenning (op basis van resultaten uit deelvraag 1 en 2) blijkt deze correlatie tussen het aantal \textit{false positives} van een partij en het aantal documenten behorend tot die partij.
 \begin{figure}[H]
   \centering
     \includegraphics[width=0.60\paperwidth]{Verslag/Handmatig/Correlation.png}
-\caption{Het aantal \textit{false positives} ten opzichte van het aantal documenten behorend tot die partij (\textit{false negatives} en \textit{true positives}). Dit is op basis van 100 classificaties met verschillende test en train set. De pearson correlatie is 0.77 en de p-waarde \num{5.40e-101}.}
+\caption{Het aantal \textit{false positives} ten opzichte van het aantal documenten behorend tot die partij (\textit{false negatives} en \textit{true positives}). Dit is op basis van 100 classificaties met verschillende test en train set. De Pearson correlatie is 0.77 en de p-waarde \num{5.40e-101}.}
 \label{fig:correlation}
 \end{figure}
-Op basis van dit verband is het verwachte aantal documenten
+Op basis van dit verband definiëren we het verwachte aantal documenten van partij $i$ die foutief geclassificeerd worden als partij $j$ als
 \begin{equation}
 \label{eq:expected}
 V_{i,j}  = fn_i *  \frac{tp_{j}+fn_{j}}{tn_{i}+fp_{i}}
 \end{equation}
-waar $i\neq j$ met $i$ de echte partij waar een document bijhoort en $j$ de (foutief) voorspelde partij.\par
-De error is dan het verschil van de verwachte waarde en het daadwerkelijk aantal documenten
+waar $i\neq j$. De teller van de breuk is het aantal documenten die bij partij $j$ horen en de noemer het aantal documenten die niet bij partij $i$ horen. Op deze manier is $\sum_{j=0}^{n} (V_{i,j}) = fn_i$ waar $n$ het aantal partijen is minus partij $i$.\par
+De error ($e_{i,j}$) is dan het verschil van  het daadwerkelijk aantal misclassificaties ($D_{i,j}$) en de verwachte waarde ($V_{i,j}$)
 \begin{equation}
 \label{eq:error}
 e_{i,j} = D_{i,j} - V_{i,j}
 \end{equation}
-met opnieuw $i\neq j$ en $i$ de voorspelde partij en $j$ de echte partij waar een document bijhoort. \par
-Als dit een goede benadering is van de error, dan is het te verwachten dat deze normaal verdeeld is \cite{citeulike:7531484}. Om te kijken of er een bias is, worden de distributies binnen regeringspartijen en binnen oppositiepartijen vergeleken met de distributie tussen beide groepen. Om de invloed van variantie door de willekeurige splitsing documenten voor trainen en testen te beperken, wordt de classificatie 100 keer gedaan en worden deze errors bij elkaar in distributie genomen. In het geval dat de distributies normaal verdeeld zijn, zal de statistische test plaatsvinden op basis van een eenzijdige t-toets. Als de distributies niet normaal verdeeld zijn, zal dit plaatsvinden door een Mann-whitneytoets. Het gekozen significantieniveau ($\alpha$) is 0.05. De nulhypothese is dat er geen verschil is tussen de verdelingen. De alternatieve hypothese is dan dat de distributie van binnen oppositie of regering groter is dan die tussen een regerings- en oppositiepartij. Als de nulhypothese wordt verworpen, kan dus aangenomen worden dat er een verschil is op basis van partij-status.\par
+met opnieuw $i\neq j$ en $i$ de echte partij waar een document bijhoort en $j$ de voorspelde partij. \par
+Als dit een goede benadering is van de error, dan is het te verwachten dat deze normaal verdeeld is \cite{citeulike:7531484}. Om te kijken of er een bias is, worden de distributies binnen regeringspartijen en binnen oppositiepartijen vergeleken met de distributie tussen beide groepen. Om de invloed van variantie door de willekeurige splitsing documenten voor trainen en testen te beperken, wordt de classificatie 100 keer gedaan. In het geval dat de distributies normaal verdeeld zijn, zal de statistische test plaatsvinden op basis van een eenzijdige t-toets. Als de distributies niet normaal verdeeld zijn, zal dit plaatsvinden door een Mann-whitneytoets. Het gekozen significantieniveau ($\alpha$) is 0.05. De nulhypothese is dat er geen verschil is tussen de verdelingen. De alternatieve hypothese is dan dat de distributie van binnen oppositie of regering groter is dan die tussen een regerings- en oppositiepartij. Als de nulhypothese wordt verworpen, kan dus aangenomen worden dat er een verschil is op basis van partij-status.\par
 
 In het eerste experiment uit Hirst et al. zullen de meest karakteristieke woorden per partij van de ene zittingsperiode vergeleken worden met de meest karakteristieke woorden per partij van de andere zittingsperiode. Als de classificatie op basis van ideologie is in plaats van partij-status, is het te verwachten dat de woorden bij een partij blijven en niet gekoppeld zijn aan in oppositie of regering zitten. \par
 In het tweede experiment uit Hirst et al. worden classificaties getraind op een zittingsperiode en getest op een andere zittingsperiode. Als de classificatie afhankelijk is van partij-status is de verwachting dat de scores van partijen die gewisseld zijn van oppositie naar regering of andersom lagere scores krijgen dan partijen die niet van partij-status zijn veranderd.\par
@@ -121,12 +121,12 @@ De partij 50PLUS bestond nog niet gedurende kabinet-Balkenende IV, dus documente
 \input{Handmatig/SpreekbeurtenBal.tex}
 \end{table}
 
-\subsubsection{DV4: Links/rechts}
-Als de classificatie afhankelijk is van links/rechts positie, dan is het te verwachten dat, net als bij deelvraag 3, de misclassificaties minus de verwachte waarde groter zijn als twee partijen dichterbij elkaar staan op de links/rechts as. Daarvoor zal wederom formule \ref{eq:expected} gebruikt worden als verwachte waarde en formule \ref{eq:error} als error.\par
-Er zijn verschillende methoden om partijen in te delen op een links/rechts as. Er is hier gekozen voor de indeling van het Manifesto Project \cite{Volkens:2017}. Het Manifesto Project geeft scores op een heel aantal politieke posities, waaronder dus links/rechts, op basis van het verkiezingsprogramma van dat jaar, in dit geval dus van 2012.\par
+\subsubsection{DV4: Links-rechts as}
+Als de classificatie afhankelijk is van positie op de links-rechts as dan is het te verwachten dat, net als bij deelvraag 3, de misclassificaties minus de verwachte waarde groter zijn als twee partijen dichterbij elkaar staan op de links-rechts as. Daarvoor zal wederom formule \ref{eq:expected} gebruikt worden als verwachte waarde en formule \ref{eq:error} als error.\par
+Er zijn verschillende methoden om partijen in te delen op een links-rechts as. Er is hier gekozen voor de indeling van het Manifesto Project \cite{Volkens:2017}. Het Manifesto Project geeft scores op een heel aantal politieke posities, waaronder dus de links-rechts as, op basis van het verkiezingsprogramma van dat jaar, in dit geval dus van 2012.\par
 \begin{table}[H]
 \centering
-\caption{Links/rechts score per partij van het Manifesto Project voor de verkiezingsprogramma's van 2012.}
+\caption{Scores op de links-rechts as per partij van het Manifesto Project voor de verkiezingsprogramma's van 2012.}
 \label{my-label}
 \centering
 \begin{tabular}{lc}
@@ -147,6 +147,8 @@ SGP          & 26.6\\
 \bottomrule
 \end{tabular}
 \end{table}
+Er wordt vervolgens gekeken door middel van een Pearson correlatie toets of er een correlatie is tussen de error van twee partijen en de afstand op de links-rechts as van die partij. Het significantieniveau ($\alpha$) hiervoor is opnieuw 0.05. De nulhypothese is dat er geen negatieve correlatie is tussen de error en de afstand op de links-rechts as. De alternatieve hypothese is dat er wel een negatieve correlatie is tussen de error en de afstand op de links-rechts as.\par
+Als uit deelvraag 3 blijkt dat partij-status invloed heeft op de error, zal bovenstaande methode ook uitgevoerd worden voor de aparte combinaties; binnen oppositie en tussen regeringspartij en oppositiepartij. Binnen regering is niet mogelijk aangezien dat maar één afstand is.\par
 
 \subsubsection{DV5: Woordgebruik van sprekers}
 De vorige classificaties trainden op documenten en werden getest op andere documenten, maar wel van dezelfde sprekers als uit de training set. Naast de ideologie kan de classificatie daarom ook getraind zijn op het taalgebruik van sprekers. Als een Kamerlid bijvoorbeeld een woord regelmatig in speeches gebruikt, maar niet wordt gebruikt door zijn partijgenoten, wordt dit wel gezien als een belangrijk woord voor de classificatie naar partij-affiliatie. Hirst et al. \cite{Hirst_textto} plaatsten al een soortgelijke kanttekening bij de resultaten van Diermeier et al.\par
