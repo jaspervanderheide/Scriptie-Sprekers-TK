@@ -1,4 +1,5 @@
-\documentclass[a4paper,pdf]{article} % gebruik acm style voor je scriptie: [format=acmsmall, screen=true, review=false]{acmart} 
+\documentclass[a4paper,pdf]{article} % gebruik acm style voor je scriptie: 
+%\documentclass[format=manuscript, screen=true, review=false, pdf]{acmart} 
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
@@ -9,11 +10,13 @@
 \setlength\parindent{24pt}
 \usepackage{makecell}
 \usepackage{siunitx}
+\usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 \usepackage{multirow}
 \usepackage{graphicx}
 \usepackage{subfig}
+\usepackage[numbers]{natbib}
 \usepackage[colorinlistoftodos]{todonotes} % handig voor commentaar: gebruik \todo{}, zie ftp://ftp.fu-berlin.de/tex/CTAN/macros/latex/contrib/todonotes/todonotes.pdf
 \usepackage{listings}
 \usepackage{pdfpages}
@@ -21,7 +24,6 @@
 \usepackage{float}
 \usepackage{caption}
 %\usepackage{subcaption}
-
 
 \usepackage[bottom]{footmisc}
 % when writing in Dutch
@@ -35,26 +37,17 @@
 
 
 \begin{document}
-
-
-
-
 %\input{titlepage}
 \input{Verslag/Thesis-Title-Page-DS.tex}  % or use another template
-
-\pagebreak
-
-\tableofcontents
-
-\pagebreak
-
 \begin{abstract}
-% [CHANGE] 
+In verschillende onderzoeken zijn parlementaire teksten geclassificeerd naar partij-affiliatie. Dit onderzoek heeft eerst gezocht naar de beste classificatiemethode voor het Nederlandse parlement. Vervolgens is gekeken in hoeverre de classificatie het gevolg is van ideologie. Hiervoor is gekeken naar de invloed van namen, in regering of oppositie zitten, positie op de links-rechts as en woordgebruik van sprekers.\par
+De beste classificatiemethode met een nauwkeurigheid van 0.80 is Support Vector Machine. Dit daalt naar 0.58 als achternamen van Kamerleden en partijnamen weggehaald worden. Het onderzoek vond ook aanwijzingen dat de classificatie afhankelijk is van of een partij in regering of oppositie zit. Aanwijzingen voor afhankelijkheid van positie op links-rechts as zijn daarentegen niet gevonden. Als laatste daalt de nauwkeurigheid verder naar 0.27 als Kamerleden verdeeld worden over de training en test set, wat suggereert dat de oorspronkelijke classificatie afhankelijk was van woordgebruik van sprekers. Dit leidt tot de conclusie dat in grote mate de classificatie niet het gevolg is van ideologie.
 \end{abstract}
-
-
-
 \pagebreak
+\tableofcontents
+\pagebreak
+
+
 
 
 % Here you input all your sections in seperate files
@@ -66,7 +59,7 @@
 \input{Verslag/discussie.tex}
 \input{Verslag/conclusions.tex}
 % your refs
-\bibliographystyle{unsrt}%Used BibTeX style is unsrt
+\bibliographystyle{apa}%Used BibTeX style is unsrt
 \bibliography{bibliography}
 
 

@@ -2,11 +2,18 @@
 \section{Resultaten}
 
 \subsection{DV1: Beste classificatiemethode}
-Het beste resultaat werd bereikt met Support Vector Machines gebruikmakend van \textit{stochastic gradient descent learning} en L2 regularisatie. De woorden waren hierbij gestemd. De features waren zowel unigrams, bigrams als trigrams. Geen features zijn hierin weggelaten door minimale of maximale documentfrequenties. De waarden van deze features waren \textit{tf-idf} scores. Het maximum aantal iteraties was 5 voor de grid search, maar alle resultaten zijn op basis van 100.\par
-Tabel \ref{tab:classrapport} laat de scores zien per partij met het aantal documenten in de test set. De \textit{accuracy} voor deze classificatie is 0.80. De $F_1$ scores per partij liggen tussen de 0.7 en 0.9. De partijen met een sterke focus op één onderwerp, 50PLUS, PVV en PvdD, als ook de SGP hebben hoge scores, terwijl de coalitiepartijen, VVD en PvdA, lagere scores hebben. Figuur \ref{fig:confusionmatrix} laat zien waar de fouten in deze classificatie zitten. De meest karakteristieke features per partij zijn te zien in tabel \ref{tab:MostImportantWords}. Met meest karakteristiek worden de n-grams bedoeld die de hoogste coëfficiënt hebben in de classificatie en die dus relatief het meeste belangrijk zijn voor de classificatie van een partij. Hierin is te zien dat vrijwel alle n-grams achternamen van Kamerleden of partijnamen bevatten.\par
+In figuur \ref{fig:scores} zijn de uitslagen van de grid search te zien. Hierin is te zien dat SVM en logistische regressie beide hoge nauwkeurigheden behalen, maar dat logistische regressie ook veel lage nauwkeurigheden haalt tussen 0 en 0.1. Naive Bayes zit tussen de 0.25 en 0.6.
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=0.50\paperwidth]{Verslag/Tables/scores.png}
+\caption{Histogram van de grid search met de $F_1$ scores van de classificatiemethoden}
+\label{fig:scores}
+\end{figure}
+Het beste resultaat werd bereikt met Support Vector Machine gebruikmakend van \textit{stochastic gradient descent learning} en L2 regularisatie. In de grid search behaalde deze methode een $F_1$ score en nauwkeurigheid van 0.75. Voor beide scores was dit het hoogste van de grid search. De woorden waren hierbij gestemd. De features waren zowel unigrams, bigrams als trigrams. Geen features zijn weggelaten door minimale of maximale documentfrequenties. De waarden van deze features waren \textit{tf-idf} scores. Het maximum aantal iteraties was 5 voor de grid search, maar de rest van resultaten zijn op basis van 100 iteraties.\par
+Tabel \ref{tab:classrapport} laat de scores zien per partij met het aantal documenten in de test set. De nauwkeurigheid voor deze classificatie is 0.80. De $F_1$ scores per partij liggen tussen de 0.7 en 0.9. De partijen met een sterke focus op één onderwerp, 50PLUS, PVV en PvdD, als ook de SGP hebben hoge scores. De coalitiepartijen, VVD en PvdA, daarentegen hebben lagere scores. Figuur \ref{fig:confusionmatrix} laat zien waar de fouten in deze classificatie zitten. De meest karakteristieke n-grams per partij zijn te zien in tabel \ref{tab:MostImportantWords}. Met meest karakteristiek worden de n-grams bedoeld die de hoogste coëfficiënt hebben in de classificatie en die dus relatief het meeste belangrijk zijn voor de classificatie van een partij. Hierin is te zien dat vrijwel alle n-grams achternamen van Kamerleden of partijnamen bevatten.\par
 
 \begin{table}[H]
-\caption{Classificatie scores per partij van beste classificatiemethode (SVM). Gemiddelde van vijf splitsingen van training en test set. Maximum aantal iteraties is 100.}
+\caption{Classificatie scores per partij van de beste classificatiemethode (SVM). Gemiddelde van vijfmaal kruisvalidatie.}
 \label{tab:classrapport}
 \centering
 \input{Handmatig/confusionmatrix.tex}
@@ -16,14 +23,14 @@ Tabel \ref{tab:classrapport} laat de scores zien per partij met het aantal docum
 \begin{figure}[H]
   \centering
     \includegraphics[width=0.50\paperwidth]{Verslag/Tables/confusionmatrix.png}
-\caption{Confusion matrix van beste classificatiemethode (SVM). Gemiddelde van vijf splitsingen van training en test set.}
+\caption{Confusion matrix van de beste classificatiemethode (SVM). Gemiddelde van vijfmaal kruisvalidatie.}
 \label{fig:confusionmatrix}
 \end{figure}
 
 
 
 \begin{table}[H]
-\caption{Meest karakteristieke n-grams per partij op basis van beste classificatie gedurende kabinet-Rutte II. N-grams die niet achternamen van Kamerleden of partijnamen bevatten, zijn dikgedrukt. }
+\caption{Meest karakteristieke n-grams per partij op basis van de beste classificatiemethode (SVM) gedurende kabinet-Rutte II. N-grams die niet achternamen van Kamerleden of partijnamen bevatten, zijn dikgedrukt. }
 \label{tab:MostImportantWords} 
 \centering
 \hspace*{-1in}
@@ -31,31 +38,31 @@ Tabel \ref{tab:classrapport} laat de scores zien per partij met het aantal docum
 \end{table} 
 \addtocounter{table}{-1} 
 \begin{table}[H]
-\caption{Meest karakteristieke n-grams per partij op basis van beste classificatie gedurende kabinet-Rutte II. N-grams die niet achternamen van Kamerleden of partijnamen bevatten, zijn dikgedrukt.  \emph{(Vervolg)}} 
+\caption{Meest karakteristieke n-grams per partij op basis van de beste classificatiemethode (SVM) gedurende kabinet-Rutte II. N-grams die niet achternamen van Kamerleden of partijnamen bevatten, zijn dikgedrukt.  \emph{(Vervolg)}} 
 \centering
 \hspace*{-1.3in}
 \input{Handmatig/MostImportantWords2.tex} 
 \end{table}
 
 \subsection{DV2: Invloed van namen}
-In tabel \ref{tab:MostImportantWords} was al te zien dat de meest karakteristieke n-grams voornamelijk achternamen van Kamerleden of partijnamen bevatten. In tabel \ref{tab:rapportonlynames} zijn de scores te zien voor een classificatie met alleen achternamen van Kamerleden en partijnamen. De \textit{accuracy} is 0.61. De scores zijn gedaald ten opzichte van de resultaten van deelvraag 1, maar ruim hoger dan de baseline scores.\par
+In tabel \ref{tab:MostImportantWords} was al te zien dat de meest karakteristieke n-grams voornamelijk achternamen van Kamerleden of partijnamen bevatten. In tabel \ref{tab:rapportonlynames} zijn de scores te zien voor een classificatie met alleen achternamen van Kamerleden en partijnamen. De nauwkeurigheid is 0.61. De scores zijn gedaald ten opzichte van de resultaten van deelvraag 1, maar hoger dan de baseline scores.\par
 \begin{table}[H]
-\caption{Classificatierapport van beste classificatie met alleen achternamen van Kamerleden en partijnamen. Hiervoor is alleen gebruikgemaakt van unigrams. Gemiddelde van vijf splitsingen van training en test set.}
+\caption{Classificatierapport van beste classificatie met alleen achternamen van Kamerleden en partijnamen. Hiervoor is alleen gebruikgemaakt van unigrams. Gemiddelde van vijfmaal kruisvalidatie.}
 \label{tab:rapportonlynames}
 \centering
 \input{Verslag/Handmatig/onlynames.tex}
 \end{table}
 
-In tabel \ref{tab:rapportwithoutnames} zijn de $F_1$scores te zien van classificatie met achternamen van Kamerleden en partijnamen vervangen. De \textit{accuracy} hiervan is 0.58. De scores zijn aanzienlijk lager dan die uit deelvraag 1 en ook nog lager dan van de classificatie met alleen namen. Wel zijn de scores nog ruim hoger dan de baseline. In tabel \ref{tab:MostImportantWordsWithoutNames} is vervolgens te zien welke n-grams het meest karakteristiek zijn per partij voor deze classificatie.\par
+In tabel \ref{tab:rapportwithoutnames} zijn de $F_1$ scores te zien van classificatie met achternamen van Kamerleden en partijnamen vervangen. De nauwkeurigheid hiervan is 0.58. De scores zijn lager dan die uit deelvraag 1 en lager dan van de classificatie met alleen namen. Wel zijn de scores nog steeds hoger dan de baseline. In tabel \ref{tab:MostImportantWordsWithoutNames} is vervolgens te zien welke n-grams het meest karakteristiek zijn per partij voor deze classificatie.\par
 \begin{table}[H]
-\caption{Classificatie scores per partij van beste classificatie zonder achternamen van Kamerleden en partijnamen met het relatieve verschil ten opzichte van tabel \ref{tab:classrapport}. Gemiddelde van vijf splitsingen van training en test set.}
+\caption{Classificatie scores per partij van beste classificatiemethode (SVM) uit deelvraag 1 zonder achternamen van Kamerleden en partijnamen met het relatieve verschil in $F_1$ score ten opzichte van tabel \ref{tab:classrapport}. Gemiddelde van vijfmaal kruisvalidatie.}
 \label{tab:rapportwithoutnames}
 \centering
 \input{Verslag/Handmatig/withoutnames.tex}
 \end{table}
 
 \begin{table}[H] 
-\caption{Meest karakteristieke n-grams per partij op basis van classificatie uit deelvraag 1 zonder achternamen van Kamerleden en partijnamen gedurende kabinet-Rutte II.} 
+\caption{Meest karakteristieke n-grams per partij op basis van de classificatiemethode (SVM) uit deelvraag 1 zonder achternamen van Kamerleden en partijnamen gedurende kabinet-Rutte II.} 
 \label{tab:MostImportantWordsWithoutNames} 
 \centering
 \hspace*{-0.8in}
@@ -63,7 +70,7 @@ In tabel \ref{tab:rapportwithoutnames} zijn de $F_1$scores te zien van classific
 \end{table} 
 \addtocounter{table}{-1} 
 \begin{table}[H] 
-\caption{Meest relevante n-grams per partij op basis van classificatie uit deelvraag 1 zonder achternamen van Kamerleden en partijnamen gedurende kabinet-Rutte II. \emph{(Vervolg)}} 
+\caption{Meest karakteristieke n-grams per partij op basis van de classificatiemethode (SVM) uit deelvraag 1 zonder achternamen van Kamerleden en partijnamen gedurende kabinet-Rutte II. \emph{(Vervolg)}} 
 \centering
 \hspace*{-1.3in}
 \input{Tables/MostImportantWordsWithoutNames2.tex} 
@@ -72,19 +79,19 @@ In tabel \ref{tab:rapportwithoutnames} zijn de $F_1$scores te zien van classific
 
 
 \subsection{DV3: Oppositie of regering}
-In figuur \ref{fig:distributies} zijn de distributies van de errors, zoals gedefinieerd in formule \ref{eq:error} te zien van combinaties van regerings- en oppositiepartijen.
+In figuur \ref{fig:distributies} zijn de distributies van de errors, zoals gedefinieerd in formule \ref{eq:error} te zien van combinaties van regerings- en oppositiepartijen. Bijgevoegd zijn het aantal combinaties (N), het gemiddelde ($\mu$) en de standaarddeviatie ($\sigma$).
 \begin{figure}[H]
     \centering
     \hspace*{-0.2in}
-    \subfloat[Tussen twee regeringspartijen (N=200, \protect\\$\mu$=26.11, $\sigma$=6.91)]{{\includegraphics[width=7cm]{Verslag/Handmatig/Regering.png} }}%
-    \subfloat[Tussen twee oppositiepartijen (N=8100, $\mu$=0.43, $\sigma$=6.82)]{{\includegraphics[width=7cm]{Verslag/Handmatig/Oppositie.png} }}\quad
+    \subfloat[Tussen twee regeringspartijen (N=200, \protect\\Mediaan=25.83, IKA=9.18)]{{\includegraphics[width=7cm]{Verslag/Handmatig/Regering.png} }}%
+    \subfloat[Tussen twee oppositiepartijen (N=8100, \protect\\Mediaan=-1.09, IKA=4.98)]{{\includegraphics[width=7cm]{Verslag/Handmatig/Oppositie.png} }}\quad
     \hspace*{-0.2in}
-    \subfloat[Tussen een regeringspartij en een oppositiepartij (N=4000, $\mu$=-2.31, $\sigma$=6.37)]{{\includegraphics[width=7cm]{Verslag/Handmatig/Mix.png} }}%
-    \subfloat[Totaal (N=12100, $\mu$=7.67, $\sigma$=0.00)]{{\includegraphics[width=7cm]{Verslag/Handmatig/Totaal.png} }}\quad
+    \subfloat[Tussen een regeringspartij en een oppositiepartij (N=4000, Mediaan=-2.92, IKA=6.82)]{{\includegraphics[width=7cm]{Verslag/Handmatig/Mix.png} }}%
+    \subfloat[Totaal (N=12100, Mediaan=-1.40, IKA=5.76)]{{\includegraphics[width=7cm]{Verslag/Handmatig/Totaal.png} }}\quad
     \caption{Genormaliseerde distributie van de error uit formule \ref{eq:error} voor de verschillende combinaties.}%
     \label{fig:distributies}%
 \end{figure}
-Voor alle distributies kan de nulhypothese verworpen worden dat deze normaal verdeeld zijn. In tabel \ref{tab:whitney} is vervolgens te zien dat er een significant verschil is tussen de distributies binnen regering en oppositie tegenover de distributie tussen regering en oppositiepartij. Tussen regeringspartijen zijn er dus gemiddeld 26.11 misclassificaties meer dan verwacht en tussen oppositiepartijen gemiddeld 0.43.
+Voor alle distributies was de nulhypothese verworpen dat deze normaal verdeeld zijn ($p < 0.01$) door middel van een normaalheidstoets. In tabel \ref{tab:whitney} is te zien dat er een significant verschil is tussen de distributies binnen regering en binnen oppositie tegenover de distributie tussen een regeringspartij en een oppositiepartij. Binnen regeringspartijen zijn er gemiddeld 26.11 misclassificaties meer dan verwacht en binnen oppositiepartijen gemiddeld 0.43.
 
 \begin{table}[H]
 \caption{Uitslagen van eenzijdige Mann-whitneytoets tussen de distributie tussen een regeringspartij en oppositiepartij en twee distributies. $\alpha$ is 0.01.}
@@ -92,7 +99,7 @@ Voor alle distributies kan de nulhypothese verworpen worden dat deze normaal ver
 \centering
 \begin{tabular}{lrr}
 \toprule
-{} &  p-waarde &  U-waarde\\
+{} &  $p$-waarde &  $U$-waarde\\
 \midrule
 Tussen twee regeringspartijen       &       \num{7.04e-124} &    717042 \\
 Tussen twee oppositiepartijen         &       \num{4.4e-108} &    16328471 \\
@@ -101,7 +108,7 @@ Tussen twee oppositiepartijen         &       \num{4.4e-108} &    16328471 \\
 \end{table}
 In tabel \ref{tab:WoordenBalkenende4} zijn de meest karakteristieke n-grams te zien voor classificatie van kabinet-Balkenende IV. Hierin zijn geen opvallende overlappen te zien van regeringspartijen met de classificatie van kabinet-Rutte II in tabel \ref{tab:MostImportantWordsWithoutNames}.
 \begin{table}[H] 
-\caption{Meest karakteristieke n-grams per partij op basis van classificatie uit deelvraag 2 gedurende kabinet-Balkenende IV.} 
+\caption{Meest karakteristieke n-grams per partij op basis van beste classificatiemethode uit deelvraag 1 zonder achternamen van Kamerleden en partijnamen gedurende kabinet-Balkenende IV.} 
 \label{tab:WoordenBalkenende4} 
 \centering
 \hspace*{-0.6in}
@@ -109,14 +116,14 @@ In tabel \ref{tab:WoordenBalkenende4} zijn de meest karakteristieke n-grams te z
 \end{table} 
 \addtocounter{table}{-1} 
 \begin{table}[H] 
-\caption{Meest karakteristieke n-grams per partij op basis van classificatie uit deelvraag 2 gedurende kabinet-Balkenende IV.\emph{(Vervolg)}} 
+\caption{Meest karakteristieke n-grams per partij op basis van beste classificatiemethode uit deelvraag 1 zonder achternamen van Kamerleden en partijnamen gedurende kabinet-Balkenende IV.\emph{(Vervolg)}} 
 \centering
 \hspace*{-0.4in}
 \input{Tables/WoordenBalkenende42.tex} 
 \end{table}
-In tabel \ref{RegeringOppositie} zijn de resultaten van de classificatiescores te zien waarbij de classificatie getraind is op een zittingsperiode, maar getest op een andere. De resultaten zijn sterk  gedaald, maar nog boven de baseline. De daling verschilt enorm per partij en zittingsperiode met dalingen van $F_1$ scores tussen 12 en 92\%. \par
+In tabel \ref{RegeringOppositie} zijn de scores te zien van de classificatie die getraind is op een zittingsperiode, maar getest op een andere. De resultaten zijn gedaald, maar nog boven de baseline. De daling verschilt per partij en zittingsperiode met dalingen van $F_1$ scores tussen 12 en 92\%. \par
 \begin{table}[H]
-\caption{$F_1$ scores van de classificatie getraind op ene zittingsperiode en getest op andere zittingsperiode. Scores van een classificatie getraind en getest op kabinet-Rutte II zonder 50PLUS zijn bijgevoegd ter referentie, als ook de relatieve daling. De classificatiemethode uit deelvraag 1 is gebruikt zonder achternamen van Kamerleden en partijnamen. Partijen met een asterisk zijn gewisseld van partij-status.}
+\caption{$F_1$ scores van de classificatie getraind op de dataset van Balkenende IV of Rutte II (minus 50PLUS) en getest op de ander. Scores van een classificatie getraind en getest op kabinet-Rutte II zonder 50PLUS zijn bijgevoegd ter referentie, als ook de relatieve daling. De classificatiemethode uit deelvraag 1 is gebruikt zonder achternamen van Kamerleden en partijnamen. Partijen met een asterisk zijn gewisseld van partij-status.}
 \centering
 \hspace*{-0.2in}
 \label{RegeringOppositie}
@@ -129,10 +136,10 @@ In tabel \ref{fig:distanceerror} is de error te zien ten opzichte van de afstand
 \begin{figure}[H]
   \centering
     \includegraphics[width=0.60\paperwidth]{Verslag/Tables/Ideology.png}
-\caption{Error ten opzichte van de afstand op de links-rechts as van twee partijen. Gebaseerd op 100 classificaties met verschillende test en train set. De Pearson correlatie is 0.09 en de p-waarde \num{2.39e-20}.}
+\caption{Error ten opzichte van de afstand op de links-rechts as van twee partijen. Gebaseerd op 100 classificaties met verschillende test en train set. De Pearson correlatie is 0.09 en de $p$-waarde \num{2.39e-20}.}
 \label{fig:distanceerror}
 \end{figure}
-De Pearson correlatie van 0.09 is daarmee met een p-waarde van \num{2.39e-20} significant op het significantieniveau van 0.01, maar wel positief. Uit deelvraag 3 bleek dat de error binnen oppositie of regering significant afweek van de error tussen regering en oppositie. Dit effect lijkt ook zichtbaar in figuur \ref{fig:distanceerror}. Daarom wordt er in tabel \ref{tab:pearson} ook gekeken naar de correlatie tussen afstand op de links-rechts as en error binnen oppositie en tussen regerings- en oppositiepartij. Beide correlaties zijn statistische significant op het significantieniveau van 0.01, maar opvallend genoeg in tegengestelde richting.
+De Pearson correlatie van 0.09 is daarmee met een $p$-waarde van \num{2.39e-20} significant op het significantieniveau van 0.01, maar wel positief gecorreleerd. Uit deelvraag 3 bleek dat de error binnen oppositie of regering significant afweek van de error tussen regering en oppositie. Dit effect lijkt ook zichtbaar in figuur \ref{fig:distanceerror}. Daarom is er ook gekeken naar de correlatie tussen afstand op de links-rechts as en error binnen oppositie en tussen regerings- en oppositiepartij. De resultaten zijn te zien in tabel \ref{tab:pearson}. Beide correlaties zijn statistische significant op het significantieniveau van 0.01, maar in tegengestelde richting.
 
 \begin{table}[H]
 \caption{Pearson correlatie tussen error en afstand op de links-rechts as voor combinaties van partij-status.}
@@ -140,7 +147,7 @@ De Pearson correlatie van 0.09 is daarmee met een p-waarde van \num{2.39e-20} si
 \centering
 \begin{tabular}{lrr}
 \toprule
-{} &  Pearson correlatie &  p-waarde\\
+{} &  Pearson correlatie &  $p$-waarde\\
 \midrule
 Tussen oppositie- en regeringspartij       &       -0.29 &    \num{3.44e-69} \\
 Tussen twee oppositiepartijen         &       0.18 &    \num{1.76e-55} \\
@@ -149,9 +156,9 @@ Tussen twee oppositiepartijen         &       0.18 &    \num{1.76e-55} \\
 \end{table}
 
 \subsection{DV5: Woordgebruik van sprekers}
-In tabel \ref{tab:rapporttaalgebruik} staan de scores van classificatie waarbij de Kamerleden verdeeld zijn over de training en test set. De scores zijn hierbij amper hoger dan de baseline.
+In tabel \ref{tab:rapporttaalgebruik} staan de scores van classificatie waarbij de Kamerleden verdeeld zijn over de training en test set. De scores zijn hierbij nauwelijks hoger dan de baseline.
 \begin{table}[H]
-\caption{Classificatierapport van beste classificatie met de Kamerleden verdeeld over training en test set. Gemiddelde van tien splitsingen van training en test set.}
+\caption{Classificatierapport van beste classificatiemethode uit deelvraag 1 zonder achternamen van Kamerleden en partijnamen met de Kamerleden verdeeld over training en test set. Gemiddelde van tienmaal kruisvalidatie.}
 \label{tab:rapporttaalgebruik}
 \centering
 \input{Verslag/Handmatig/taalgebruik.tex}
