@@ -2,7 +2,7 @@
 \section{Resultaten}
 
 \subsection{DV1: Beste classificatiemethode}
-Het beste resultaat werd bereikt met Support Vector Machines gebruikmakend van \textit{stochastic gradient descent learning} en Elasticnet regularisatie. De woorden waren hierbij gestemd. De features waren zowel unigrams, bigrams als trigrams. Geen features zijn hierin weggelaten door minimale of maximale documentfrequenties. Het maximum aantal iteraties was 5 voor de grid search, maar alle resultaten zijn op basis van 100.\par
+Het beste resultaat werd bereikt met Support Vector Machines gebruikmakend van \textit{stochastic gradient descent learning} en L2 regularisatie. De woorden waren hierbij gestemd. De features waren zowel unigrams, bigrams als trigrams. Geen features zijn hierin weggelaten door minimale of maximale documentfrequenties. De waarden van deze features waren \textit{tf-idf} scores. Het maximum aantal iteraties was 5 voor de grid search, maar alle resultaten zijn op basis van 100.\par
 Tabel \ref{tab:classrapport} laat de scores zien per partij met het aantal documenten in de test set. De \textit{accuracy} voor deze classificatie is 0.80. De $F_1$ scores per partij liggen tussen de 0.7 en 0.9. De partijen met een sterke focus op één onderwerp, 50PLUS, PVV en PvdD, als ook de SGP hebben hoge scores, terwijl de coalitiepartijen, VVD en PvdA, lagere scores hebben. Figuur \ref{fig:confusionmatrix} laat zien waar de fouten in deze classificatie zitten. De meest karakteristieke features per partij zijn te zien in tabel \ref{tab:MostImportantWords}. Met meest karakteristiek worden de n-grams bedoeld die de hoogste coëfficiënt hebben in de classificatie en die dus relatief het meeste belangrijk zijn voor de classificatie van een partij. Hierin is te zien dat vrijwel alle n-grams achternamen van Kamerleden of partijnamen bevatten.\par
 
 \begin{table}[H]
@@ -76,11 +76,11 @@ In figuur \ref{fig:distributies} zijn de distributies van de errors, zoals gedef
 \begin{figure}[H]
     \centering
     \hspace*{-0.2in}
-    \subfloat[Tussen twee regeringspartijen (N=200)]{{\includegraphics[width=7cm]{Verslag/Handmatig/Regering.png} }}%
-    \subfloat[Tussen twee oppositiepartijen (N=8100)]{{\includegraphics[width=7cm]{Verslag/Handmatig/Oppositie.png} }}\quad
+    \subfloat[Tussen twee regeringspartijen (N=200, \protect\\$\mu$=26.11, $\sigma$=6.91)]{{\includegraphics[width=7cm]{Verslag/Handmatig/Regering.png} }}%
+    \subfloat[Tussen twee oppositiepartijen (N=8100, $\mu$=0.43, $\sigma$=6.82)]{{\includegraphics[width=7cm]{Verslag/Handmatig/Oppositie.png} }}\quad
     \hspace*{-0.2in}
-    \subfloat[Tussen een regeringspartij en een oppositiepartij (N=4000)]{{\includegraphics[width=7cm]{Verslag/Handmatig/Mix.png} }}%
-    \subfloat[Totaal (N=12100)]{{\includegraphics[width=7cm]{Verslag/Handmatig/Totaal.png} }}\quad
+    \subfloat[Tussen een regeringspartij en een oppositiepartij (N=4000, $\mu$=-2.31, $\sigma$=6.37)]{{\includegraphics[width=7cm]{Verslag/Handmatig/Mix.png} }}%
+    \subfloat[Totaal (N=12100, $\mu$=7.67, $\sigma$=0.00)]{{\includegraphics[width=7cm]{Verslag/Handmatig/Totaal.png} }}\quad
     \caption{Genormaliseerde distributie van de error uit formule \ref{eq:error} voor de verschillende combinaties.}%
     \label{fig:distributies}%
 \end{figure}
